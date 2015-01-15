@@ -2,24 +2,18 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.mygdx.game.component.World;
 
 public class TestGame extends ApplicationAdapter {
 	private SpriteBatch batch;
-	private TextureAtlas textureAtlas;
-	private Animation animation;
-	private float elapsedTime;
-	private int xTranslation = 1;
+	private World world;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/p1_walk/PNG/test/spritesheet.atlas"));
-		animation = new Animation(1/20f, textureAtlas.getRegions());
+		world = new World();
 	}
 
 	@Override
@@ -30,25 +24,11 @@ public class TestGame extends ApplicationAdapter {
 		//open spritebatch for batch rendering
 		batch.begin();
 
-		//draw appropriate animation frame
-		elapsedTime += Gdx.graphics.getDeltaTime();
-
-		handleInput();
-
-		batch.draw(animation.getKeyFrame(elapsedTime, true), 0, 0);
+		world.update(Gdx.graphics.getDeltaTime());
+		world.draw(batch);
 
 		//close spritebatch
 		batch.end();
-	}
-
-	private void handleInput() {
-		if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-			animation.getKeyFrame(elapsedTime).flip(true, false);
-		}
-
-		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-			animation.getKeyFrame(elapsedTime).flip(false, false);
-		}
 	}
 
 	@Override
@@ -70,6 +50,5 @@ public class TestGame extends ApplicationAdapter {
 	public void dispose() {
 		super.dispose();
 		batch.dispose();
-		textureAtlas.dispose();
 	}
 }

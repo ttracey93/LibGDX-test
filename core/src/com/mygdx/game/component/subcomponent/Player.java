@@ -3,6 +3,7 @@ package com.mygdx.game.component.subcomponent;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -15,26 +16,50 @@ import java.util.Map;
  * Created by dubforce on 1/15/15.
  */
 public class Player extends GameObject implements InputProcessor {
+    public enum State {
+        STANDING,WALKING,JUMPING,FALLING,HIT,CROUCHING,DYING,DEAD
+    }
+
     private Map<String,Animation> animations = new HashMap<String, Animation>();
+    private Texture standingTexture;
     private float totalElapsedTime = 0.0f;
+    private State state;
 
     public Player() {
+        state = State.STANDING;
+
         FileHandle file = Gdx.files.internal("Base/Player/p1_walk/PNG/test/spritesheet.atlas");
         TextureAtlas textureAtlas = new TextureAtlas(file);
 
         Animation walkingAnimation = new Animation(1/20f, textureAtlas.getRegions());
         animations.put("walking", walkingAnimation);
+
+        standingTexture = new Texture(Gdx.files.internal("Base/Player/p1_stand.png"));
     }
 
     @Override
     public void update(float elapsedTime) {
         //nothing yet
         totalElapsedTime += elapsedTime;
+
+        switch(state) {
+            case STANDING:
+        }
     }
 
     @Override
     public void draw(SpriteBatch batch) {
-        batch.draw(animations.get("walking").getKeyFrame(totalElapsedTime, true), 0, 0);
+        switch(state) {
+            case STANDING:
+                batch.draw(standingTexture, getLocation().x, getLocation().y);
+                break;
+            case WALKING:
+                batch.draw(animations.get("walking").getKeyFrame(totalElapsedTime, true), 0, 0);
+                break;
+            default:
+                batch.draw(standingTexture, getLocation().x, getLocation().y);
+                break;
+        }
     }
 
     @Override
@@ -75,5 +100,14 @@ public class Player extends GameObject implements InputProcessor {
     @Override
     public boolean scrolled(int amount) {
         return false;
+    }
+
+    //Accessors/Mutators
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 }

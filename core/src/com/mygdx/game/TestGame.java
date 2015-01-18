@@ -4,7 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mygdx.game.component.World;
+import com.mygdx.game.world.World;
 
 public class TestGame extends ApplicationAdapter {
 	private SpriteBatch batch;

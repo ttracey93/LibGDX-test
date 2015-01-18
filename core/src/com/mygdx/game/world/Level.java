@@ -1,4 +1,4 @@
-package com.mygdx.game.component;
+package com.mygdx.game.world;
 
 /**
  * Created by dubforce on 1/15/15.

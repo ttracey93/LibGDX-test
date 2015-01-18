@@ -1,6 +1,8 @@
 package com.mygdx.game.world;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.backends.lwjgl.audio.Wav;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -19,6 +21,7 @@ public class World implements IGameObject {
     private TiledMap map;
     private OrthographicCamera camera;
     private TiledMapRenderer renderer;
+    private Music music;
 
     public World() {
         player = new Player();
@@ -34,6 +37,10 @@ public class World implements IGameObject {
         map = new TmxMapLoader().load("../Maps/test.tmx");
 
         renderer = new OrthogonalTiledMapRenderer(map);
+
+        music = Gdx.audio.newMusic(Gdx.files.internal("../Sounds/dubba2.mp3"));
+        music.setLooping(true);
+        music.play();
     }
 
     //elapsed time since last call

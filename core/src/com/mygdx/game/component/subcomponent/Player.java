@@ -3,6 +3,7 @@ package com.mygdx.game.component.subcomponent;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -30,6 +31,7 @@ public class Player extends GameObject implements InputProcessor {
     private State state;
     private Boolean left = false;
     private Boolean right = false;
+    private Sound jumpSound;
 
     public Player() {
         state = State.STANDING;
@@ -41,6 +43,8 @@ public class Player extends GameObject implements InputProcessor {
         animations.put("walking", walkingAnimation);
 
         standingTexture = new Texture(Gdx.files.internal("Base/Player/p1_stand.png"));
+
+        jumpSound = Gdx.audio.newSound(Gdx.files.internal("../Sounds/jump.wav"));
 
         setLocation(new Vector2(0, 70));
         setMoveSpeed(5);
@@ -98,6 +102,9 @@ public class Player extends GameObject implements InputProcessor {
             case Input.Keys.RIGHT:
                 right = true;
                 state = State.WALKING;
+                break;
+            case Input.Keys.SPACE:
+                jumpSound.play();
                 break;
             default:
                 //do nothing yet

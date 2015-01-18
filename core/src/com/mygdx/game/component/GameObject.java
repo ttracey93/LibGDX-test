@@ -11,6 +11,7 @@ public class GameObject implements IGameObject {
     protected Shape2D collider;
     protected Vector2 location;
     protected Vector2 speed;
+    protected Integer moveSpeed;
     protected Boolean canMove;
     protected Boolean canCollide;
     protected Boolean simiulatePhysics;
@@ -47,6 +48,14 @@ public class GameObject implements IGameObject {
 
     public void setSpeed(Vector2 speed) {
         this.speed = speed;
+    }
+
+    public Integer getMoveSpeed() {
+        return moveSpeed;
+    }
+
+    public void setMoveSpeed(Integer moveSpeed) {
+        this.moveSpeed = moveSpeed;
     }
 
     public Boolean getCanMove() {

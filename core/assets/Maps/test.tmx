@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="10" height="10" tilewidth="70" tileheight="70" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="10" height="10" tilewidth="70" tileheight="70" nextobjectid="3">
  <tileset firstgid="1" name="Test" tilewidth="70" tileheight="146">
   <tile id="0">
    <image width="70" height="70" source="../Platformer/Base/Tiles/box.png"/>
@@ -536,4 +536,8 @@
 83,83,83,83,83,83,83,83,83,83
 </data>
  </layer>
+ <objectgroup name="Collision">
+  <object id="1" x="218" y="321" width="252" height="377"/>
+  <object id="2" x="0" y="481" width="218" height="72"/>
+ </objectgroup>
 </map>

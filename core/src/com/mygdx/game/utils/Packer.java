@@ -1,11 +1,11 @@
-package test;
+package com.mygdx.game.utils;
 
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
 
 /**
  * Created by dubforce on 1/15/15.
  */
-public class TestPacker {
+public class Packer {
     private static final String inputDir = "/Users/dubforce/GameDev/test/core/assets/Platformer/Base/Player/p1_walk/PNG";
     private static final String outputDir = "/Users/dubforce/GameDev/test/core/assets/Platformer/Base/Player/p1_walk/PNG/test";
     private static final String packFileName = "spritesheet";

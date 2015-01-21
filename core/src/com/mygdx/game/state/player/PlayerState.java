@@ -16,8 +16,8 @@ public abstract class PlayerState extends State
 
     private Orientation orientation;
 
-    public PlayerState(Orientation orientation) {
-        this.orientation = orientation;
+    public PlayerState() {
+        orientation = Orientation.RIGHT;
     }
 
     public Orientation getOrientation()

@@ -5,7 +5,7 @@ import com.mygdx.game.state.State;
 /**
  * Created by Dubforce on 1/21/2015.
  */
-public class Paused extends State {
+public class Paused extends GameState {
     @Override
     public void update(float deltaTime) {
 

@@ -5,4 +5,5 @@ package com.mygdx.game.state.manager;
  */
 public abstract class StateManager {
     //TODO: add abstract methods for interfacing
+    public abstract void update(float deltaTime);
 }

@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.state.manager.GameStateManager;
 
-public class TestGame extends ApplicationAdapter {
+public class SaltFactory extends ApplicationAdapter {
 	private SpriteBatch batch;
 	private GameStateManager gameStateManager;
 

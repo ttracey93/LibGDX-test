@@ -10,13 +10,16 @@ public class GameStateManager extends StateManager {
     private GameState currentState;
 
     public GameStateManager() {
-        currentState = new MainMenu();
+        currentState = new MainMenu(this);
     }
 
     @Override
     public void update(float deltaTime)
     {
         currentState.update(deltaTime);
+
+        System.out.println("calling draw on GSM");
+
         currentState.draw();
     }
 

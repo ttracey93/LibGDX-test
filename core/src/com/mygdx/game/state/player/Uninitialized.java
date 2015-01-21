@@ -1,17 +1,23 @@
-package com.mygdx.game.state.game;
+package com.mygdx.game.state.player;// File:            Uninitialized.java
 
-/**
- * Created by Dubforce on 1/21/2015.
- */
-public class Paused extends GameState {
+// Created:         1/21/15
+// Last Modified:   $Date$
+// Revision:        $Rev$
+// Author:          <a href="mailto:ttracey@etranscor.com>">Tyler "TBone" Tracey</a>
+//
+// (c) 2015 Transcor, Inc.
+public class Uninitialized extends PlayerState
+{
     @Override
-    public void update(float deltaTime) {
-
+    public void update(float deltaTime)
+    {
+        //player does not update if uninitialized
     }
 
     @Override
-    public void draw() {
-
+    public void draw()
+    {
+        //player will not be drawn if uninitialized
     }
 
     @Override

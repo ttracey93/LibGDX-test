@@ -1,5 +1,6 @@
 package com.mygdx.game.state.game;// File:            GameState.java
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -7,6 +8,8 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.state.State;
+import com.mygdx.game.state.manager.GameStateManager;
+import com.mygdx.game.state.manager.PlayerStateManager;
 
 // Created:         1/21/15
 // Last Modified:   $Date$
@@ -27,9 +30,22 @@ public abstract class GameState extends State {
     private World world;
     private Texture background;
 
+    //game state manager
+    protected GameStateManager gameStateManager;
+
+    //player state manager
+    protected PlayerStateManager playerStateManager;
+
     public GameState() {
         //construct/initialize object
+        Gdx.input.setInputProcessor(this);
         spriteBatch = new SpriteBatch();
+        playerStateManager = new PlayerStateManager();
+    }
+
+    public GameState(GameStateManager gameStateManager) {
+        this();
+        this.gameStateManager = gameStateManager;
     }
 
     public OrthographicCamera getCamera()

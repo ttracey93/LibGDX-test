@@ -25,9 +25,6 @@ public class Playing extends GameState {
 
     @Override
     public void draw() {
-
-        System.out.println("playing.draw()");
-
         getCamera().update();
         getRenderer().setView(getCamera());
         getRenderer().render();

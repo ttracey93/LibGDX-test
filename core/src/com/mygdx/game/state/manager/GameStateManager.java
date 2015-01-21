@@ -8,18 +8,17 @@ import com.mygdx.game.state.game.MainMenu;
  */
 public class GameStateManager extends StateManager {
     private GameState currentState;
+    private PlayerStateManager playerStateManager;
 
     public GameStateManager() {
         currentState = new MainMenu(this);
+        playerStateManager = new PlayerStateManager();
     }
 
     @Override
     public void update(float deltaTime)
     {
         currentState.update(deltaTime);
-
-        System.out.println("calling draw on GSM");
-
         currentState.draw();
     }
 

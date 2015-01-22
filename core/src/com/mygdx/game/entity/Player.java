@@ -1,14 +1,23 @@
 package com.mygdx.game.entity;
 
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 
 /**
  * Created by Dubforce on 1/21/2015.
  */
 public class Player extends Entity implements InputProcessor {
+
+
+    Sprite sprite;
+    public Player()
+    {
+        sprite = new Sprite();
+    }
+
     @Override
     public void update(float deltaTime) {
-
+        //Update players location
     }
 
     @Override
@@ -54,5 +63,13 @@ public class Player extends Entity implements InputProcessor {
     @Override
     public boolean scrolled(int amount) {
         return false;
+    }
+
+    public Sprite getSprite() {
+        return sprite;
+    }
+
+    public void setSprite(Sprite sprite) {
+        this.sprite = sprite;
     }
 }

@@ -8,6 +8,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.mygdx.game.entity.Entity;
+import com.mygdx.game.entity.Player;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class Level {
 
     //entities
     private List<Entity> entities;
+    private Player player;
 
     public Level(String fileName) {
         map = new TmxMapLoader().load(fileName);
@@ -34,6 +36,20 @@ public class Level {
         renderer = new OrthogonalTiledMapRenderer(map);
         renderer.setView(camera);
         spriteBatch = new SpriteBatch();
+    }
+
+    public void update(float deltaTime)
+    {
+        if(player != null)
+            player.update(deltaTime);
+        //Update other entities
+    }
+
+    public void draw()
+    {
+        if(player != null)
+            player.draw();
+        //Draw other entities
     }
 
     public TiledMap getMap() {
@@ -82,5 +98,10 @@ public class Level {
 
     public void setEntities(List<Entity> entities) {
         this.entities = entities;
+    }
+
+    public void initializePlayer()
+    {
+        player = new Player();
     }
 }

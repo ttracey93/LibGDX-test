@@ -2,7 +2,6 @@ package com.mygdx.game.state;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.mygdx.game.ILevelName;
 import com.mygdx.game.Level;
 import com.mygdx.game.SaltFactory;
 
@@ -17,15 +16,18 @@ public class PlayerState extends State {
         this.parent = parent;
         level = new Level(levelName);
         Gdx.input.setInputProcessor(this);
+        level.initializePlayer();
     }
     @Override
     public void update(float deltaTime) {
         level.getCamera().update();
+        level.update(deltaTime);
     }
 
     @Override
     public void draw() {
         level.getRenderer().render();
+        level.draw();
     }
 
     @Override

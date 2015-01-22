@@ -53,10 +53,10 @@ public class Level {
 
         try {
             MapObjects ground = map.getLayers().get("Ground").getObjects();
+            Shape shape;
 
             for(MapObject object : ground)
             {
-                Shape shape;
 
                 if (object instanceof RectangleMapObject) {
                     shape = getRectangle((RectangleMapObject)object);
@@ -68,9 +68,11 @@ public class Level {
                 bd.type = BodyDef.BodyType.StaticBody;
                 Body body = world.createBody(bd);
                 body.createFixture(shape,1);
-                entities.add(body);
+                //entities.add(body);
             }
-        }catch(Exception e){}
+        }catch(Exception e){
+            System.out.println(e.toString());
+        }
 
         debugRenderer = new Box2DDebugRenderer();
     }

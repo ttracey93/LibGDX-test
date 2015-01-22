@@ -560,6 +560,5 @@
  <objectgroup name="Ground">
   <object id="22" name="ground" type="Ground" x="71" y="3129" width="3132" height="70"/>
   <object id="24" name="leftWall" type="Ground" x="5" y="2541" width="66" height="660"/>
-  <object id="25" name="rightWall" type="Ground" x="3137" y="2564" width="77" height="638"/>
  </objectgroup>
 </map>

@@ -1,21 +1,37 @@
 package com.mygdx.game.state;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.mygdx.game.ILevelName;
+import com.mygdx.game.Level;
+import com.mygdx.game.SaltFactory;
+
 /**
  * Created by Dubforce on 1/21/2015.
  */
 public class PlayerState extends State {
+    private SaltFactory parent;
+
+    public PlayerState(SaltFactory parent, String levelName)
+    {
+        this.parent = parent;
+        level = new Level(levelName);
+        Gdx.input.setInputProcessor(this);
+    }
     @Override
     public void update(float deltaTime) {
-
+        level.getCamera().update();
     }
 
     @Override
     public void draw() {
-
+        level.getRenderer().render();
     }
 
     @Override
     public boolean keyDown(int keycode) {
+        if(keycode == Input.Keys.ESCAPE)
+            parent.startMenu();
         return false;
     }
 
@@ -52,5 +68,10 @@ public class PlayerState extends State {
     @Override
     public boolean scrolled(int amount) {
         return false;
+    }
+
+    public void stop()
+    {
+        //Stop the game. This happens when the user decides to leave.
     }
 }

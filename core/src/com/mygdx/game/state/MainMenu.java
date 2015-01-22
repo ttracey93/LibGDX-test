@@ -4,12 +4,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.mygdx.game.ILevelName;
 import com.mygdx.game.Level;
+import com.mygdx.game.SaltFactory;
 
 /**
  * Created by Dubforce on 1/21/2015.
  */
 public class MainMenu extends State {
-    public MainMenu() {
+    private SaltFactory parent;
+
+    public MainMenu(SaltFactory parent) {
+        this.parent = parent;
         level = new Level(ILevelName.MAIN_MENU);
         Gdx.input.setInputProcessor(this);
     }
@@ -42,7 +46,7 @@ public class MainMenu extends State {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if(button == Input.Buttons.LEFT) {
-            level = new Level(ILevelName.TEST2);
+            parent.startGame(ILevelName.TEST2);
         }
 
         return false;

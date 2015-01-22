@@ -5,5 +5,5 @@ package com.mygdx.game;
  */
 public interface ILevelName {
     public static final String MAIN_MENU = "../Maps/mainMenu.tmx";
-    public static final String TEST2 = "../Maps/test.tmx";
+    public static final String TEST2 = "../Maps/map2.tmx";
 }

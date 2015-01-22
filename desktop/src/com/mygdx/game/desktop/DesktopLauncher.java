@@ -9,8 +9,8 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 
 		//config properties
-		config.height = 480;
-		config.width = 640;
+		config.height = 768;
+		config.width = 1024;
 
 		new LwjglApplication(new SaltFactory(), config);
 	}

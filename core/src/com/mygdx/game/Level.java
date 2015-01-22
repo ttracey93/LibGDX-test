@@ -32,6 +32,7 @@ public class Level {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         renderer = new OrthogonalTiledMapRenderer(map);
+        renderer.setView(camera);
         spriteBatch = new SpriteBatch();
     }
 

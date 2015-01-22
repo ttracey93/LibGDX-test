@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="21">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="26">
  <tileset firstgid="1" name="test" tilewidth="70" tileheight="146">
   <terraintypes>
    <terrain name="New Terrain" tile="161"/>
@@ -556,5 +556,10 @@
   <object id="17" x="3079" y="3077" width="55" height="53">
    <ellipse/>
   </object>
+ </objectgroup>
+ <objectgroup name="Ground">
+  <object id="22" name="ground" type="Ground" x="71" y="3129" width="3132" height="70"/>
+  <object id="24" name="leftWall" type="Ground" x="5" y="2541" width="66" height="660"/>
+  <object id="25" name="rightWall" type="Ground" x="3137" y="2564" width="77" height="638"/>
  </objectgroup>
 </map>

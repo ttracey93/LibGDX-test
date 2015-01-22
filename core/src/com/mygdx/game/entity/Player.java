@@ -1,38 +1,84 @@
 package com.mygdx.game.entity;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.physics.box2d.Body;
+
+import java.io.Console;
 
 /**
  * Created by Dubforce on 1/21/2015.
  */
 public class Player extends Entity implements InputProcessor {
 
-
+    enum STATE{standing, walkingLeft, walkingRight}
     Sprite sprite;
-    public Player()
+    SpriteBatch spriteBatch;
+    Texture texture;
+    STATE movementState;
+    private Animation animation;
+    private TextureAtlas textureAtlas;
+    private float elapsedTime = 0;
+    private Body body;
+
+    public Player(SpriteBatch spriteBatch)
     {
-        sprite = new Sprite();
+        texture = new Texture(Gdx.files.internal("Base/Player/p1_front.png"));
+        textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/p1_walk/PNG/test/spritesheet.atlas"));
+        animation = new Animation(Gdx.graphics.getDeltaTime(),textureAtlas.getRegions());
+        sprite = new Sprite(texture);
+        this.spriteBatch = spriteBatch;
+        Gdx.input.setInputProcessor(this);
     }
 
     @Override
     public void update(float deltaTime) {
         //Update players location
+        if(movementState == STATE.walkingRight) {
+            body.setLinearVelocity(100f, 0f);
+        }
+        if(movementState == STATE.walkingLeft) {
+            body.setLinearVelocity(-100f, 0f);
+        }
     }
 
     @Override
     public void draw() {
-
+        spriteBatch.begin();
+        elapsedTime += Gdx.graphics.getDeltaTime();
+        if(movementState == STATE.walkingRight || movementState == STATE.walkingLeft) {
+            spriteBatch.draw(animation.getKeyFrame(elapsedTime, true), sprite.getX() , sprite.getY());
+        }
+        else
+        {
+            sprite.draw(spriteBatch);
+        }
+        //sprite.draw(spriteBatch);
+        spriteBatch.end();
     }
 
     @Override
     public boolean keyDown(int keycode) {
-        return false;
+        if(keycode == Input.Keys.RIGHT)
+            movementState = STATE.walkingRight;
+        else if(keycode == Input.Keys.LEFT)
+            movementState = STATE.walkingLeft;
+        return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        return false;
+        if(keycode == Input.Keys.RIGHT || keycode == Input.Keys.LEFT) {
+            body.setLinearVelocity(0f,0f);
+            movementState = STATE.standing;
+        }
+        return true;
     }
 
     @Override
@@ -71,5 +117,10 @@ public class Player extends Entity implements InputProcessor {
 
     public void setSprite(Sprite sprite) {
         this.sprite = sprite;
+    }
+
+    public void setBody(Body body)
+    {
+        this.body = body;
     }
 }

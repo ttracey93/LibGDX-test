@@ -15,7 +15,6 @@ public class PlayerState extends State {
     {
         this.parent = parent;
         level = new Level(levelName);
-        Gdx.input.setInputProcessor(this);
         level.initializePlayer();
     }
     @Override

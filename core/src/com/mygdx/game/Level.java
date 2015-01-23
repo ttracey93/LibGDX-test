@@ -15,6 +15,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
+import com.mygdx.game.entity.playerutils.Keys;
+import com.mygdx.game.listeners.InputListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +27,7 @@ import java.util.List;
 public class Level {
     //scaling factor
     public static float PIXELS_PER_METER = 50;
+    public static float METERS_PER_PIXEL = 1/PIXELS_PER_METER;
 
     //world
     private OrthogonalTiledMapRenderer renderer;
@@ -78,7 +81,7 @@ public class Level {
 
 
 
-                body.createFixture(shape,1);
+                body.createFixture(shape, 1);
                 //entities.add(body);
             }
         } catch(Exception e){
@@ -86,6 +89,9 @@ public class Level {
         }
 
         debugRenderer = new Box2DDebugRenderer();
+
+        //set the input listener
+        Gdx.input.setInputProcessor(new InputListener());
     }
 
     public void update(float deltaTime)

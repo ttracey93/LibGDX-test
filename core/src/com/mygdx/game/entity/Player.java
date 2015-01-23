@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.mygdx.game.Level;
 import com.mygdx.game.entity.playerutils.Keys;
 
 import java.io.Console;
@@ -19,8 +20,7 @@ import java.util.Map;
 /**
  * Created by Dubforce on 1/21/2015.
  */
-public class Player extends Entity implements InputProcessor {
-
+public class Player extends Entity {
     enum STATE{standing, walkingLeft, walkingRight}
     Sprite sprite;
     SpriteBatch spriteBatch;
@@ -30,8 +30,8 @@ public class Player extends Entity implements InputProcessor {
     private TextureAtlas textureAtlas;
     private float elapsedTime = 0;
     private Body body;
-    private static float MAX_VELOCITY = 100.0f;
-    private boolean[] keys;
+    private float jumpForce = 300f;
+    private float doubleJumpForce = 500f;
 
     public Player(SpriteBatch spriteBatch)
     {
@@ -40,86 +40,31 @@ public class Player extends Entity implements InputProcessor {
         animation = new Animation(1/30f,textureAtlas.getRegions());
         sprite = new Sprite(texture);
         this.spriteBatch = spriteBatch;
-
-        keys = new boolean[Keys.numKeys];
-
-        Gdx.input.setInputProcessor(this);
     }
 
     @Override
     public void update(float deltaTime) {
         //Update players location
-        Vector2 velocity = body.getLinearVelocity();
-        Vector2 position = body.getPosition();
-
-        if(keys[Keys.RIGHT] && velocity.x < MAX_VELOCITY) {
-            body.applyLinearImpulse(800f, 0, position.x, position.y, true);
-        }
-        else if(keys[Keys.LEFT] && velocity.x > -MAX_VELOCITY) {
-            body.applyLinearImpulse(-800f, 0, position.x, position.y, true);
+        if(Keys.keyPressed(Keys.JUMP)) {
+            body.applyForceToCenter(0, jumpForce, true);
         }
 
-        sprite.setPosition(body.getPosition().x - sprite.getWidth()/2,
-                body.getPosition().y - sprite.getHeight()/2);
+        float x = (body.getPosition().x / Level.METERS_PER_PIXEL) - sprite.getWidth()/2;
+        float y = (body.getPosition().y / Level.METERS_PER_PIXEL) - sprite.getHeight()/2;
+
+        System.out.println("x: " + x);
+        System.out.println("y: " + y);
+
+        sprite.setPosition(x, y);
     }
 
     @Override
     public void draw() {
         spriteBatch.begin();
 
-        spriteBatch.draw(sprite, body.getPosition().x, body.getPosition().y);
+        spriteBatch.draw(sprite, sprite.getX(), sprite.getY());
 
         spriteBatch.end();
-    }
-
-    @Override
-    public boolean keyDown(int keycode) {
-        if(keycode == Input.Keys.RIGHT)
-            keys[Keys.RIGHT] = true;
-        else if(keycode == Input.Keys.LEFT)
-            keys[Keys.LEFT] = true;
-        else if(keycode == Input.Keys.SPACE)
-            body.applyForceToCenter(0, 300, true);
-        return true;
-    }
-
-    @Override
-    public boolean keyUp(int keycode) {
-        if(keycode == Input.Keys.RIGHT)
-            keys[Keys.RIGHT] = false;
-        else if(keycode == Input.Keys.LEFT)
-            keys[Keys.LEFT] = false;
-        return true;
-    }
-
-    @Override
-    public boolean keyTyped(char character) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        return false;
-    }
-
-    @Override
-    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        return false;
-    }
-
-    @Override
-    public boolean touchDragged(int screenX, int screenY, int pointer) {
-        return false;
-    }
-
-    @Override
-    public boolean mouseMoved(int screenX, int screenY) {
-        return false;
-    }
-
-    @Override
-    public boolean scrolled(int amount) {
-        return false;
     }
 
     public Sprite getSprite() {

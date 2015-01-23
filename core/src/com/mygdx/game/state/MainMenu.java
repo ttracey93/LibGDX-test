@@ -2,6 +2,7 @@ package com.mygdx.game.state;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputProcessor;
 import com.mygdx.game.ILevelName;
 import com.mygdx.game.Level;
 import com.mygdx.game.SaltFactory;
@@ -9,7 +10,7 @@ import com.mygdx.game.SaltFactory;
 /**
  * Created by Dubforce on 1/21/2015.
  */
-public class MainMenu extends State {
+public class MainMenu extends State implements InputProcessor{
     private SaltFactory parent;
 
     public MainMenu(SaltFactory parent) {

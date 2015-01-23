@@ -10,15 +10,18 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.mygdx.game.entity.playerutils.Keys;
 
 import java.io.Console;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Dubforce on 1/21/2015.
  */
 public class Player extends Entity implements InputProcessor {
 
-    enum STATE{standing, walkingLeft, walkingRight, jumping}
+    enum STATE{standing, walkingLeft, walkingRight}
     Sprite sprite;
     SpriteBatch spriteBatch;
     Texture texture;
@@ -27,6 +30,8 @@ public class Player extends Entity implements InputProcessor {
     private TextureAtlas textureAtlas;
     private float elapsedTime = 0;
     private Body body;
+    private static float MAX_VELOCITY = 100.0f;
+    private boolean[] keys;
 
     public Player(SpriteBatch spriteBatch)
     {
@@ -35,27 +40,23 @@ public class Player extends Entity implements InputProcessor {
         animation = new Animation(1/30f,textureAtlas.getRegions());
         sprite = new Sprite(texture);
         this.spriteBatch = spriteBatch;
+
+        keys = new boolean[Keys.numKeys];
+
         Gdx.input.setInputProcessor(this);
     }
 
     @Override
     public void update(float deltaTime) {
         //Update players location
-        if(movementState == STATE.walkingRight) {
-            body.setLinearVelocity(new Vector2(100f,body.getLinearVelocity().y));
-            //body.applyForceToCenter(200f,0f, true);
-            //body.setLinearVelocity(100f, 0f);
+        Vector2 velocity = body.getLinearVelocity();
+        Vector2 position = body.getPosition();
+
+        if(keys[Keys.RIGHT] && velocity.x < MAX_VELOCITY) {
+            body.applyLinearImpulse(800f, 0, position.x, position.y, true);
         }
-        if(movementState == STATE.walkingLeft) {
-            //body.applyLinearImpulse(-100f, 0f, sprite.getX(), sprite.getY(), true);
-            //body.applyForceToCenter(-200f,0f, true);
-            body.setLinearVelocity(new Vector2(-100f,body.getLinearVelocity().y));
-            //body.setLinearVelocity(-100f, 0f);
-        }
-        if(movementState == STATE.jumping)
-        {
-            //body.applyForceToCenter(0f,1000f,true);
-            body.setLinearVelocity(new Vector2(body.getLinearVelocity().x,100f));
+        else if(keys[Keys.LEFT] && velocity.x > -MAX_VELOCITY) {
+            body.applyLinearImpulse(-800f, 0, position.x, position.y, true);
         }
 
         sprite.setPosition(body.getPosition().x - sprite.getWidth()/2,
@@ -65,35 +66,29 @@ public class Player extends Entity implements InputProcessor {
     @Override
     public void draw() {
         spriteBatch.begin();
-        elapsedTime += Gdx.graphics.getDeltaTime();
-        if(movementState == STATE.walkingRight || movementState == STATE.walkingLeft) {
-            spriteBatch.draw(animation.getKeyFrame(elapsedTime, true), sprite.getX() , sprite.getY());
-        }
-        else
-        {
-            sprite.draw(spriteBatch);
-        }
-        //sprite.draw(spriteBatch);
+
+        spriteBatch.draw(sprite, body.getPosition().x, body.getPosition().y);
+
         spriteBatch.end();
     }
 
     @Override
     public boolean keyDown(int keycode) {
         if(keycode == Input.Keys.RIGHT)
-            movementState = STATE.walkingRight;
+            keys[Keys.RIGHT] = true;
         else if(keycode == Input.Keys.LEFT)
-            movementState = STATE.walkingLeft;
-        else if(keycode == Input.Keys.SPACE )
-            movementState = STATE.jumping;
+            keys[Keys.LEFT] = true;
+        else if(keycode == Input.Keys.SPACE)
+            body.applyForceToCenter(0, 300, true);
         return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        if(keycode == Input.Keys.RIGHT || keycode == Input.Keys.LEFT) {
-            body.setLinearVelocity(0f,0f);
-            movementState = STATE.standing;
-        }
+        if(keycode == Input.Keys.RIGHT)
+            keys[Keys.RIGHT] = false;
+        else if(keycode == Input.Keys.LEFT)
+            keys[Keys.LEFT] = false;
         return true;
     }
 

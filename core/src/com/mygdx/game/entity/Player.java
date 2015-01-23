@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 
 import java.io.Console;
@@ -17,7 +18,7 @@ import java.io.Console;
  */
 public class Player extends Entity implements InputProcessor {
 
-    enum STATE{standing, walkingLeft, walkingRight}
+    enum STATE{standing, walkingLeft, walkingRight, jumping}
     Sprite sprite;
     SpriteBatch spriteBatch;
     Texture texture;
@@ -41,10 +42,20 @@ public class Player extends Entity implements InputProcessor {
     public void update(float deltaTime) {
         //Update players location
         if(movementState == STATE.walkingRight) {
-            body.setLinearVelocity(100f, 0f);
+            body.setLinearVelocity(new Vector2(100f,body.getLinearVelocity().y));
+            //body.applyForceToCenter(200f,0f, true);
+            //body.setLinearVelocity(100f, 0f);
         }
         if(movementState == STATE.walkingLeft) {
-            body.setLinearVelocity(-100f, 0f);
+            //body.applyLinearImpulse(-100f, 0f, sprite.getX(), sprite.getY(), true);
+            //body.applyForceToCenter(-200f,0f, true);
+            body.setLinearVelocity(new Vector2(-100f,body.getLinearVelocity().y));
+            //body.setLinearVelocity(-100f, 0f);
+        }
+        if(movementState == STATE.jumping)
+        {
+            //body.applyForceToCenter(0f,1000f,true);
+            body.setLinearVelocity(new Vector2(body.getLinearVelocity().x,100f));
         }
 
         sprite.setPosition(body.getPosition().x - sprite.getWidth()/2,
@@ -72,6 +83,8 @@ public class Player extends Entity implements InputProcessor {
             movementState = STATE.walkingRight;
         else if(keycode == Input.Keys.LEFT)
             movementState = STATE.walkingLeft;
+        else if(keycode == Input.Keys.SPACE )
+            movementState = STATE.jumping;
         return true;
     }
 

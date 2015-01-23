@@ -23,8 +23,8 @@ public class SaltFactory extends ApplicationAdapter {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-		gameState.update(Gdx.graphics.getDeltaTime());
-		gameState.draw();
+		gameState.getLevel().update(Gdx.graphics.getDeltaTime());
+		gameState.getLevel().draw();
 	}
 
 	@Override

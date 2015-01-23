@@ -19,16 +19,6 @@ public class MainMenu extends State {
     }
 
     @Override
-    public void update(float deltaTime) {
-        level.getCamera().update();
-    }
-
-    @Override
-    public void draw() {
-        level.getRenderer().render();
-    }
-
-    @Override
     public boolean keyDown(int keycode) {
         return false;
     }

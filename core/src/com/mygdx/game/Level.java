@@ -16,6 +16,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,9 +36,7 @@ public class Level {
     private static float ppt = 70;
 
     //entities
-    private List<Body> entities;
-    private Player player;
-    private Body playerBody;
+    private List<Entity> entities;
 
     public Level(String fileName) {
         map = new TmxMapLoader().load(fileName);
@@ -47,6 +46,8 @@ public class Level {
         renderer.setView(camera);
         camera.update();
         spriteBatch = new SpriteBatch();
+
+        entities = new ArrayList<Entity>();
 
         world = new World(new Vector2(0,-98f),false);
         //Create physics bodies for the ground.
@@ -70,7 +71,7 @@ public class Level {
                 body.createFixture(shape,1);
                 //entities.add(body);
             }
-        }catch(Exception e){
+        } catch(Exception e){
             System.out.println(e.toString());
         }
 
@@ -79,24 +80,27 @@ public class Level {
 
     public void update(float deltaTime)
     {
-        if(player != null) {
-            world.step(deltaTime,6,2);
-            player.update(deltaTime);
-        }
+        camera.update();
+
+        world.step(deltaTime,6,2);
+
         //Update other entities
+        for(Entity entity : entities) {
+            entity.update(deltaTime);
+        }
     }
 
     public void draw()
     {
+        renderer.render();
+
         debugMatrix = spriteBatch.getProjectionMatrix().cpy();
-        if(player != null) {
-            player.getSprite().setPosition(playerBody.getPosition().x - (player.getSprite().getWidth()/2), playerBody.getPosition().y - (player.getSprite().getHeight()/2));
-            player.draw();
+
+        for(Entity entity : entities) {
+            entity.draw();
         }
+
         debugRenderer.render(world, debugMatrix);
-
-
-        //Draw other entities
     }
 
 
@@ -134,17 +138,20 @@ public class Level {
 
     public void initializePlayer()
     {
-        player = new Player(spriteBatch);
+        Player player = new Player(spriteBatch);
 
         BodyDef playerBodyDef = new BodyDef();
         playerBodyDef.type = BodyDef.BodyType.DynamicBody;
         playerBodyDef.position.set(100,200);
-        playerBody = world.createBody(playerBodyDef);
+
+        Body playerBody = world.createBody(playerBodyDef);
         PolygonShape playerBox = new PolygonShape();
         playerBox.setAsBox(player.getSprite().getWidth() / 2, player.getSprite().getHeight() /2);
         playerBody.createFixture(playerBox, 0.0f);
         playerBox.dispose();
         player.setBody(playerBody);
+
+        entities.add(player);
     }
 
     private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {

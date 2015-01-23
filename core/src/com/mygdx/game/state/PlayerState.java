@@ -17,17 +17,6 @@ public class PlayerState extends State {
         level = new Level(levelName);
         level.initializePlayer();
     }
-    @Override
-    public void update(float deltaTime) {
-        level.getCamera().update();
-        level.update(deltaTime);
-    }
-
-    @Override
-    public void draw() {
-        level.getRenderer().render();
-        level.draw();
-    }
 
     @Override
     public boolean keyDown(int keycode) {

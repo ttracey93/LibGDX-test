@@ -31,7 +31,7 @@ public class Player extends Entity implements InputProcessor {
     {
         texture = new Texture(Gdx.files.internal("Base/Player/p1_front.png"));
         textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/p1_walk/PNG/test/spritesheet.atlas"));
-        animation = new Animation(Gdx.graphics.getDeltaTime(),textureAtlas.getRegions());
+        animation = new Animation(1/30f,textureAtlas.getRegions());
         sprite = new Sprite(texture);
         this.spriteBatch = spriteBatch;
         Gdx.input.setInputProcessor(this);
@@ -46,6 +46,9 @@ public class Player extends Entity implements InputProcessor {
         if(movementState == STATE.walkingLeft) {
             body.setLinearVelocity(-100f, 0f);
         }
+
+        sprite.setPosition(body.getPosition().x - sprite.getWidth()/2,
+                body.getPosition().y - sprite.getHeight()/2);
     }
 
     @Override

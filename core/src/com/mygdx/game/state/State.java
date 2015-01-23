@@ -9,6 +9,7 @@ import com.mygdx.game.Level;
 public abstract class State implements InputProcessor {
     protected Level level;
 
-    public abstract void update(float deltaTime);
-    public abstract void draw();
+    public Level getLevel() {
+        return level;
+    }
 }

@@ -126,17 +126,35 @@ public class Player extends Entity implements ContactListener {
 
     @Override
     public void beginContact(Contact contact) {
-        if((contact.getFixtureA().getFilterData().categoryBits &
-                contact.getFixtureB().getFilterData().maskBits) != 0) {
-            Vector2 normalVector = contact.getWorldManifold().getNormal();
 
-            if(normalVector.y > 0) {
-                System.out.println("on ground");
+        System.out.println("player ocllision mask: " + ICollisionMask.PLAYER);
+        System.out.println("ground collision mask: " + ICollisionMask.GROUND);
+        System.out.println("A collision set: " + contact.getFixtureA().getFilterData().categoryBits);
+        System.out.println("B collision set: " + contact.getFixtureB().getFilterData().categoryBits);
+
+        Fixture playerFixture = null;
+        Fixture opposingFixture = null;
+
+        if(contact.getFixtureA().getFilterData().categoryBits == ICollisionMask.PLAYER) {
+            System.out.println("A is a player");
+
+            playerFixture = contact.getFixtureA();
+            opposingFixture = contact.getFixtureB();
+        }
+        else if(contact.getFixtureB().getFilterData().categoryBits == ICollisionMask.PLAYER) {
+            System.out.println("B is a player");
+
+            playerFixture = contact.getFixtureB();
+            opposingFixture = contact.getFixtureA();
+        }
+
+        if(playerFixture != null) {
+            System.out.println("player fixture is not null");
+
+            if (opposingFixture.getFilterData().categoryBits == ICollisionMask.GROUND) {
+                System.out.println("opposing force is ground");
+
                 onGround = true;
-                canDoubleJump = true;
-            }
-
-            if(normalVector.x != 0) {
                 canDoubleJump = true;
             }
         }
@@ -144,9 +162,29 @@ public class Player extends Entity implements ContactListener {
 
     @Override
     public void endContact(Contact contact) {
-        if((contact.getFixtureA().getFilterData().categoryBits &
-                contact.getFixtureB().getFilterData().maskBits) != 0) {
-            onGround = false;
+        Fixture playerFixture = null;
+        Fixture opposingFixture = null;
+
+        if(contact.getFixtureA().getFilterData().categoryBits == ICollisionMask.PLAYER) {
+            System.out.println("A is a player");
+
+            playerFixture = contact.getFixtureA();
+            opposingFixture = contact.getFixtureB();
+        }
+        else if(contact.getFixtureB().getFilterData().categoryBits == ICollisionMask.PLAYER) {
+            System.out.println("B is a player");
+
+            playerFixture = contact.getFixtureB();
+            opposingFixture = contact.getFixtureA();
+        }
+
+        if(playerFixture != null) {
+            System.out.println("player fixture is not null");
+
+            if (opposingFixture.getFilterData().categoryBits == ICollisionMask.GROUND) {
+                System.out.println("opposing force is ground");
+                onGround = false;
+            }
         }
     }
 

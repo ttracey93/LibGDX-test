@@ -70,8 +70,6 @@ public class CameraManager {
         mapWidth = properties.get("width", Integer.class);
         mapHeight = properties.get("height", Integer.class);
 
-        System.out.println("tilePixelWidth: " + tilePixelWidth);
-        System.out.println("mapWidth = " + mapWidth);
         worldWidth = tilePixelWidth * mapWidth;
         worldHeight = tilePixelHeight * mapHeight;
     }

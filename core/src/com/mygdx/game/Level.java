@@ -63,7 +63,7 @@ public class Level {
 
         entities = new ArrayList<Entity>();
 
-        world = new World(new Vector2(0,-9.81f), true);
+        world = new World(new Vector2(0,-50f), true);
 
         //Create physics bodies for the ground.
         try {
@@ -97,9 +97,6 @@ public class Level {
         }
 
       //  debugRenderer = new Box2DDebugRenderer();
-
-        //set the input listener
-        Gdx.input.setInputProcessor(new InputListener());
     }
 
     public void update(float deltaTime)
@@ -183,6 +180,8 @@ public class Level {
         player.setBody(playerBody);
 
         entities.add(player);
+
+        world.setContactListener(player);
     }
 
     private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {

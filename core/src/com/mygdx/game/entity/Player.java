@@ -34,6 +34,7 @@ public class Player extends Entity {
     private float jumpForce = 300f;
     private float doubleJumpForce = 500f;
     private CameraManager cameraManager;
+    private float moveForce = 300f;
 
     public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
     {
@@ -50,6 +51,14 @@ public class Player extends Entity {
         //Update players location
         if(Keys.keyPressed(Keys.JUMP)) {
             body.applyForceToCenter(0, jumpForce, true);
+        }
+        if(Keys.keyDown(Keys.LEFT)) {
+            if(body.getLinearVelocity().x > -10)
+            body.applyForceToCenter(-moveForce, 0, true);
+        }
+        if(Keys.keyDown(Keys.RIGHT)) {
+            if(body.getLinearVelocity().x < 10)
+            body.applyForceToCenter(moveForce, 0, true);
         }
 
         float x = (body.getPosition().x / Level.METERS_PER_PIXEL) - sprite.getWidth()/2;

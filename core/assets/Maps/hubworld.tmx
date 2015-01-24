@@ -1,105 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="40" tilewidth="32" tileheight="32" nextobjectid="26">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="30" tilewidth="32" tileheight="32" nextobjectid="28">
  <tileset firstgid="1" name="background" tilewidth="256" tileheight="256">
   <tile id="0">
    <image width="256" height="256" source="../Platformer/Base/bg.png"/>
   </tile>
  </tileset>
- <tileset firstgid="2" name="baseTiles" tilewidth="32" tileheight="32">
+ <tileset firstgid="2" name="middleground" tilewidth="64" tileheight="64">
   <tile id="0">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/door_openMid.png"/>
+   <image width="64" height="64" source="../Platformer/Base/Tiles32/doorbottom.png"/>
   </tile>
   <tile id="1">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/door_openTop.png"/>
+   <image width="64" height="32" source="../Platformer/Base/Tiles32/doortop.png"/>
   </tile>
   <tile id="2">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
    <image width="32" height="32" source="../Platformer/Base/Tiles32/grass.png"/>
   </tile>
   <tile id="3">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
    <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCenter.png"/>
   </tile>
   <tile id="4">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCenter_rounded.png"/>
-  </tile>
-  <tile id="5">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
    <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCliffLeft.png"/>
   </tile>
-  <tile id="6">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCliffLeftAlt.png"/>
-  </tile>
-  <tile id="7">
+  <tile id="5">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
    <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCliffRight.png"/>
   </tile>
-  <tile id="8">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCliffRightAlt.png"/>
-  </tile>
-  <tile id="9">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHalf.png"/>
-  </tile>
-  <tile id="10">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHalfLeft.png"/>
-  </tile>
-  <tile id="11">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHalfMid.png"/>
-  </tile>
-  <tile id="12">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHalfRight.png"/>
-  </tile>
-  <tile id="13">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHillLeft.png"/>
-  </tile>
-  <tile id="14">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHillLeft2.png"/>
-  </tile>
-  <tile id="15">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHillRight.png"/>
-  </tile>
-  <tile id="16">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHillRight2.png"/>
-  </tile>
-  <tile id="17">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassLeft.png"/>
-  </tile>
-  <tile id="18">
+  <tile id="6">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
    <image width="32" height="32" source="../Platformer/Base/Tiles32/grassMid.png"/>
   </tile>
-  <tile id="19">
-   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassRight.png"/>
+  <tile id="7">
+   <image width="10" height="10" source="../Platformer/Base/Tiles32/particleCartoonStar.png"/>
+  </tile>
+  <tile id="8">
+   <image width="10" height="10" source="../Platformer/Base/Tiles32/particleSmallStar.png"/>
+  </tile>
+  <tile id="9">
+   <image width="20" height="21" source="../Platformer/Base/Tiles32/particleStar.png"/>
   </tile>
  </tileset>
- <layer name="background" width="80" height="40" opacity="0.99">
+ <layer name="background" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3DQQ0AAAwDoat/07OxBySsmqqqqqqqqqqqqqqqqm8fh+Om6QAyAAA=
+   H4sIAAAAAAAAC+3DQQ0AAAwDoat/09OwPySsmqqqqqqqqqqqqu8HNzbruIAlAAA=
   </data>
  </layer>
- <layer name="foreground" width="80" height="40">
+ <layer name="middleground" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3asQrEIBAAUbkkhPT3/996RUhzWCwZ1sRlHlgrg6yNW2ttc6Gle+zH2I/p9fsmrYq8f4z9GPsx9mN6/dYnDjIp7x9jP8Z+jPOP8f4x9mPsx9iP8f1gvH+M/Rj7MfZj7Mf4/jLeP8Z+jP2YaL8l+yCTivb7ZB9kUpF+ezv/Dxz5x5mO84+p3G/EzO71i+779jdlxMzu9Yvu++Y3ZdTM/u8X3dc35VR5/o1gP+bql/XntPp6+t9/hfUDokshFQAyAAA=
+   H4sIAAAAAAAAC+2aQQqAMAwEi1rt/1+sFy8FTWlKmk13YE8VD0PSRDCnlDKjCumD/nTQn44o/vZJ53/+DuGdrc9ExqL+LBxvk87R+/d8Uqpchude/KHeA178oUJ/OpD8eexxJH8eieLP4/5MZKL4Q9yfpZq3gPszNhp/Us2vQI8/qaZXgv2rA8kf0vfHyNlqMae5P2Py5W/kbLWY017255Gz1WJOc3/Ghv50vP7qGmXaMvu/mwi5AQcv9H6AJQAA
+  </data>
+ </layer>
+ <layer name="middleground2" width="80" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BMQEAAADCoPVPbQdvoAAAAAAAAAAAAHgMMYCaUYAlAAA=
+  </data>
+ </layer>
+ <layer name="foreground" width="80" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BMQEAAADCoPVPbQdvoAAAAAAAAAAAAHgMMYCaUYAlAAA=
   </data>
  </layer>
  <objectgroup name="solid">
-  <object id="3" name="ground" x="0" y="1216" width="2558" height="61"/>
-  <object id="5" name="leftwall" x="1" y="2" width="30" height="1212"/>
-  <object id="7" name="wall" x="2528" y="1" width="29" height="1212"/>
-  <object id="10" name="ceiling" x="33" y="1" width="2495" height="31"/>
-  <object id="11" name="platform" x="1696" y="1090" width="95" height="12"/>
-  <object id="13" name="platform" x="415.5" y="1120" width="95" height="12"/>
-  <object id="14" name="platform" x="96.5" y="1119" width="95" height="12"/>
-  <object id="15" name="platform" x="254.5" y="961" width="95" height="12"/>
-  <object id="16" name="ground" x="129" y="770" width="30" height="29"/>
-  <object id="17" name="ground" x="130" y="578.5" width="30" height="29"/>
-  <object id="20" name="ground" x="129" y="416.5" width="30" height="29"/>
-  <object id="21" name="ground" x="127" y="289.5" width="30" height="29"/>
-  <object id="22" name="ground" x="128" y="128" width="702" height="31"/>
- </objectgroup>
- <objectgroup name="teleport">
-  <object id="9" name="world1" x="1730" y="1029" width="27" height="58">
-   <properties>
-    <property name="teleportto" value="world1.tmx"/>
-   </properties>
-  </object>
-  <object id="23" name="soundmenu" x="290" y="898" width="28" height="61"/>
-  <object id="24" name="optionsmenu" x="128" y="1057" width="31" height="60"/>
-  <object id="25" name="difficultymenu" x="448" y="1057" width="31" height="62"/>
+  <object id="1" name="platform" x="96" y="801" width="193" height="28"/>
+  <object id="3" name="platform" x="384.5" y="609" width="193" height="28"/>
+  <object id="4" name="platform" x="703.5" y="801" width="193" height="28"/>
+  <object id="5" name="platform" x="1503.5" y="801" width="193" height="28"/>
+  <object id="6" name="platform" x="1760.5" y="800" width="193" height="28"/>
+  <object id="7" name="platform" x="2015.5" y="801" width="193" height="28"/>
+  <object id="8" name="platform" x="2272.5" y="801" width="193" height="28"/>
+  <object id="9" name="platform" x="2270.5" y="514" width="193" height="28"/>
+  <object id="10" name="platform" x="2015.5" y="513" width="193" height="28"/>
+  <object id="11" name="platform" x="1758.5" y="512" width="193" height="28"/>
+  <object id="12" name="platform" x="1504.5" y="513" width="193" height="28"/>
+  <object id="13" name="platform" x="1503.5" y="224" width="193" height="28"/>
+  <object id="14" name="platform" x="1760.5" y="224" width="193" height="28"/>
+  <object id="15" name="platform" x="2016.5" y="226" width="193" height="28"/>
+  <object id="16" name="platform" x="2271.5" y="225" width="193" height="28"/>
+  <object id="17" name="platform" x="1345" y="353" width="30" height="29"/>
+  <object id="18" name="platform" x="1345" y="672.5" width="30" height="29"/>
+  <object id="19" name="platform" x="1057" y="259.5" width="30" height="29"/>
+  <object id="20" name="platform" x="768" y="194.5" width="30" height="29"/>
+  <object id="21" name="platform" x="480" y="159.5" width="30" height="29"/>
+  <object id="22" name="platform" x="193" y="161.5" width="30" height="29"/>
+  <object id="23" name="ground" x="0" y="896" width="2558" height="61"/>
+  <object id="25" name="wall" x="2529" y="2" width="27" height="893"/>
+  <object id="26" name="wall" x="2.5" y="0.5" width="27" height="893"/>
+  <object id="27" name="ceiling" x="30" y="1" width="2496" height="29"/>
  </objectgroup>
 </map>

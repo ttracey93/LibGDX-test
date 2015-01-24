@@ -17,7 +17,6 @@ import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.listeners.InputListener;
-import com.mygdx.game.manager.CameraManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,7 @@ public class Level {
     //scaling factor
     public static float PIXELS_PER_METER = 50;
     public static float METERS_PER_PIXEL = 1/PIXELS_PER_METER;
+    private static float ppt = 70f;
 
     //world
     private OrthogonalTiledMapRenderer renderer;
@@ -36,8 +36,8 @@ public class Level {
     private OrthographicCamera box2DCamera;
     private SpriteBatch spriteBatch;
     private Box2DDebugRenderer debugRenderer;
-    private CameraManager cameraManager;
-    Matrix4 debugMatrix;
+
+    Player player;
 
     //physics
     private World world;
@@ -58,34 +58,34 @@ public class Level {
         camera.update();
         spriteBatch = new SpriteBatch();
 
-        cameraManager = new CameraManager(camera, renderer);
-
         entities = new ArrayList<Entity>();
 
         world = new World(new Vector2(0,-9.81f), true);
 
         //Create physics bodies for the ground.
         try {
-            MapObjects ground = map.getLayers().get("Ground").getObjects();
-            Shape shape;
+            MapObjects ground = map.getLayers().get("solid").getObjects();
+
 
             for(MapObject object : ground)
             {
 
                 if (object instanceof RectangleMapObject) {
+                    Shape shape;
                     shape = getRectangle((RectangleMapObject)object);
+                    BodyDef bd = new BodyDef();
+                    bd.type = BodyDef.BodyType.StaticBody;
+                    Body body = world.createBody(bd);
+                    body.createFixture(shape, 1);
+
                 }
                 else
                     continue;
 
-                BodyDef bd = new BodyDef();
-                bd.type = BodyDef.BodyType.StaticBody;
-                Body body = world.createBody(bd);
-                bd.position.set(new Vector2(((RectangleMapObject) object).getRectangle().x / PIXELS_PER_METER, ((RectangleMapObject) object).getRectangle().y / PIXELS_PER_METER));
 
+                //bd.position.set(new Vector2(((RectangleMapObject) object).getRectangle().x / PIXELS_PER_METER, ((RectangleMapObject) object).getRectangle().y / PIXELS_PER_METER));
+                //bd.position.set(((RectangleMapObject) object).getRectangle().getX(), ((RectangleMapObject) object).getRectangle().getY());
 
-
-                body.createFixture(shape, 1);
                 //entities.add(body);
             }
         } catch(Exception e){
@@ -155,7 +155,7 @@ public class Level {
 
     public void initializePlayer()
     {
-        Player player = new Player(spriteBatch, cameraManager);
+        player = new Player(spriteBatch);
 
         BodyDef playerBodyDef = new BodyDef();
         playerBodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -180,7 +180,16 @@ public class Level {
     private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {
         Rectangle rectangle = rectangleObject.getRectangle();
         PolygonShape polygon = new PolygonShape();
-        polygon.setAsBox(rectangle.width / PIXELS_PER_METER, rectangle.height / PIXELS_PER_METER);
+        Vector2 size = new Vector2((rectangle.x + rectangle.width * 0.5f) / PIXELS_PER_METER,
+                (rectangle.y + rectangle.height * 0.5f ) / PIXELS_PER_METER);
+        polygon.setAsBox(rectangle.width * 0.5f / PIXELS_PER_METER,
+                rectangle.height * 0.5f / PIXELS_PER_METER,
+                size,
+                0.0f);
+
+
+        //polygon.setAsBox(rectangle.width / PIXELS_PER_METER, rectangle.height / PIXELS_PER_METER);
+        //rectangle.setPosition(rectangleObject.getRectangle().x, rectangleObject.getRectangle().y);
         return polygon;
     }
 }

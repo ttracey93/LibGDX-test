@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="100" tilewidth="32" tileheight="32" nextobjectid="16">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="100" tilewidth="32" tileheight="32" nextobjectid="20">
  <tileset firstgid="1" name="background" tilewidth="256" tileheight="256">
   <tile id="0">
    <image width="256" height="256" source="../Platformer/Base/bg.png"/>
@@ -147,6 +147,21 @@
   <tile id="46">
    <image width="64" height="64" source="../Platformer/Base/Tiles32/signRight.png"/>
   </tile>
+  <tile id="47">
+   <image width="64" height="64" source="../Platformer/Base/Tiles32/treedoor.png"/>
+  </tile>
+  <tile id="48">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/treeblock.png"/>
+  </tile>
+  <tile id="49">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/treeleaf.png"/>
+  </tile>
+  <tile id="50">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/treeleaf2.png"/>
+  </tile>
+  <tile id="51">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/treetop.png"/>
+  </tile>
  </tileset>
  <layer name="background" width="200" height="100">
   <data encoding="base64" compression="gzip">
@@ -155,12 +170,12 @@
  </layer>
  <layer name="middleground" width="200" height="100">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3Y0QrCIBQG4OgiqMHaVdEb9P5P2E3CEGVttB2R74ODYqZeKPF3OgHAelP0AQAAgG7JG1CXvw/vBQAAAI4nnwMAAEA8+RwAAADiyecAAAAQTz4HAACAePI5AAAAxJPPAQAAIJ58DgAAAPHkcwAAAIgnnwMAAEA8+RwAAADiyecAAAAQTz4HAACAeK3k82mhBQAAgJ7J5wC05B59AOjINfoAAKwin8Px3GsAtvD7AXXeBz04Kp8v/X8rnwMAAFvJDfRgr3y+dh35nBa5fwDs5Rl9AACady6MPb7t7dsOs8/GbDz1S+uM2fzLbK3zQjs3ZHuNhTm52/KUn9dI+/9jrbyf1i/1e1K6S3vuU5PfpTSWvpvfv7dSqlovpVS1Piz/jCOAOAEA
+   H4sIAAAAAAAAC+3ZTWrDMBAGUJOW0iaQZtXSG3SbnLBH78YGM1j4p7HHUd+DQUaRZS80hC9pGgCY75L9AgAAQLXkDSiL/aFfAAAAYHvyOQAAAOSTzwEAACCffA4AAAD55HMAAADIJ58DAABAPvkcAAAA8snnAAAAkE8+BwAAgHzyOezfbeKaKeugJrcFBbVa0g96hv9Cf/AoMvK5/oAy/QFl+gPK9AfA4/P/OQAAULPXpvmJc0/teAnj8/D9sAn5HAAAAPLtJZ/H363iCAAAADWTzwHYk/fsF4CKvGW/AACzyOewPecagCV8f0CZ/qAGW+Xzsd9v5XMAAGApuYEarJXP5+4jn7NHzh8Aa/n8w73Xu70FAHt2GJj7aMdjO556n53DfHfd5ZprWNtf/9Lb6zAy9p3Cs84Da6Lj+JLJe3TPv8de8brbf+i6JkNnac3nlMSz1M1198bz962UKtaXUqpYv+W8lp+AOAEA
   </data>
  </layer>
  <layer name="middleground2" width="200" height="100">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3JMQEAAAwCIDOsf9h18BVeEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgC1XHgDAmgckeHE9gDgBAA==
+   H4sIAAAAAAAAC+3dsQkAIAwEwGwguEk2dDRHc4KAlSLelU+Kn+ATAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD3tYhR5AAAAAAAAE/LOp8newAAAAAAAAAAAAAAAAAAAAAAAAAAAPVeKAB/6pt3WfzdBAD4xQLVveUYgDgBAA==
   </data>
  </layer>
  <layer name="foreground" width="200" height="100">
@@ -172,12 +187,19 @@
   <object id="1" name="ground" x="1" y="3137" width="6396" height="59"/>
   <object id="2" name="wall" x="54" y="0" width="80" height="3133"/>
   <object id="7" name="wall" x="6325" y="0" width="71" height="3135"/>
-  <object id="9" name="wall" x="135" y="3071" width="23" height="64"/>
-  <object id="10" name="wall" x="626" y="2461" width="88" height="602"/>
+  <object id="10" name="wall" x="626" y="2461" width="88" height="548"/>
   <object id="11" name="wall" x="719" y="2755" width="46" height="13"/>
   <object id="12" x="962" y="2528" width="55" height="16"/>
-  <object id="13" name="wall" x="1016" y="2144" width="277" height="992"/>
   <object id="14" name="wall" x="865" y="2945" width="151" height="10"/>
+  <object id="16" name="wall" x="1013" y="2210" width="277" height="926"/>
+  <object id="17" x="631" y="3072" width="6" height="64"/>
+  <object id="18" x="706" y="3010" width="9" height="59"/>
  </objectgroup>
- <objectgroup name="teleport"/>
+ <objectgroup name="teleport">
+  <object id="19" name="start" x="161" y="3054" width="62" height="82">
+   <properties>
+    <property name="start" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="100" height="100" tilewidth="70" tileheight="70" nextobjectid="48">
+ <tileset firstgid="1" name="test" tilewidth="70" tileheight="146">
+  <terraintypes>
+   <terrain name="New Terrain" tile="161"/>
+  </terraintypes>
+  <tile id="0">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/box.png"/>
+  </tile>
+  <tile id="1">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxAlt.png"/>
+  </tile>
+  <tile id="2">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxCoin.png"/>
+  </tile>
+  <tile id="3">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxCoin_disabled.png"/>
+  </tile>
+  <tile id="4">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxCoinAlt.png"/>
+  </tile>
+  <tile id="5">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxCoinAlt_disabled.png"/>
+  </tile>
+  <tile id="6">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxEmpty.png"/>
+  </tile>
+  <tile id="7">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxExplosive.png"/>
+  </tile>
+  <tile id="8">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxExplosive_disabled.png"/>
+  </tile>
+  <tile id="9">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxExplosiveAlt.png"/>
+  </tile>
+  <tile id="10">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxItem.png"/>
+  </tile>
+  <tile id="11">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxItem_disabled.png"/>
+  </tile>
+  <tile id="12">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxItemAlt.png"/>
+  </tile>
+  <tile id="13">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxItemAlt_disabled.png"/>
+  </tile>
+  <tile id="14">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/boxWarning.png"/>
+  </tile>
+  <tile id="15">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/brickWall.png"/>
+  </tile>
+  <tile id="16">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/bridge.png"/>
+  </tile>
+  <tile id="17">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/bridgeLogs.png"/>
+  </tile>
+  <tile id="18">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castle.png"/>
+  </tile>
+  <tile id="19">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleCenter.png"/>
+  </tile>
+  <tile id="20">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleCenter_rounded.png"/>
+  </tile>
+  <tile id="21">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleCliffLeft.png"/>
+  </tile>
+  <tile id="22">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleCliffLeftAlt.png"/>
+  </tile>
+  <tile id="23">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleCliffRight.png"/>
+  </tile>
+  <tile id="24">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleCliffRightAlt.png"/>
+  </tile>
+  <tile id="25">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleHalf.png"/>
+  </tile>
+  <tile id="26">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleHalfLeft.png"/>
+  </tile>
+  <tile id="27">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleHalfMid.png"/>
+  </tile>
+  <tile id="28">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleHalfRight.png"/>
+  </tile>
+  <tile id="29">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleHillLeft.png"/>
+  </tile>
+  <tile id="30">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleHillLeft2.png"/>
+  </tile>
+  <tile id="31">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleHillRight.png"/>
+  </tile>
+  <tile id="32">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleHillRight2.png"/>
+  </tile>
+  <tile id="33">
+   <image width="5" height="22" source="../Platformer/Base/Tiles/castleLedgeLeft.png"/>
+  </tile>
+  <tile id="34">
+   <image width="5" height="22" source="../Platformer/Base/Tiles/castleLedgeRight.png"/>
+  </tile>
+  <tile id="35">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleLeft.png"/>
+  </tile>
+  <tile id="36">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleMid.png"/>
+  </tile>
+  <tile id="37">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/castleRight.png"/>
+  </tile>
+  <tile id="38">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirt.png"/>
+  </tile>
+  <tile id="39">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtCenter.png"/>
+  </tile>
+  <tile id="40">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtCenter_rounded.png"/>
+  </tile>
+  <tile id="41">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtCliffLeft.png"/>
+  </tile>
+  <tile id="42">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtCliffLeftAlt.png"/>
+  </tile>
+  <tile id="43">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtCliffRight.png"/>
+  </tile>
+  <tile id="44">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtCliffRightAlt.png"/>
+  </tile>
+  <tile id="45">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtHalf.png"/>
+  </tile>
+  <tile id="46">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtHalfLeft.png"/>
+  </tile>
+  <tile id="47">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtHalfMid.png"/>
+  </tile>
+  <tile id="48">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtHalfRight.png"/>
+  </tile>
+  <tile id="49">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtHillLeft.png"/>
+  </tile>
+  <tile id="50">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtHillLeft2.png"/>
+  </tile>
+  <tile id="51">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtHillRight.png"/>
+  </tile>
+  <tile id="52">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtHillRight2.png"/>
+  </tile>
+  <tile id="53">
+   <image width="5" height="18" source="../Platformer/Base/Tiles/dirtLedgeLeft.png"/>
+  </tile>
+  <tile id="54">
+   <image width="5" height="18" source="../Platformer/Base/Tiles/dirtLedgeRight.png"/>
+  </tile>
+  <tile id="55">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtLeft.png"/>
+  </tile>
+  <tile id="56">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtMid.png"/>
+  </tile>
+  <tile id="57">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/dirtRight.png"/>
+  </tile>
+  <tile id="58">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/door_closedMid.png"/>
+  </tile>
+  <tile id="59">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/door_closedTop.png"/>
+  </tile>
+  <tile id="60">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/door_openMid.png"/>
+  </tile>
+  <tile id="61">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/door_openTop.png"/>
+  </tile>
+  <tile id="62">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/fence.png"/>
+  </tile>
+  <tile id="63">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/fenceBroken.png"/>
+  </tile>
+  <tile id="64">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grass.png"/>
+  </tile>
+  <tile id="65">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassCenter.png"/>
+   <objectgroup draworder="index">
+    <object id="0" x="1" y="0" width="69" height="69"/>
+   </objectgroup>
+  </tile>
+  <tile id="66">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassCenter_rounded.png"/>
+   <objectgroup draworder="index">
+    <object id="0" x="1" y="3" width="68" height="64"/>
+   </objectgroup>
+  </tile>
+  <tile id="67">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassCliffLeft.png"/>
+  </tile>
+  <tile id="68">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassCliffLeftAlt.png"/>
+  </tile>
+  <tile id="69">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassCliffRight.png"/>
+  </tile>
+  <tile id="70">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassCliffRightAlt.png"/>
+  </tile>
+  <tile id="71">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassHalf.png"/>
+  </tile>
+  <tile id="72">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassHalfLeft.png"/>
+  </tile>
+  <tile id="73">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassHalfMid.png"/>
+  </tile>
+  <tile id="74">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassHalfRight.png"/>
+  </tile>
+  <tile id="75">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassHillLeft.png"/>
+  </tile>
+  <tile id="76">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassHillLeft2.png"/>
+  </tile>
+  <tile id="77">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassHillRight.png"/>
+  </tile>
+  <tile id="78">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassHillRight2.png"/>
+  </tile>
+  <tile id="79">
+   <image width="5" height="24" source="../Platformer/Base/Tiles/grassLedgeLeft.png"/>
+  </tile>
+  <tile id="80">
+   <image width="5" height="24" source="../Platformer/Base/Tiles/grassLedgeRight.png"/>
+  </tile>
+  <tile id="81">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassLeft.png"/>
+  </tile>
+  <tile id="82">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassMid.png"/>
+  </tile>
+  <tile id="83">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/grassRight.png"/>
+  </tile>
+  <tile id="84">
+   <image width="48" height="146" source="../Platformer/Base/Tiles/hill_large.png"/>
+  </tile>
+  <tile id="85">
+   <image width="48" height="146" source="../Platformer/Base/Tiles/hill_largeAlt.png"/>
+  </tile>
+  <tile id="86">
+   <image width="48" height="106" source="../Platformer/Base/Tiles/hill_small.png"/>
+  </tile>
+  <tile id="87">
+   <image width="48" height="106" source="../Platformer/Base/Tiles/hill_smallAlt.png"/>
+  </tile>
+  <tile id="88">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/ladder_mid.png"/>
+  </tile>
+  <tile id="89">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/ladder_top.png"/>
+  </tile>
+  <tile id="90">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/liquidLava.png"/>
+  </tile>
+  <tile id="91">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/liquidLavaTop.png"/>
+  </tile>
+  <tile id="92">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/liquidLavaTop_mid.png"/>
+  </tile>
+  <tile id="93">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/liquidWater.png"/>
+  </tile>
+  <tile id="94">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/liquidWaterTop.png"/>
+  </tile>
+  <tile id="95">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/liquidWaterTop_mid.png"/>
+  </tile>
+  <tile id="96">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/lock_blue.png"/>
+  </tile>
+  <tile id="97">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/lock_green.png"/>
+  </tile>
+  <tile id="98">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/lock_red.png"/>
+  </tile>
+  <tile id="99">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/lock_yellow.png"/>
+  </tile>
+  <tile id="100">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/rockHillLeft.png"/>
+  </tile>
+  <tile id="101">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/rockHillRight.png"/>
+  </tile>
+  <tile id="102">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/ropeAttached.png"/>
+  </tile>
+  <tile id="103">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/ropeHorizontal.png"/>
+  </tile>
+  <tile id="104">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/ropeVertical.png"/>
+  </tile>
+  <tile id="105">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sand.png"/>
+  </tile>
+  <tile id="106">
+   <properties>
+    <property name="Density" value="5"/>
+    <property name="ground" value="true"/>
+   </properties>
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandCenter.png"/>
+  </tile>
+  <tile id="107">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandCenter_rounded.png"/>
+  </tile>
+  <tile id="108">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandCliffLeft.png"/>
+  </tile>
+  <tile id="109">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandCliffLeftAlt.png"/>
+  </tile>
+  <tile id="110">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandCliffRight.png"/>
+  </tile>
+  <tile id="111">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandCliffRightAlt.png"/>
+  </tile>
+  <tile id="112">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandHalf.png"/>
+  </tile>
+  <tile id="113">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandHalfLeft.png"/>
+  </tile>
+  <tile id="114">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandHalfMid.png"/>
+  </tile>
+  <tile id="115">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandHalfRight.png"/>
+  </tile>
+  <tile id="116">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandHillLeft.png"/>
+  </tile>
+  <tile id="117">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandHillLeft2.png"/>
+  </tile>
+  <tile id="118">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandHillRight.png"/>
+  </tile>
+  <tile id="119">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandHillRight2.png"/>
+  </tile>
+  <tile id="120">
+   <image width="5" height="18" source="../Platformer/Base/Tiles/sandLedgeLeft.png"/>
+  </tile>
+  <tile id="121">
+   <image width="5" height="18" source="../Platformer/Base/Tiles/sandLedgeRight.png"/>
+  </tile>
+  <tile id="122">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandLeft.png"/>
+  </tile>
+  <tile id="123">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandMid.png"/>
+  </tile>
+  <tile id="124">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sandRight.png"/>
+  </tile>
+  <tile id="125">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/sign.png"/>
+  </tile>
+  <tile id="126">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/signExit.png"/>
+  </tile>
+  <tile id="127">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/signLeft.png"/>
+  </tile>
+  <tile id="128">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/signRight.png"/>
+  </tile>
+  <tile id="129">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snow.png"/>
+  </tile>
+  <tile id="130">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowCenter.png"/>
+  </tile>
+  <tile id="131">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowCenter_rounded.png"/>
+  </tile>
+  <tile id="132">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowCliffLeft.png"/>
+  </tile>
+  <tile id="133">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowCliffLeftAlt.png"/>
+  </tile>
+  <tile id="134">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowCliffRight.png"/>
+  </tile>
+  <tile id="135">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowCliffRightAlt.png"/>
+  </tile>
+  <tile id="136">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowHalf.png"/>
+  </tile>
+  <tile id="137">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowHalfLeft.png"/>
+  </tile>
+  <tile id="138">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowHalfMid.png"/>
+  </tile>
+  <tile id="139">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowHalfRight.png"/>
+  </tile>
+  <tile id="140">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowHillLeft.png"/>
+  </tile>
+  <tile id="141">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowHillLeft2.png"/>
+  </tile>
+  <tile id="142">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowHillRight.png"/>
+  </tile>
+  <tile id="143">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowHillRight2.png"/>
+  </tile>
+  <tile id="144">
+   <image width="5" height="18" source="../Platformer/Base/Tiles/snowLedgeLeft.png"/>
+  </tile>
+  <tile id="145">
+   <image width="5" height="18" source="../Platformer/Base/Tiles/snowLedgeRight.png"/>
+  </tile>
+  <tile id="146">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowLeft.png"/>
+  </tile>
+  <tile id="147">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowMid.png"/>
+  </tile>
+  <tile id="148">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/snowRight.png"/>
+  </tile>
+  <tile id="149">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stone.png"/>
+  </tile>
+  <tile id="150">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneCenter.png"/>
+  </tile>
+  <tile id="151">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneCenter_rounded.png"/>
+  </tile>
+  <tile id="152">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneCliffLeft.png"/>
+  </tile>
+  <tile id="153">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneCliffLeftAlt.png"/>
+  </tile>
+  <tile id="154">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneCliffRight.png"/>
+  </tile>
+  <tile id="155">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneCliffRightAlt.png"/>
+  </tile>
+  <tile id="156">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneHalf.png"/>
+  </tile>
+  <tile id="157">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneHalfLeft.png"/>
+  </tile>
+  <tile id="158">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneHalfMid.png"/>
+  </tile>
+  <tile id="159">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneHalfRight.png"/>
+  </tile>
+  <tile id="160">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneHillLeft2.png"/>
+  </tile>
+  <tile id="161">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneHillRight2.png"/>
+  </tile>
+  <tile id="162">
+   <image width="5" height="24" source="../Platformer/Base/Tiles/stoneLedgeLeft.png"/>
+  </tile>
+  <tile id="163">
+   <image width="5" height="24" source="../Platformer/Base/Tiles/stoneLedgeRight.png"/>
+  </tile>
+  <tile id="164">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneLeft.png"/>
+  </tile>
+  <tile id="165">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneMid.png"/>
+  </tile>
+  <tile id="166">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneRight.png"/>
+  </tile>
+  <tile id="167">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/stoneWall.png"/>
+  </tile>
+  <tile id="168">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/tochLit.png"/>
+  </tile>
+  <tile id="169">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/tochLit2.png"/>
+  </tile>
+  <tile id="170">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/torch.png"/>
+  </tile>
+  <tile id="171">
+   <image width="70" height="70" source="../Platformer/Base/Tiles/window.png"/>
+  </tile>
+ </tileset>
+ <layer name="Background" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3VoREAQAgDwZRDx98uFWB5xIr1NxORSlIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjN6BBgD+8AH32AQAgA0NTR+Pr0CcAAA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 1" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3RMQqDQBCG0b1YUpjjGMn9u2jUwsIIEnf/wHswWC0O85UCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABx5tF6ADT1y9EWPJHpk0SOLHln0yKJHFj2y6JFFjyy1ewzjvCr+799c0cPNz5t6PE++dfff65f5xt3rWXvcWy/Cp8Ha49Z4F+YGU4tu52vazBuaE/CCQJwAAA==
+  </data>
+ </layer>
+ <objectgroup name="solid">
+  <object id="36" name="wall" x="0" y="5742.42" width="66.6667" height="1254.55"/>
+  <object id="38" name="ground" x="70.6667" y="6930.67" width="6926.67" height="74.6667"/>
+  <object id="39" name="wall" x="6929.33" y="5812" width="65.3333" height="1118.67"/>
+  <object id="40" name="platform" x="560" y="6722.67" width="138.667" height="32"/>
+  <object id="41" name="platform" x="982.667" y="6652" width="136" height="30.6667"/>
+  <object id="43" name="platform" x="1401.33" y="6584" width="137.333" height="29.3333"/>
+  <object id="44" name="platform" x="1892" y="6513.33" width="137.333" height="30.6667"/>
+ </objectgroup>
+ <objectgroup name="teleport">
+  <object id="45" name="entrance" x="70.6667" y="6816" width="66.6667" height="112"/>
+  <object id="47" name="exit" x="6861.33" y="6826.67" width="64" height="101.333"/>
+ </objectgroup>
+</map>

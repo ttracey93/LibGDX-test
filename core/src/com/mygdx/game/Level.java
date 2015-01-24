@@ -28,14 +28,13 @@ public class Level {
     //scaling factor
     public static float PIXELS_PER_METER = 50;
     public static float METERS_PER_PIXEL = 1/PIXELS_PER_METER;
-    private static float ppt = 70f;
 
     //world
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
     private OrthographicCamera box2DCamera;
     private SpriteBatch spriteBatch;
-    private Box2DDebugRenderer debugRenderer;
+    //private Box2DDebugRenderer debugRenderer;
 
     Player player;
 
@@ -92,7 +91,7 @@ public class Level {
             System.out.println(e.toString());
         }
 
-        debugRenderer = new Box2DDebugRenderer();
+      //  debugRenderer = new Box2DDebugRenderer();
 
         //set the input listener
         Gdx.input.setInputProcessor(new InputListener());
@@ -118,7 +117,7 @@ public class Level {
             entity.draw();
         }
 
-        debugRenderer.render(world, box2DCamera.combined);
+//        debugRenderer.render(world, box2DCamera.combined);
     }
 
     public OrthogonalTiledMapRenderer getRenderer() {

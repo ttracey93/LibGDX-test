@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="100" tilewidth="32" tileheight="32" nextobjectid="16">
+ <tileset firstgid="1" name="background" tilewidth="256" tileheight="256">
+  <tile id="0">
+   <image width="256" height="256" source="../Platformer/Base/bg.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="2" name="icons" tilewidth="192" tileheight="192">
+  <tile id="0">
+   <image width="192" height="192" source="../Platformer/Base/Tree/treeBase.png"/>
+  </tile>
+  <tile id="1">
+   <image width="192" height="192" source="../Platformer/Base/Tree/treeBranchingLeft.png"/>
+  </tile>
+  <tile id="2">
+   <image width="192" height="192" source="../Platformer/Base/Tree/treeBranchingRight.png"/>
+  </tile>
+  <tile id="3">
+   <image width="192" height="192" source="../Platformer/Base/Tree/treeBranchLarge.png"/>
+  </tile>
+  <tile id="4">
+   <image width="192" height="192" source="../Platformer/Base/Tree/treeBranchLeft.png"/>
+  </tile>
+  <tile id="5">
+   <image width="128" height="128" source="../Platformer/Base/Tree/treeBranchMeduim.png"/>
+  </tile>
+  <tile id="6">
+   <image width="192" height="192" source="../Platformer/Base/Tree/treeBranchRight.png"/>
+  </tile>
+  <tile id="7">
+   <image width="64" height="64" source="../Platformer/Base/Tree/treeBranchSmall.png"/>
+  </tile>
+  <tile id="8">
+   <image width="64" height="96" source="../Platformer/Base/Tree/treeMedium.png"/>
+  </tile>
+  <tile id="9">
+   <image width="32" height="32" source="../Platformer/Base/Tree/treeSapling.png"/>
+  </tile>
+  <tile id="10">
+   <image width="192" height="192" source="../Platformer/Base/Tree/treeStudLeftt.png"/>
+  </tile>
+  <tile id="11">
+   <image width="192" height="192" source="../Platformer/Base/Tree/treeStudRight.png"/>
+  </tile>
+  <tile id="12">
+   <image width="32" height="64" source="../Platformer/Base/Tree/treeTall.png"/>
+  </tile>
+  <tile id="13">
+   <image width="192" height="192" source="../Platformer/Base/Tree/treeTop.png"/>
+  </tile>
+  <tile id="14">
+   <image width="192" height="192" source="../Platformer/Base/Tree/treeTrunk.png"/>
+  </tile>
+  <tile id="15">
+   <image width="64" height="64" source="../Platformer/Base/Tree/treeYoungling.png"/>
+  </tile>
+  <tile id="16">
+   <image width="64" height="32" source="../Platformer/Base/Tiles32/bush2wide.png"/>
+  </tile>
+  <tile id="17">
+   <image width="96" height="32" source="../Platformer/Base/Tiles32/bush3wide.png"/>
+  </tile>
+  <tile id="18">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/door_openMid.png"/>
+  </tile>
+  <tile id="19">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/door_openTop.png"/>
+  </tile>
+  <tile id="20">
+   <image width="64" height="64" source="../Platformer/Base/Tiles32/doorbottom.png"/>
+  </tile>
+  <tile id="21">
+   <image width="64" height="32" source="../Platformer/Base/Tiles32/doortop.png"/>
+  </tile>
+  <tile id="22">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grass.png"/>
+  </tile>
+  <tile id="23">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCenter.png"/>
+  </tile>
+  <tile id="24">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCenter_rounded.png"/>
+  </tile>
+  <tile id="25">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCliffLeft.png"/>
+  </tile>
+  <tile id="26">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCliffLeftAlt.png"/>
+  </tile>
+  <tile id="27">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCliffRight.png"/>
+  </tile>
+  <tile id="28">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCliffRightAlt.png"/>
+  </tile>
+  <tile id="29">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHalf.png"/>
+  </tile>
+  <tile id="30">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHalfLeft.png"/>
+  </tile>
+  <tile id="31">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHalfMid.png"/>
+  </tile>
+  <tile id="32">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHalfRight.png"/>
+  </tile>
+  <tile id="33">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHillLeft.png"/>
+  </tile>
+  <tile id="34">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHillLeft2.png"/>
+  </tile>
+  <tile id="35">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHillRight.png"/>
+  </tile>
+  <tile id="36">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHillRight2.png"/>
+  </tile>
+  <tile id="37">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassLeft.png"/>
+  </tile>
+  <tile id="38">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassMid.png"/>
+  </tile>
+  <tile id="39">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassRight.png"/>
+  </tile>
+  <tile id="40">
+   <image width="10" height="10" source="../Platformer/Base/Tiles32/particleCartoonStar.png"/>
+  </tile>
+  <tile id="41">
+   <image width="10" height="10" source="../Platformer/Base/Tiles32/particleSmallStar.png"/>
+  </tile>
+  <tile id="42">
+   <image width="20" height="21" source="../Platformer/Base/Tiles32/particleStar.png"/>
+  </tile>
+  <tile id="43">
+   <image width="64" height="46" source="../Platformer/Base/Tiles32/sign.png"/>
+  </tile>
+  <tile id="44">
+   <image width="64" height="64" source="../Platformer/Base/Tiles32/signExit.png"/>
+  </tile>
+  <tile id="45">
+   <image width="64" height="64" source="../Platformer/Base/Tiles32/signLeft.png"/>
+  </tile>
+  <tile id="46">
+   <image width="64" height="64" source="../Platformer/Base/Tiles32/signRight.png"/>
+  </tile>
+ </tileset>
+ <layer name="background" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3OsQkAMAwEsff+S6fKBg7BWAfqr5JUs5d1v8Ikt98fAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOxwAKmm9DaAOAEA
+  </data>
+ </layer>
+ <layer name="middleground" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3Y0QrCIBQG4OgiqMHaVdEb9P5P2E3CEGVttB2R74ODYqZeKPF3OgHAelP0AQAAgG7JG1CXvw/vBQAAAI4nnwMAAEA8+RwAAADiyecAAAAQTz4HAACAePI5AAAAxJPPAQAAIJ58DgAAAPHkcwAAAIgnnwMAAEA8+RwAAADiyecAAAAQTz4HAACAeK3k82mhBQAAgJ7J5wC05B59AOjINfoAAKwin8Px3GsAtvD7AXXeBz04Kp8v/X8rnwMAAFvJDfRgr3y+dh35nBa5fwDs5Rl9AACady6MPb7t7dsOs8/GbDz1S+uM2fzLbK3zQjs3ZHuNhTm52/KUn9dI+/9jrbyf1i/1e1K6S3vuU5PfpTSWvpvfv7dSqlovpVS1Piz/jCOAOAEA
+  </data>
+ </layer>
+ <layer name="middleground2" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3JMQEAAAwCIDOsf9h18BVeEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgC1XHgDAmgckeHE9gDgBAA==
+  </data>
+ </layer>
+ <layer name="foreground" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BgQAAAADDoPlTH+AKVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwBtmAymRgDgBAA==
+  </data>
+ </layer>
+ <objectgroup name="solid">
+  <object id="1" name="ground" x="1" y="3137" width="6396" height="59"/>
+  <object id="2" name="wall" x="54" y="0" width="80" height="3133"/>
+  <object id="7" name="wall" x="6325" y="0" width="71" height="3135"/>
+  <object id="9" name="wall" x="135" y="3071" width="23" height="64"/>
+  <object id="10" name="wall" x="626" y="2461" width="88" height="602"/>
+  <object id="11" name="wall" x="719" y="2755" width="46" height="13"/>
+  <object id="12" x="962" y="2528" width="55" height="16"/>
+  <object id="13" name="wall" x="1016" y="2144" width="277" height="992"/>
+  <object id="14" name="wall" x="865" y="2945" width="151" height="10"/>
+ </objectgroup>
+ <objectgroup name="teleport"/>
+</map>

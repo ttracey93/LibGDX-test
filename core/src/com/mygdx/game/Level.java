@@ -186,6 +186,8 @@ public class Level {
                 rectangle.height * 0.5f / PIXELS_PER_METER,
                 size,
                 0.0f);
+
+
         //polygon.setAsBox(rectangle.width / PIXELS_PER_METER, rectangle.height / PIXELS_PER_METER);
         //rectangle.setPosition(rectangleObject.getRectangle().x, rectangleObject.getRectangle().y);
         return polygon;

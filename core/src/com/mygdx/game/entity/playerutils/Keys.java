@@ -35,4 +35,8 @@ public class Keys {
     public static boolean keyPressed(int keyCode) {
         return keys[keyCode] && !pkeys[keyCode];
     }
+
+    public static boolean keyReleased(int keyCode) {
+        return !keys[keyCode] && pkeys[keyCode];
+    }
 }

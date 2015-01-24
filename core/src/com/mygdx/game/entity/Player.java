@@ -36,11 +36,14 @@ public class Player extends Entity {
     private CameraManager cameraManager;
     private float moveForce = 300f;
 
+    //
+    public boolean jumpSound = false;
+
     public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
     {
         texture = new Texture(Gdx.files.internal("Base/Player/character.png"));
         textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/p1_walk/PNG/test/spritesheet.atlas"));
-        animation = new Animation(1/30f,textureAtlas.getRegions());
+        animation = new Animation(1/30f, textureAtlas.getRegions());
         sprite = new Sprite(texture);
         this.spriteBatch = spriteBatch;
         this.cameraManager = cameraManager;
@@ -49,8 +52,10 @@ public class Player extends Entity {
     @Override
     public void update(float deltaTime) {
         //Update players location
+        jumpSound = false;
         if(Keys.keyPressed(Keys.JUMP)) {
             body.applyForceToCenter(0, jumpForce, true);
+            jumpSound = true;
         }
         if(Keys.keyDown(Keys.LEFT)) {
             if(body.getLinearVelocity().x > -10)

@@ -46,7 +46,11 @@ public class Level {
     //entities
     private List<Entity> entities;
 
+    //audio -- MAX
+    private Audio audio;
+
     public Level(String fileName) {
+        audio = new Audio();
         TiledMap map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
         camera = new OrthographicCamera();
@@ -112,6 +116,8 @@ public class Level {
         for(Entity entity : entities) {
             entity.update(deltaTime);
         }
+        audio.update(deltaTime);
+
     }
 
     public void draw()
@@ -183,6 +189,8 @@ public class Level {
         player.setBody(playerBody);
 
         entities.add(player);
+        audio.getPlayer(player);
+        audio.playMusic();
     }
 
     private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {

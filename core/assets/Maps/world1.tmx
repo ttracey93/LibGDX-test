@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="100" tilewidth="32" tileheight="32" nextobjectid="20">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="100" tilewidth="32" tileheight="32" nextobjectid="24">
  <tileset firstgid="1" name="background" tilewidth="256" tileheight="256">
   <tile id="0">
    <image width="256" height="256" source="../Platformer/Base/bg.png"/>
@@ -192,8 +192,8 @@
   <object id="12" x="962" y="2528" width="55" height="16"/>
   <object id="14" name="wall" x="865" y="2945" width="151" height="10"/>
   <object id="16" name="wall" x="1013" y="2210" width="277" height="926"/>
-  <object id="17" x="631" y="3072" width="6" height="64"/>
-  <object id="18" x="706" y="3010" width="9" height="59"/>
+  <object id="22" x="633" y="3078" width="5" height="59"/>
+  <object id="23" x="706" y="3009" width="7" height="59"/>
  </objectgroup>
  <objectgroup name="teleport">
   <object id="19" name="start" x="161" y="3054" width="62" height="82">
@@ -201,5 +201,6 @@
     <property name="start" value="true"/>
    </properties>
   </object>
+  <object id="20" x="538" y="2802" height="1"/>
  </objectgroup>
 </map>

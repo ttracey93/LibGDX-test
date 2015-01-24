@@ -37,7 +37,7 @@ public class MainMenu extends State implements InputProcessor{
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if(button == Input.Buttons.LEFT) {
-            parent.startGame(ILevelName.JUMPHEIGHT);
+            parent.startGame(ILevelName.HUBWORLD);
         }
 
         return false;

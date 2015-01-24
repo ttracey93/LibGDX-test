@@ -36,7 +36,7 @@ public class Player extends Entity {
 
     public Player(SpriteBatch spriteBatch)
     {
-        texture = new Texture(Gdx.files.internal("Base/Player/p1_front.png"));
+        texture = new Texture(Gdx.files.internal("Base/Player/character.png"));
         textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/p1_walk/PNG/test/spritesheet.atlas"));
         animation = new Animation(1/30f,textureAtlas.getRegions());
         sprite = new Sprite(texture);

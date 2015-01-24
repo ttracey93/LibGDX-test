@@ -118,7 +118,7 @@
  </layer>
  <layer name="middleground" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2aywrDIBBFB9u03QSS///ZbnQjqVYn6ly9BwYREyKH6Ewem4hsDFUEHkJKiP2RMoK/3fedb/frw0lE8Pe5iPfAeZWS23dajWvX71Nx7gz02P96OHaDxtHzx0vS+07rcSv+UPcBK/5QoT8dSP4srnEkfxaZxR9q/bw6s/hDrJ8tvOti/YxNjb/Dty7qr0iNv9w9vRJcvzqQ/CE9f9yZW3vkadbPmPzyl6sn/yHO0y2xUj/fmVt75GnWz9iU+DtbTqTTNWpq/dScUt9/GfkY/d/NDPEFtVWMeoAlAAA=
+   H4sIAAAAAAAAC+2aywqAIBBFh94bof7/Z9vkJkzRQZ1r98AQYZIccLpRq4isLFV5ZiE5vP2RPLw/95xPz9GFLycvvL8jUHvHdeWS6ju1xrX7d1HMHYEW/a+F46nTOPrzY5N436k9bsUfah+w4g8V+tOB5M/iHkfyZ5FR/KHm578zij/m5zKYn7GhPx30p4P+dCD5Q3r/QPuOxPyMyZe/VJ60hpX8nMqL1mB+xibH31VzIY3ucRbMia0p9v2Xla7e/92MUDci4+9ggCUAAA==
   </data>
  </layer>
  <layer name="middleground2" width="80" height="30">

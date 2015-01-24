@@ -42,8 +42,6 @@ public class CameraManager {
             y = worldHeight - camera.viewportHeight / 2;
         }
 
-        System.out.println("final x,y : " + x + ", " + y);
-
         camera.position.set(new Vector2(x, y), 0.0f);
         camera.update();
 
@@ -72,8 +70,6 @@ public class CameraManager {
         mapWidth = properties.get("width", Integer.class);
         mapHeight = properties.get("height", Integer.class);
 
-        System.out.println("tilePixelWidth: " + tilePixelWidth);
-        System.out.println("mapWidth = " + mapWidth);
         worldWidth = tilePixelWidth * mapWidth;
         worldHeight = tilePixelHeight * mapHeight;
     }

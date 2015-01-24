@@ -2,12 +2,19 @@ package com.mygdx.game.listeners;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
+import com.mygdx.game.entity.Player;
 import com.mygdx.game.entity.playerutils.Keys;
 
 /**
  * Created by Dubforce on 1/22/2015.
  */
 public class InputListener extends InputAdapter {
+    private Player player;
+
+    public InputListener(Player player) {
+        this.player = player;
+    }
+
     @Override
     public boolean keyDown(int keycode) {
         switch(keycode) {

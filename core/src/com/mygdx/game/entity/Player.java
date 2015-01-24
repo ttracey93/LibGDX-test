@@ -1,63 +1,84 @@
 package com.mygdx.game.entity;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.Level;
+import com.mygdx.game.collision.ICollisionMask;
 import com.mygdx.game.entity.playerutils.Keys;
+import com.mygdx.game.listeners.InputListener;
 import com.mygdx.game.manager.CameraManager;
-
-import java.io.Console;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Dubforce on 1/21/2015.
  */
-public class Player extends Entity {
+public class Player extends Entity implements ContactListener {
     enum STATE{standing, walkingLeft, walkingRight}
     Sprite sprite;
     SpriteBatch spriteBatch;
     Texture texture;
     STATE movementState;
-    private Animation animation;
-    private TextureAtlas textureAtlas;
+    private Animation animationRight, animationLeft;
+    private TextureAtlas textureAtlas, textureAtlasLeft;
     private float elapsedTime = 0;
     private Body body;
     private float jumpForce = 300f;
     private float doubleJumpForce = 500f;
+    private float jumpVelocity = 12f;
+    private float doubleJumpVelocity = 17f;
     private CameraManager cameraManager;
-    private float moveForce = 300f;
+    private float moveForce = 100f;
+    private float maxVelocity = 10f;
+
+    private boolean onGround = true;
+    private boolean canDoubleJump = true;
+
 
     public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
     {
-        texture = new Texture(Gdx.files.internal("Base/Player/character.png"));
-        textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/p1_walk/PNG/test/spritesheet.atlas"));
-        animation = new Animation(1/30f,textureAtlas.getRegions());
+        texture = new Texture(Gdx.files.internal("Base/Player/morton/morton_walking1.png"));
+
+        textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/morton/right/spritesheet.atlas"));
+        animationRight = new Animation(1/6f,textureAtlas.getRegions());
+
+        textureAtlasLeft = new TextureAtlas(Gdx.files.internal("Base/Player/morton/left/spritesheet.atlas"));
+        animationLeft = new Animation(1/6f, textureAtlasLeft.getRegions());
+
         sprite = new Sprite(texture);
         this.spriteBatch = spriteBatch;
         this.cameraManager = cameraManager;
+
+        Gdx.input.setInputProcessor(new InputListener(this));
     }
 
     @Override
     public void update(float deltaTime) {
         //Update players location
         if(Keys.keyPressed(Keys.JUMP)) {
-            body.applyForceToCenter(0, jumpForce, true);
+            if(onGround) {
+                body.setLinearVelocity(body.getLinearVelocity().x, jumpVelocity);
+            }
+            else if(canDoubleJump) {
+                canDoubleJump = false;
+
+                float currentYVelocity = body.getLinearVelocity().y;
+
+                System.out.println("currentYVelocity = " + currentYVelocity);
+
+                body.setLinearVelocity(body.getLinearVelocity().x, doubleJumpVelocity);
+            }
         }
         if(Keys.keyDown(Keys.LEFT)) {
-            if(body.getLinearVelocity().x > -10)
+            if(body.getLinearVelocity().x > -maxVelocity)
             body.applyForceToCenter(-moveForce, 0, true);
+
         }
         if(Keys.keyDown(Keys.RIGHT)) {
-            if(body.getLinearVelocity().x < 10)
+            if(body.getLinearVelocity().x < maxVelocity)
             body.applyForceToCenter(moveForce, 0, true);
         }
 
@@ -66,13 +87,8 @@ public class Player extends Entity {
             body.setLinearVelocity(0, body.getLinearVelocity().y);
         }
 
-
-
         float x = (body.getPosition().x / Level.METERS_PER_PIXEL) - sprite.getWidth()/2;
         float y = (body.getPosition().y / Level.METERS_PER_PIXEL) - sprite.getHeight()/2;
-
-        System.out.println("x: " + x);
-        System.out.println("y: " + y);
 
         sprite.setPosition(x, y);
 
@@ -83,7 +99,13 @@ public class Player extends Entity {
     @Override
     public void draw() {
         //spriteBatch.begin();
-        spriteBatch.draw(sprite, sprite.getX(), sprite.getY());
+        elapsedTime += Gdx.graphics.getDeltaTime();
+        if(Keys.keyDown(Keys.RIGHT))
+            spriteBatch.draw(animationRight.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
+        else if(Keys.keyDown(Keys.LEFT))
+            spriteBatch.draw(animationLeft.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
+        else
+            spriteBatch.draw(sprite, sprite.getX(), sprite.getY());
         //spriteBatch.end();
     }
 
@@ -98,5 +120,44 @@ public class Player extends Entity {
     public void setBody(Body body)
     {
         this.body = body;
+    }
+
+    //contact handling
+
+    @Override
+    public void beginContact(Contact contact) {
+        if((contact.getFixtureA().getFilterData().categoryBits &
+                contact.getFixtureB().getFilterData().maskBits) != 0) {
+            onGround = true;
+            canDoubleJump = true;
+
+            System.out.println("category of B: " + contact.getFixtureB().getFilterData().categoryBits);
+            System.out.println("ground maks: " + ICollisionMask.GROUND);
+        }
+    }
+
+    @Override
+    public void endContact(Contact contact) {
+        if((contact.getFixtureA().getFilterData().categoryBits &
+                contact.getFixtureB().getFilterData().maskBits) != 0) {
+            onGround = false;
+
+            System.out.println("category of A: " + contact.getFixtureA().getFilterData().categoryBits);
+            System.out.println("category of B: " + contact.getFixtureB().getFilterData().categoryBits);
+            System.out.println("A mask: " + contact.getFixtureA().getFilterData().maskBits);
+            System.out.println("B mask: " + contact.getFixtureB().getFilterData().maskBits);
+            System.out.println("ground maks: " + ICollisionMask.GROUND);
+            System.out.println("player mask: " + ICollisionMask.PLAYER);
+        }
+    }
+
+    @Override
+    public void preSolve(Contact contact, Manifold oldManifold) {
+
+    }
+
+    @Override
+    public void postSolve(Contact contact, ContactImpulse impulse) {
+
     }
 }

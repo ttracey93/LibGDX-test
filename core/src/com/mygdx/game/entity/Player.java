@@ -32,6 +32,7 @@ public class Player extends Entity {
     private Body body;
     private float jumpForce = 300f;
     private float doubleJumpForce = 500f;
+    private float moveForce = 300f;
 
     public Player(SpriteBatch spriteBatch)
     {
@@ -48,12 +49,22 @@ public class Player extends Entity {
         if(Keys.keyPressed(Keys.JUMP)) {
             body.applyForceToCenter(0, jumpForce, true);
         }
+        if(Keys.keyDown(Keys.LEFT))
+        {
+            if(body.getLinearVelocity().x > -6)
+                body.applyForceToCenter(-moveForce, 0, true);
+        }
+        if(Keys.keyDown(Keys.RIGHT))
+        {
+            if(body.getLinearVelocity().x < 6)
+            body.applyForceToCenter(moveForce, 0, true);
+        }
 
         float x = (body.getPosition().x / Level.METERS_PER_PIXEL) - sprite.getWidth()/2;
         float y = (body.getPosition().y / Level.METERS_PER_PIXEL) - sprite.getHeight()/2;
 
-        System.out.println("x: " + x);
-        System.out.println("y: " + y);
+        //System.out.println("x: " + x);
+        //System.out.println("y: " + y);
 
         sprite.setPosition(x, y);
     }

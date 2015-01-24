@@ -61,6 +61,13 @@ public class Player extends Entity {
             body.applyForceToCenter(moveForce, 0, true);
         }
 
+        if(Keys.keyReleased(Keys.LEFT) || Keys.keyReleased(Keys.RIGHT))
+        {
+            body.setLinearVelocity(0, body.getLinearVelocity().y);
+        }
+
+
+
         float x = (body.getPosition().x / Level.METERS_PER_PIXEL) - sprite.getWidth()/2;
         float y = (body.getPosition().y / Level.METERS_PER_PIXEL) - sprite.getHeight()/2;
 

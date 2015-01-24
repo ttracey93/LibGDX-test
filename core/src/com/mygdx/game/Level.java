@@ -80,6 +80,7 @@ public class Level {
                     bd.type = BodyDef.BodyType.StaticBody;
                     Body body = world.createBody(bd);
                     body.createFixture(shape, 1);
+                    body.getFixtureList().first().setFriction(0);
 
                 }
                 else

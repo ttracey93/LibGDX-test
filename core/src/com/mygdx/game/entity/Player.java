@@ -6,15 +6,18 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.Level;
+import com.mygdx.game.collision.ICollisionMask;
 import com.mygdx.game.entity.playerutils.Keys;
+import com.mygdx.game.listeners.InputListener;
 import com.mygdx.game.manager.CameraManager;
 
 /**
  * Created by Dubforce on 1/21/2015.
  */
-public class Player extends Entity {
+public class Player extends Entity implements ContactListener {
     enum STATE{standing, walkingLeft, walkingRight}
     Sprite sprite;
     SpriteBatch spriteBatch;
@@ -26,8 +29,15 @@ public class Player extends Entity {
     private Body body;
     private float jumpForce = 300f;
     private float doubleJumpForce = 500f;
+    private float jumpVelocity = 12f;
+    private float doubleJumpVelocity = 17f;
     private CameraManager cameraManager;
-    private float moveForce = 300f;
+    private float moveForce = 100f;
+    private float maxVelocity = 10f;
+
+    private boolean ignoreGravity = false;
+    private boolean onGround = true;
+    private boolean canDoubleJump = true;
 
     public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
     {
@@ -39,25 +49,36 @@ public class Player extends Entity {
         textureAtlasLeft = new TextureAtlas(Gdx.files.internal("Base/Player/morton/left/spritesheet.atlas"));
         animationLeft = new Animation(1/6f, textureAtlasLeft.getRegions());
 
-
         sprite = new Sprite(texture);
         this.spriteBatch = spriteBatch;
         this.cameraManager = cameraManager;
+
+        Gdx.input.setInputProcessor(new InputListener(this));
     }
 
     @Override
     public void update(float deltaTime) {
+        if(ignoreGravity) {
+            body.setLinearVelocity(body.getLinearVelocity().x, 0);
+        }
+
         //Update players location
         if(Keys.keyPressed(Keys.JUMP)) {
-            body.applyForceToCenter(0, jumpForce, true);
+            if(onGround) {
+                body.setLinearVelocity(body.getLinearVelocity().x, jumpVelocity);
+            }
+            else if(canDoubleJump) {
+                canDoubleJump = false;
+                body.setLinearVelocity(body.getLinearVelocity().x, doubleJumpVelocity);
+            }
         }
         if(Keys.keyDown(Keys.LEFT)) {
-            if(body.getLinearVelocity().x > -10)
+            if(body.getLinearVelocity().x > -maxVelocity)
             body.applyForceToCenter(-moveForce, 0, true);
 
         }
         if(Keys.keyDown(Keys.RIGHT)) {
-            if(body.getLinearVelocity().x < 10)
+            if(body.getLinearVelocity().x < maxVelocity)
             body.applyForceToCenter(moveForce, 0, true);
         }
 
@@ -66,13 +87,8 @@ public class Player extends Entity {
             body.setLinearVelocity(0, body.getLinearVelocity().y);
         }
 
-
-
         float x = (body.getPosition().x / Level.METERS_PER_PIXEL) - sprite.getWidth()/2;
         float y = (body.getPosition().y / Level.METERS_PER_PIXEL) - sprite.getHeight()/2;
-
-        System.out.println("x: " + x);
-        System.out.println("y: " + y);
 
         sprite.setPosition(x, y);
 
@@ -104,5 +120,81 @@ public class Player extends Entity {
     public void setBody(Body body)
     {
         this.body = body;
+    }
+
+    //contact handling
+
+    @Override
+    public void beginContact(Contact contact) {
+
+        System.out.println("player ocllision mask: " + ICollisionMask.PLAYER);
+        System.out.println("ground collision mask: " + ICollisionMask.GROUND);
+        System.out.println("A collision set: " + contact.getFixtureA().getFilterData().categoryBits);
+        System.out.println("B collision set: " + contact.getFixtureB().getFilterData().categoryBits);
+
+        Fixture playerFixture = null;
+        Fixture opposingFixture = null;
+
+        if(contact.getFixtureA().getFilterData().categoryBits == ICollisionMask.PLAYER) {
+            System.out.println("A is a player");
+
+            playerFixture = contact.getFixtureA();
+            opposingFixture = contact.getFixtureB();
+        }
+        else if(contact.getFixtureB().getFilterData().categoryBits == ICollisionMask.PLAYER) {
+            System.out.println("B is a player");
+
+            playerFixture = contact.getFixtureB();
+            opposingFixture = contact.getFixtureA();
+        }
+
+        if(playerFixture != null) {
+            System.out.println("player fixture is not null");
+
+            if (opposingFixture.getFilterData().categoryBits == ICollisionMask.GROUND) {
+                System.out.println("opposing force is ground");
+
+                onGround = true;
+                canDoubleJump = true;
+            }
+        }
+    }
+
+    @Override
+    public void endContact(Contact contact) {
+        Fixture playerFixture = null;
+        Fixture opposingFixture = null;
+
+        if(contact.getFixtureA().getFilterData().categoryBits == ICollisionMask.PLAYER) {
+            System.out.println("A is a player");
+
+            playerFixture = contact.getFixtureA();
+            opposingFixture = contact.getFixtureB();
+        }
+        else if(contact.getFixtureB().getFilterData().categoryBits == ICollisionMask.PLAYER) {
+            System.out.println("B is a player");
+
+            playerFixture = contact.getFixtureB();
+            opposingFixture = contact.getFixtureA();
+        }
+
+        if(playerFixture != null) {
+            System.out.println("player fixture is not null");
+
+            if (opposingFixture.getFilterData().categoryBits == ICollisionMask.GROUND) {
+                System.out.println("opposing force is ground");
+                onGround = false;
+            }
+        }
+    }
+
+    @Override
+    public void preSolve(Contact contact, Manifold oldManifold) {
+
+    }
+
+    @Override
+    public void postSolve(Contact contact, ContactImpulse impulse) {
+
     }
 }

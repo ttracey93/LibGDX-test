@@ -1,5 +1,6 @@
 package com.mygdx.game.manager;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -18,6 +19,8 @@ public class CameraManager {
     private static Integer mapHeight;
     private static Integer worldWidth;
     private static Integer worldHeight;
+
+    private static Integer viewBoundsOffset = 100;
 
     public CameraManager(OrthographicCamera camera, OrthogonalTiledMapRenderer renderer) {
         this.camera = camera;
@@ -46,6 +49,8 @@ public class CameraManager {
         camera.update();
 
         renderer.setView(camera);
+        renderer.getViewBounds().setWidth(Gdx.graphics.getWidth());
+        renderer.getViewBounds().setHeight(Gdx.graphics.getHeight());
     }
 
     public OrthographicCamera getCamera() {
@@ -70,8 +75,6 @@ public class CameraManager {
         mapWidth = properties.get("width", Integer.class);
         mapHeight = properties.get("height", Integer.class);
 
-        System.out.println("tilePixelWidth: " + tilePixelWidth);
-        System.out.println("mapWidth = " + mapWidth);
         worldWidth = tilePixelWidth * mapWidth;
         worldHeight = tilePixelHeight * mapHeight;
     }

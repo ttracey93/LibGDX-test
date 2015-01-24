@@ -44,11 +44,6 @@ public class Audio {
 
 
         float backgroundTime = background.getPosition();
-
-        if(loopTime >= 3){
-            loopTime = 0;
-            background.setPosition(0);
-        }
     }
 
     public static void getPlayer(Player thisPlayer){

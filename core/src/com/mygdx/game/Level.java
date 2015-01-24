@@ -117,7 +117,6 @@ public class Level {
             entity.update(deltaTime);
         }
         audio.update(deltaTime);
-
     }
 
     public void draw()

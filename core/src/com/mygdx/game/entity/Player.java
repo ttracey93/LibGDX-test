@@ -52,8 +52,6 @@ public class Player extends Entity {
             body.applyForceToCenter(0, jumpForce, true);
         }
 
-
-
         float x = (body.getPosition().x / Level.METERS_PER_PIXEL) - sprite.getWidth()/2;
         float y = (body.getPosition().y / Level.METERS_PER_PIXEL) - sprite.getHeight()/2;
 
@@ -68,11 +66,9 @@ public class Player extends Entity {
 
     @Override
     public void draw() {
-        spriteBatch.begin();
-
+        //spriteBatch.begin();
         spriteBatch.draw(sprite, sprite.getX(), sprite.getY());
-
-        spriteBatch.end();
+        //spriteBatch.end();
     }
 
     public Sprite getSprite() {

@@ -26,15 +26,20 @@ public class CameraManager {
     }
 
     public void updateCamera(float x, float y) {
-        x = x < 0 ? 0 : x;
-        y = y < 0 ? 0 : y;
-
-        if(x > worldWidth - camera.viewportWidth) {
-            x = worldWidth - camera.viewportWidth;
+        if(x < camera.viewportWidth / 2) {
+            x = camera.viewportWidth / 2;
         }
 
-        if(y > worldHeight - camera.viewportHeight) {
-            y = worldHeight - camera.viewportHeight;
+        if(y < camera.viewportHeight / 2) {
+            y = camera.viewportHeight / 2;
+        }
+
+        if(x > worldWidth - camera.viewportWidth / 2) {
+            x = worldWidth - camera.viewportWidth / 2;
+        }
+
+        if(y > worldHeight - camera.viewportHeight / 2) {
+            y = worldHeight - camera.viewportHeight / 2;
         }
 
         System.out.println("final x,y : " + x + ", " + y);

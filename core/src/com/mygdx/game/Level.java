@@ -17,6 +17,7 @@ import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.listeners.InputListener;
+import com.mygdx.game.manager.CameraManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class Level {
     private OrthographicCamera camera;
     private OrthographicCamera box2DCamera;
     private SpriteBatch spriteBatch;
+    private CameraManager cameraManager;
     //private Box2DDebugRenderer debugRenderer;
 
     Player player;
@@ -56,6 +58,8 @@ public class Level {
         renderer.setView(camera);
         camera.update();
         spriteBatch = new SpriteBatch();
+
+        cameraManager = new CameraManager(camera, renderer);
 
         entities = new ArrayList<Entity>();
 
@@ -113,9 +117,13 @@ public class Level {
     {
         renderer.render();
 
+        renderer.getBatch().begin();
+
         for(Entity entity : entities) {
             entity.draw();
         }
+
+        renderer.getBatch().end();
 
 //        debugRenderer.render(world, box2DCamera.combined);
     }
@@ -154,7 +162,7 @@ public class Level {
 
     public void initializePlayer()
     {
-        player = new Player(spriteBatch);
+        player = new Player((SpriteBatch)renderer.getBatch(), cameraManager);
 
         BodyDef playerBodyDef = new BodyDef();
         playerBodyDef.type = BodyDef.BodyType.DynamicBody;

@@ -42,8 +42,6 @@ public class CameraManager {
             y = worldHeight - camera.viewportHeight / 2;
         }
 
-        System.out.println("final x,y : " + x + ", " + y);
-
         camera.position.set(new Vector2(x, y), 0.0f);
         camera.update();
 

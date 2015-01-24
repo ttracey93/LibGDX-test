@@ -37,7 +37,6 @@ public class Level {
     private SpriteBatch spriteBatch;
     private CameraManager cameraManager;
     //private Box2DDebugRenderer debugRenderer;
-
     Player player;
 
     //physics

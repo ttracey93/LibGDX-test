@@ -8,4 +8,5 @@ public interface ILevelName {
     public static final String TEST2 = "../Maps/map2.tmx";
     public static final String JUMPHEIGHT = "../Maps/jumpHeight.tmx";
     public static final String HUBWORLD = "../Maps/hubworld.tmx";
+    public static final String WORLD1 = "../Maps/world1.tmx";
 }

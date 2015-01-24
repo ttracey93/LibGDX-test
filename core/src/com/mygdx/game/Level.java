@@ -48,11 +48,12 @@ public class Level {
     public Level(String fileName) {
         TiledMap map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
+
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         box2DCamera = new OrthographicCamera();
-        box2DCamera.setToOrtho(false, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
+        box2DCamera.setToOrtho(true, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
 
         renderer.setView(camera);
         camera.update();

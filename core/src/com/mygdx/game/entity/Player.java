@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.Level;
 import com.mygdx.game.collision.ICollisionMask;
@@ -34,9 +35,9 @@ public class Player extends Entity implements ContactListener {
     private float moveForce = 100f;
     private float maxVelocity = 10f;
 
+    private boolean ignoreGravity = false;
     private boolean onGround = true;
     private boolean canDoubleJump = true;
-
 
     public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
     {
@@ -57,6 +58,10 @@ public class Player extends Entity implements ContactListener {
 
     @Override
     public void update(float deltaTime) {
+        if(ignoreGravity) {
+            body.setLinearVelocity(body.getLinearVelocity().x, 0);
+        }
+
         //Update players location
         if(Keys.keyPressed(Keys.JUMP)) {
             if(onGround) {
@@ -64,11 +69,6 @@ public class Player extends Entity implements ContactListener {
             }
             else if(canDoubleJump) {
                 canDoubleJump = false;
-
-                float currentYVelocity = body.getLinearVelocity().y;
-
-                System.out.println("currentYVelocity = " + currentYVelocity);
-
                 body.setLinearVelocity(body.getLinearVelocity().x, doubleJumpVelocity);
             }
         }
@@ -128,11 +128,17 @@ public class Player extends Entity implements ContactListener {
     public void beginContact(Contact contact) {
         if((contact.getFixtureA().getFilterData().categoryBits &
                 contact.getFixtureB().getFilterData().maskBits) != 0) {
-            onGround = true;
-            canDoubleJump = true;
+            Vector2 normalVector = contact.getWorldManifold().getNormal();
 
-            System.out.println("category of B: " + contact.getFixtureB().getFilterData().categoryBits);
-            System.out.println("ground maks: " + ICollisionMask.GROUND);
+            if(normalVector.y > 0) {
+                System.out.println("on ground");
+                onGround = true;
+                canDoubleJump = true;
+            }
+
+            if(normalVector.x != 0) {
+                canDoubleJump = true;
+            }
         }
     }
 
@@ -141,13 +147,6 @@ public class Player extends Entity implements ContactListener {
         if((contact.getFixtureA().getFilterData().categoryBits &
                 contact.getFixtureB().getFilterData().maskBits) != 0) {
             onGround = false;
-
-            System.out.println("category of A: " + contact.getFixtureA().getFilterData().categoryBits);
-            System.out.println("category of B: " + contact.getFixtureB().getFilterData().categoryBits);
-            System.out.println("A mask: " + contact.getFixtureA().getFilterData().maskBits);
-            System.out.println("B mask: " + contact.getFixtureB().getFilterData().maskBits);
-            System.out.println("ground maks: " + ICollisionMask.GROUND);
-            System.out.println("player mask: " + ICollisionMask.PLAYER);
         }
     }
 

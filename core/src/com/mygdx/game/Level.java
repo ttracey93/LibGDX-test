@@ -71,7 +71,7 @@ public class Level {
 
     public Level(String fileName) {
         currentLevel = fileName;
-        audio = new Audio();
+        audio = new Audio(fileName);
         map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
 

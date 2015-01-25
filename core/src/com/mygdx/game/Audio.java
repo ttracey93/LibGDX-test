@@ -19,13 +19,28 @@ public class Audio {
     public int dicks = 0;
     //public static Player player;
 
-    public Audio(){
-        String backgroundPath = "Audio/loopingDemo.wav";
-        helloSound = Gdx.audio.newSound(Gdx.files.internal(backgroundPath)); //31.49517
-        jumpEffect = Gdx.audio.newSound(Gdx.files.internal("Audio/smb_jump-small.wav"));
-        background = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
-        backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/loopingDemo.wav"));
+    public Audio(String filename){
+
+        jumpEffect = Gdx.audio.newSound(Gdx.files.internal("Audio/jumpOGGtest.ogg"));
+
+        if(filename == "../Maps/hubworld.tmx") {
+            String backgroundPath = "Audio/homeThemeLoopOGG.ogg";
+            background = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
+            backgroundloop = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
+        }
+        else if (filename == "../Maps/world4.tmx")
+        {
+            String backgroundPath = "Audio/fantasyForest1_Loop2OGG.ogg";
+            background = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
+            backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/fantasyForest1_Loop2OGG.ogg"));
+        }else{
+            String backgroundPath = "Audio/tempForest2_LoopOGG.ogg";
+            background = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
+            backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/tempForest2_LoopOGG.ogg"));
+        }
     }
+
+
 
     public static void playMusic(){
         background.play();
@@ -53,5 +68,12 @@ public class Audio {
     public static void getPlayer(Player thisPlayer){
         //helloSound.play(1.0f);
         player = thisPlayer;
+    }
+
+    public void stopMusic(){
+        background.stop();
+        background.dispose();
+        backgroundloop.stop();
+        backgroundloop.dispose();
     }
 }

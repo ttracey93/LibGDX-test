@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.*;
+import com.badlogic.gdx.maps.objects.PolylineMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -41,6 +42,7 @@ public class Level {
     //physics
     private World world;
     TiledMap map;
+    TiledMap backgroundLayers;
 
     //entities
     private List<Entity> entities;
@@ -67,11 +69,25 @@ public class Level {
         camera.update();
         spriteBatch = new SpriteBatch();
 
+        //Set up backgroundMap
+        TiledMapTileLayer background = (TiledMapTileLayer) map.getLayers().get("background");
+        TiledMapTileLayer middleground1 = (TiledMapTileLayer) map.getLayers().get("middleground1");
+        TiledMapTileLayer middleground = (TiledMapTileLayer) map.getLayers().get("middleground");
+        TiledMapTileLayer middleground2 = (TiledMapTileLayer) map.getLayers().get("middleground2");
+
+        backgroundLayers = new TiledMap();
+        backgroundLayers.getLayers().add(background);
+        backgroundLayers.getLayers().add(middleground1);
+        backgroundLayers.getLayers().add(middleground);
+        backgroundLayers.getLayers().add(middleground2);
+
+
+
         cameraManager = new CameraManager(camera, renderer);
 
         entities = new ArrayList<Entity>();
 
-        world = new World(new Vector2(0,-50f), true);
+        world = new World(new Vector2(0,-50f), false);
 
         //Create physics bodies for the ground.
         try {
@@ -107,6 +123,34 @@ public class Level {
 
                 //entities.add(body);
             }
+
+            try {
+                //Create physics bodies for death objects.
+                MapObjects death = map.getLayers().get("death").getObjects();
+
+
+                for (MapObject object : death) {
+                    if (object instanceof RectangleMapObject) {
+                        Shape shape;
+                        shape = getRectangle((RectangleMapObject) object);
+
+                        BodyDef bd = new BodyDef();
+                        bd.type = BodyDef.BodyType.StaticBody;
+
+                        Body body = world.createBody(bd);
+
+                        FixtureDef fixtureDef = new FixtureDef();
+                        fixtureDef.shape = shape;
+                        fixtureDef.filter.categoryBits = ICollisionMask.ENEMY;
+                        fixtureDef.filter.maskBits = ICollisionMask.PLAYER | ICollisionMask.ENEMY;
+
+                        body.createFixture(fixtureDef);
+
+                        body.getFixtureList().first().setFriction(0);
+                    } else
+                        continue;
+                }
+            }catch(Exception e){}
 
 
             doors = map.getLayers().get("teleport").getObjects();
@@ -158,7 +202,7 @@ public class Level {
     {
         camera.update();
 
-        world.step(deltaTime,6,2);
+        world.step(deltaTime,1,1);
 
         //Update other entities
         for(Entity entity : entities) {
@@ -176,21 +220,17 @@ public class Level {
 
     public void draw()
     {
+        renderer.setMap(backgroundLayers);
+        renderer.render();
+        renderer.setMap(map);
+
         renderer.render();
 
         renderer.getBatch().begin();
-        if(map!= null) {
-            TiledMapTileLayer background = (TiledMapTileLayer) map.getLayers().get("background");
-            TiledMapTileLayer middleground1 = (TiledMapTileLayer) map.getLayers().get("middleground1");
-            TiledMapTileLayer middleground = (TiledMapTileLayer) map.getLayers().get("middleground");
-            TiledMapTileLayer middleground2 = (TiledMapTileLayer) map.getLayers().get("middleground2");
+        if (map != null) {
+
             TiledMapTileLayer foreground = (TiledMapTileLayer) map.getLayers().get("foreground");
 
-
-            renderer.renderTileLayer(background);
-            renderer.renderTileLayer(middleground1);
-            renderer.renderTileLayer(middleground);
-            renderer.renderTileLayer(middleground2);
             for (Entity entity : entities) {
                 entity.draw();
             }
@@ -277,6 +317,21 @@ public class Level {
         //polygon.setAsBox(rectangle.width / PIXELS_PER_METER, rectangle.height / PIXELS_PER_METER);
         //rectangle.setPosition(rectangleObject.getRectangle().x, rectangleObject.getRectangle().y);
         return polygon;
+    }
+
+    private static ChainShape getPolyline(PolylineMapObject polylineObject) {
+        float[] vertices = polylineObject.getPolyline().getTransformedVertices();
+        Vector2[] worldVertices = new Vector2[vertices.length / 2];
+
+        for (int i = 0; i < vertices.length / 2; ++i) {
+            worldVertices[i] = new Vector2();
+            worldVertices[i].x = vertices[i * 2] / PIXELS_PER_METER;
+            worldVertices[i].y = vertices[i * 2 + 1] / PIXELS_PER_METER;
+        }
+
+        ChainShape chain = new ChainShape();
+        chain.createChain(worldVertices);
+        return chain;
     }
 
 

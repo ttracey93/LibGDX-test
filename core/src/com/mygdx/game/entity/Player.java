@@ -63,6 +63,7 @@ public class Player extends Entity implements ContactListener {
 
     @Override
     public void update(float deltaTime) {
+
         if(ignoreGravity) {
             body.setLinearVelocity(body.getLinearVelocity().x, 0);
         }
@@ -157,6 +158,7 @@ public class Player extends Entity implements ContactListener {
             }
         }
 
+        Vector2 normalVector = contact.getWorldManifold().getNormal();
 
         if(playerFixture != null) {
             System.out.println("player fixture is not null");
@@ -164,13 +166,15 @@ public class Player extends Entity implements ContactListener {
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.GROUND) {
                 System.out.println("opposing force is ground");
 
-                onGround = true;
-                canDoubleJump = true;
+                if(normalVector.y > 0) {
+                    onGround = true;
+                    canDoubleJump = true;
+                }
             }
 
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
-                System.out.print("hitting door");
                 onDoor = true;
+                levelToLoad = opposingFixture.getUserData().toString();
             }
         }
     }
@@ -200,9 +204,9 @@ public class Player extends Entity implements ContactListener {
                 System.out.println("opposing force is ground");
                 onGround = false;
             }
-            if (opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
+
+            if(opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
                 onDoor = false;
-                levelToLoad = opposingFixture.getUserData().toString();
             }
         }
     }

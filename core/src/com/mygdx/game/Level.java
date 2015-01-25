@@ -188,7 +188,6 @@ public class Level {
         TiledMapTileLayer middleground2 = (TiledMapTileLayer)map.getLayers().get("middleground2");
         TiledMapTileLayer foreground = (TiledMapTileLayer)map.getLayers().get("foreground");
 
-
         renderer.renderTileLayer(background);
         renderer.renderTileLayer(middleground1);
         renderer.renderTileLayer(middleground);

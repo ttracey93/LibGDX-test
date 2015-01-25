@@ -30,6 +30,12 @@ public class InputListener extends InputAdapter {
             case Input.Keys.UP:
                 Keys.setKeyState(Keys.UP, true);
                 break;
+            case Input.Keys.ESCAPE:
+                Keys.setKeyState(Keys.MENU, true);
+
+                System.out.println("escape true");
+
+                break;
             default:
                 break;
         }
@@ -51,6 +57,12 @@ public class InputListener extends InputAdapter {
                 break;
             case Input.Keys.UP:
                 Keys.setKeyState(Keys.UP, false);
+                break;
+            case Input.Keys.ESCAPE:
+                Keys.setKeyState(Keys.MENU, false);
+
+                System.out.println("escape false");
+
                 break;
             default:
                 break;

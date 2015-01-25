@@ -19,12 +19,12 @@ public class Audio {
     public int dicks = 0;
     //public static Player player;
 
-    public Audio(){
-        String backgroundPath = "Audio/loopingDemo.wav";
-        helloSound = Gdx.audio.newSound(Gdx.files.internal(backgroundPath)); //31.49517
+    public Audio(String filename){
+        String backgroundPath = "Audio/homeTheme_full.wav";
+        helloSound = Gdx.audio.newSound(Gdx.files.internal(backgroundPath)); //64
         jumpEffect = Gdx.audio.newSound(Gdx.files.internal("Audio/smb_jump-small.wav"));
         background = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
-        backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/loopingDemo.wav"));
+        backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/homeTheme_shortBuild.wav"));
     }
 
     public static void playMusic(){
@@ -53,5 +53,12 @@ public class Audio {
     public static void getPlayer(Player thisPlayer){
         //helloSound.play(1.0f);
         player = thisPlayer;
+    }
+
+    public void stopMusic(){
+        background.stop();
+        background.dispose();
+        backgroundloop.stop();
+        backgroundloop.dispose();
     }
 }

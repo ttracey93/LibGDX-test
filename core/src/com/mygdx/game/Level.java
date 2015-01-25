@@ -53,7 +53,7 @@ public class Level {
     public Audio audio;
 
     public Level(String fileName) {
-        audio = new Audio();
+        audio = new Audio(fileName);
         map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
 

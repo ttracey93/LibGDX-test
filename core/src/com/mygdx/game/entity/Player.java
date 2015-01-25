@@ -34,6 +34,7 @@ public class Player extends Entity implements ContactListener {
     private CameraManager cameraManager;
     private float moveForce = 100f;
     private float maxVelocity = 10f;
+    private float x, y;
 
     private boolean ignoreGravity = false;
     private boolean onGround = true;
@@ -87,13 +88,8 @@ public class Player extends Entity implements ContactListener {
             body.setLinearVelocity(0, body.getLinearVelocity().y);
         }
 
-        float x = (body.getPosition().x / Level.METERS_PER_PIXEL) - sprite.getWidth()/2;
-        float y = (body.getPosition().y / Level.METERS_PER_PIXEL) - sprite.getHeight()/2;
-
-        sprite.setPosition(x, y);
-
-        //update cameras location
-        cameraManager.updateCamera(x, y);
+        x = (body.getPosition().x / Level.METERS_PER_PIXEL) - sprite.getWidth()/2;
+        y = (body.getPosition().y / Level.METERS_PER_PIXEL) - sprite.getHeight()/2;
     }
 
     @Override
@@ -106,6 +102,11 @@ public class Player extends Entity implements ContactListener {
             spriteBatch.draw(animationLeft.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
         else
             spriteBatch.draw(sprite, sprite.getX(), sprite.getY());
+
+        sprite.setPosition(x, y);
+
+        //update cameras location
+        cameraManager.updateCamera(x, y);
         //spriteBatch.end();
     }
 

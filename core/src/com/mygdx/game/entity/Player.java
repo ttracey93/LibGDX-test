@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.mygdx.game.ILevelName;
 import com.mygdx.game.Level;
 import com.mygdx.game.collision.ICollisionMask;
 import com.mygdx.game.entity.playerutils.Keys;
@@ -174,7 +175,18 @@ public class Player extends Entity implements ContactListener {
 
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
                 onDoor = true;
-                levelToLoad = opposingFixture.getUserData().toString();
+
+                try {
+                    levelToLoad = opposingFixture.getUserData().toString();
+                }
+                catch(Exception e) {
+                    levelToLoad = ILevelName.HUBWORLD;
+                }
+            }
+
+            if(opposingFixture.getFilterData().categoryBits == ICollisionMask.ITEM) {
+                canDoubleJump = true;
+                body.getWorld().destroyBody(opposingFixture.getBody());
             }
         }
     }

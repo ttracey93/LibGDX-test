@@ -10,4 +10,5 @@ public interface ICollisionMask {
     public static final short ROOF = 0x0008;
     public static final short ENEMY = 0x0016;
     public static final short DOOR = 0x0032;
+    public static final short ITEM = 0x0064;
 }

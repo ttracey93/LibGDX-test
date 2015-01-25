@@ -13,10 +13,9 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
+import com.mygdx.game.collision.ICollisionMask;
 import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
-import com.mygdx.game.entity.playerutils.Keys;
-import com.mygdx.game.listeners.InputListener;
 import com.mygdx.game.manager.CameraManager;
 
 import java.util.ArrayList;
@@ -34,10 +33,7 @@ public class Level {
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
     private OrthographicCamera box2DCamera;
-    private SpriteBatch spriteBatch;
     private CameraManager cameraManager;
-    //private Box2DDebugRenderer debugRenderer;
-    Player player;
 
     //physics
     private World world;
@@ -48,15 +44,18 @@ public class Level {
     public Level(String fileName) {
         TiledMap map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
+
+        //renderer = new OrthogonalTiledMapRenderer(map,2f,spriteBatch);
+
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         box2DCamera = new OrthographicCamera();
-        box2DCamera.setToOrtho(false, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
+        box2DCamera.setToOrtho(true, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
 
-        renderer.setView(camera);
-        camera.update();
-        spriteBatch = new SpriteBatch();
+        renderer.setMap(map);
+        //renderer.setView(camera);
+        //camera.update();
 
         cameraManager = new CameraManager(camera, renderer);
 
@@ -71,16 +70,23 @@ public class Level {
 
             for(MapObject object : ground)
             {
-
                 if (object instanceof RectangleMapObject) {
                     Shape shape;
                     shape = getRectangle((RectangleMapObject)object);
+
                     BodyDef bd = new BodyDef();
                     bd.type = BodyDef.BodyType.StaticBody;
-                    Body body = world.createBody(bd);
-                    body.createFixture(shape, 1);
-                    body.getFixtureList().first().setFriction(0);
 
+                    Body body = world.createBody(bd);
+
+                    FixtureDef fixtureDef = new FixtureDef();
+                    fixtureDef.shape = shape;
+                    fixtureDef.filter.categoryBits = ICollisionMask.GROUND;
+                    fixtureDef.filter.maskBits = ICollisionMask.PLAYER | ICollisionMask.ENEMY;
+
+                    body.createFixture(fixtureDef);
+
+                    body.getFixtureList().first().setFriction(0);
                 }
                 else
                     continue;
@@ -100,7 +106,7 @@ public class Level {
 
     public void update(float deltaTime)
     {
-        camera.update();
+        //camera.update();
 
         world.step(deltaTime,6,2);
 
@@ -141,14 +147,6 @@ public class Level {
         this.camera = camera;
     }
 
-    public SpriteBatch getSpriteBatch() {
-        return spriteBatch;
-    }
-
-    public void setSpriteBatch(SpriteBatch spriteBatch) {
-        this.spriteBatch = spriteBatch;
-    }
-
     public World getWorld() {
         return world;
     }
@@ -159,7 +157,7 @@ public class Level {
 
     public void initializePlayer()
     {
-        player = new Player((SpriteBatch)renderer.getBatch(), cameraManager);
+        Player player = new Player((SpriteBatch)renderer.getBatch(), cameraManager);
 
         BodyDef playerBodyDef = new BodyDef();
         playerBodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -168,10 +166,12 @@ public class Level {
         Body playerBody = world.createBody(playerBodyDef);
 
         PolygonShape playerBox = new PolygonShape();
-        playerBox.setAsBox((player.getSprite().getWidth() / 2)/PIXELS_PER_METER, (player.getSprite().getHeight() /2)/PIXELS_PER_METER);
+        playerBox.setAsBox((player.getSprite().getWidth() / 4)/PIXELS_PER_METER, (player.getSprite().getHeight() /2)/PIXELS_PER_METER);
 
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = playerBox;
+        fixtureDef.filter.categoryBits = ICollisionMask.PLAYER;
+        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL;
 
         playerBody.createFixture(fixtureDef);
         playerBox.dispose();
@@ -192,7 +192,6 @@ public class Level {
                 rectangle.height * 0.5f / PIXELS_PER_METER,
                 size,
                 0.0f);
-
 
         //polygon.setAsBox(rectangle.width / PIXELS_PER_METER, rectangle.height / PIXELS_PER_METER);
         //rectangle.setPosition(rectangleObject.getRectangle().x, rectangleObject.getRectangle().y);

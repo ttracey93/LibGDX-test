@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="189">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="201">
  <tileset firstgid="1" name="tiles32" tilewidth="32" tileheight="32">
   <tile id="0">
    <image width="32" height="32" source="../Platformer/Base/Tiles32/box.png"/>
@@ -68,7 +68,7 @@
  <tileset firstgid="29" name="saltshacker" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/saltshacker.png" width="64" height="128"/>
  </tileset>
- <layer name="background" width="250" height="25">
+ <layer name="background" width="250" height="25" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3DAQkAAAwEoYPv33lBpuCqqaqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqPniuGEgUqGEAAA==
   </data>
@@ -155,6 +155,11 @@
   <object id="184" x="6368" y="322" width="27" height="32"/>
   <object id="187" x="6497" y="162" width="30" height="28"/>
   <object id="188" x="6657" y="159" width="30" height="32"/>
+  <object id="195" x="1090" y="480" width="92" height="63"/>
+  <object id="197" x="1411" y="510" width="124" height="34"/>
+  <object id="198" x="1439" y="545" width="63" height="29"/>
+  <object id="199" x="1952" y="512" width="126" height="30"/>
+  <object id="200" x="1987" y="547" width="59" height="26"/>
  </objectgroup>
  <objectgroup name="teleport">
   <object id="1" x="101" y="225" width="32" height="28">
@@ -198,13 +203,6 @@
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
-  </object>
-  <object id="59" x="1410" y="516" width="124" height="26"/>
-  <object id="60" x="1442" y="548" width="61" height="28"/>
-  <object id="61" x="1088" y="481" width="96" height="60"/>
-  <object id="62" x="1954" y="515" width="127" height="28"/>
-  <object id="63" x="1985" y="548">
-   <polyline points="0,0 0,31 61,31 61,-3"/>
   </object>
   <object id="67" x="1891" y="611.5" width="26" height="27">
    <properties>
@@ -279,15 +277,6 @@
  </objectgroup>
  <objectgroup name="death">
   <object id="21" x="707" y="715" width="7259" height="57"/>
-  <object id="36" x="33" y="448">
-   <polyline points="0,0 286,2 282,42"/>
-  </object>
-  <object id="37" x="356" y="483">
-   <polyline points="0,0 27,1 26,35 57,34"/>
-  </object>
-  <object id="38" x="550" y="610">
-   <polyline points="0,0 23,0 24,32 56,31 57,62 87,67"/>
-  </object>
   <object id="41" x="7681" y="518" width="63" height="23"/>
   <object id="42" x="7618" y="572" width="190" height="32"/>
   <object id="44" x="7844" y="638">
@@ -323,5 +312,11 @@
   <object id="176" x="7011" y="451" width="25" height="58"/>
   <object id="177" x="7138" y="450" width="27" height="60"/>
   <object id="181" x="7266" y="449" width="27" height="60"/>
+  <object id="189" x="35" y="450" width="285" height="28"/>
+  <object id="190" x="355" y="491" width="28" height="32"/>
+  <object id="191" x="386" y="516" width="28" height="30"/>
+  <object id="192" x="548" y="619" width="22" height="31"/>
+  <object id="193" x="579" y="644" width="23" height="38"/>
+  <object id="194" x="608" y="678" width="29" height="26"/>
  </objectgroup>
 </map>

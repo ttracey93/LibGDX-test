@@ -24,13 +24,13 @@ public class Audio {
         jumpEffect = Gdx.audio.newSound(Gdx.files.internal("Audio/jumpOGGtest.ogg"));
 
         if(filename == "../Maps/hubworld.tmx") {
-            String backgroundPath = "Audio/homeTheme_full.wav";
+            String backgroundPath = "Audio/fantasyForest1_Loop2OGG.ogg";
             background = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
-            backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/homeTheme_shortBuild.wav"));
+            backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/fantasyForest1_Loop2OGG.ogg"));
         }else{
-            String backgroundPath = "Audio/loopingDemo.wav";
+            String backgroundPath = "Audio/tempForest2_LoopOGG.ogg";
             background = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
-            backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/loopingDemo.wav"));
+            backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/tempForest2_LoopOGG.ogg"));
         }
     }
 

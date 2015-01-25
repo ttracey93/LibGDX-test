@@ -33,16 +33,19 @@ public class SaltFactory extends ApplicationAdapter {
 
 		if(gameState.getLevel().doorOpen) {
 			if(Player.levelToLoad != null) {
+				gameState.getLevel().audio.stopMusic();
 				startGame(Player.levelToLoad);
 			}
 
 		}
 		if(gameState.getLevel().dead)
 		{
+			gameState.getLevel().audio.stopMusic();
 			startGame(gameState.getLevel().currentLevel);
 		}
 
 		if(Keys.keyDown(Keys.MENU)) {
+			gameState.getLevel().audio.stopMusic();
 			startGame(ILevelName.HUBWORLD);
 		}
 	}

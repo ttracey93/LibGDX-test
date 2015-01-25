@@ -1,7 +1,6 @@
 package com.mygdx.game.entity;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -20,17 +19,13 @@ import com.mygdx.game.manager.CameraManager;
  * Created by Dubforce on 1/21/2015.
  */
 public class Player extends Entity implements ContactListener {
-    enum STATE{standing, walkingLeft, walkingRight}
     Sprite sprite;
     SpriteBatch spriteBatch;
     Texture texture;
-    STATE movementState;
-    private Animation animationRight, animationLeft, animationIdle;
-    private TextureAtlas textureAtlas, textureAtlasLeft, textureAtlasIdle;
+    private Animation animationRight, animationLeft, animationIdleLeft, animationIdleRight, animationJumpRight, animationJumpLeft;
+    private TextureAtlas textureAtlasLeft, textureAtlasIdleLeft, textureAtlasRight, textureAtlasJumpLeft, textureAtlasJumpRight, textureAtlasIdleRight;
     private float elapsedTime = 0;
     private Body body;
-    private float jumpForce = 300f;
-    private float doubleJumpForce = 500f;
     private float jumpVelocity = 12f;
     private float doubleJumpVelocity = 17f;
     private CameraManager cameraManager;
@@ -40,6 +35,7 @@ public class Player extends Entity implements ContactListener {
     Level level;
     public boolean dead = false;
     public boolean jumpSound;
+    boolean facingRight = false;
 
     private boolean ignoreGravity = false;
     private boolean onGround = true;
@@ -54,14 +50,27 @@ public class Player extends Entity implements ContactListener {
         this.level = level;
         texture = new Texture(Gdx.files.internal("Base/Player/morton/idle/idle.png"));
 
-        textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/morton/right/spritesheet.atlas"));
-        animationRight = new Animation(1/6f,textureAtlas.getRegions());
+        textureAtlasRight = new TextureAtlas(Gdx.files.internal("Base/Player/morton/right/spritesheet.atlas"));
+        animationRight = new Animation(1/6f, textureAtlasRight.getRegions());
 
         textureAtlasLeft = new TextureAtlas(Gdx.files.internal("Base/Player/morton/left/spritesheet.atlas"));
         animationLeft = new Animation(1/6f, textureAtlasLeft.getRegions());
 
-        textureAtlasIdle = new TextureAtlas(Gdx.files.internal("Base/Player/morton/idle/spritesheet.atlas"));
-        animationIdle = new Animation(1/2f, textureAtlasIdle.getRegions());
+
+        textureAtlasIdleLeft = new TextureAtlas(Gdx.files.internal("Base/Player/morton/idle/left/spritesheet.atlas"));
+        animationIdleLeft = new Animation(1/2f, textureAtlasIdleLeft.getRegions());
+
+        textureAtlasIdleRight = new TextureAtlas(Gdx.files.internal("Base/Player/morton/idle/spritesheet.atlas"));
+        animationIdleRight = new Animation(1/2f, textureAtlasIdleRight.getRegions());
+
+
+        textureAtlasJumpRight = new TextureAtlas(Gdx.files.internal("Base/Player/morton/jump/spritesheet.atlas"));
+        animationJumpRight = new Animation(1/3f, textureAtlasJumpRight.getRegions());
+
+        textureAtlasJumpLeft = new TextureAtlas(Gdx.files.internal("Base/Player/morton/jump/left/spritesheet.atlas"));
+        animationJumpLeft = new Animation(1/3f, textureAtlasJumpLeft.getRegions());
+
+
 
         sprite = new Sprite(texture);
         this.spriteBatch = spriteBatch;
@@ -94,11 +103,12 @@ public class Player extends Entity implements ContactListener {
         if(Keys.keyDown(Keys.LEFT)) {
             if(body.getLinearVelocity().x > -maxVelocity)
             body.applyForceToCenter(-moveForce, 0, true);
-
+            facingRight = false;
         }
         if(Keys.keyDown(Keys.RIGHT)) {
             if(body.getLinearVelocity().x < maxVelocity)
             body.applyForceToCenter(moveForce, 0, true);
+            facingRight = true;
         }
 
         if(Keys.keyReleased(Keys.LEFT) || Keys.keyReleased(Keys.RIGHT))
@@ -114,13 +124,19 @@ public class Player extends Entity implements ContactListener {
     public void draw() {
         //spriteBatch.begin();
         elapsedTime += Gdx.graphics.getDeltaTime();
-        if(Keys.keyDown(Keys.RIGHT))
+
+        if(!onGround && Keys.keyDown(Keys.LEFT))
+            spriteBatch.draw(animationJumpLeft.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
+        else if(!onGround)
+            spriteBatch.draw(animationJumpRight.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
+        else if(Keys.keyDown(Keys.RIGHT))
             spriteBatch.draw(animationRight.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
         else if(Keys.keyDown(Keys.LEFT))
             spriteBatch.draw(animationLeft.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
+        else if(!facingRight)
+            spriteBatch.draw(animationIdleLeft.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
         else
-            spriteBatch.draw(animationIdle.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
-
+            spriteBatch.draw(animationIdleRight.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
         sprite.setPosition(x, y);
 
         //update cameras location

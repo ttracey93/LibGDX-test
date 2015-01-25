@@ -10,7 +10,7 @@ public class DesktopLauncher {
 
 		//config properties
 		config.height = 768;
-		config.width = 1024;
+		config.width = 992;
 
 		new LwjglApplication(new SaltFactory(), config);
 	}

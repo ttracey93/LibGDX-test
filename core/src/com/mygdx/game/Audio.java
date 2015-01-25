@@ -21,7 +21,7 @@ public class Audio {
 
     public Audio(String filename){
 
-        jumpEffect = Gdx.audio.newSound(Gdx.files.internal("Audio/jumpOGGtest.ogg "));
+        jumpEffect = Gdx.audio.newSound(Gdx.files.internal("Audio/jumpOGGtest.ogg"));
 
         if(filename == "../Maps/hubworld.tmx") {
             String backgroundPath = "Audio/homeTheme_full.wav";

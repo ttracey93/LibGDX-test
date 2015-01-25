@@ -14,6 +14,7 @@ public class PlayerState extends State {
         this.parent = parent;
         level = new Level(levelName);
         level.initializePlayer();
+
     }
 
     public void stop()

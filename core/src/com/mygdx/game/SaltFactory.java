@@ -21,8 +21,7 @@ public class SaltFactory extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		//update/draw level
@@ -36,6 +35,11 @@ public class SaltFactory extends ApplicationAdapter {
 			if(Player.levelToLoad != null) {
 				startGame(Player.levelToLoad);
 			}
+
+		}
+		if(gameState.getLevel().dead)
+		{
+			startGame(gameState.getLevel().currentLevel);
 		}
 
 		if(Keys.keyDown(Keys.MENU)) {

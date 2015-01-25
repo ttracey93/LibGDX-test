@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 
 /**
  * Created by dubforce on 1/23/15.
@@ -13,6 +14,7 @@ import com.badlogic.gdx.math.Vector2;
 public class CameraManager {
     private OrthographicCamera camera;
     private OrthogonalTiledMapRenderer renderer;
+    private OrthographicCamera debugCam;
     private static Integer tilePixelWidth;
     private static Integer tilePixelHeight;
     private static Integer mapWidth;
@@ -22,7 +24,8 @@ public class CameraManager {
 
     private static Integer viewBoundsOffset = 100;
 
-    public CameraManager(OrthographicCamera camera, OrthogonalTiledMapRenderer renderer) {
+    public CameraManager(OrthographicCamera debugCamera,OrthographicCamera camera, OrthogonalTiledMapRenderer renderer) {
+        this.debugCam = debugCamera;
         this.camera = camera;
         this.renderer = renderer;
         initializeMapVariables(renderer.getMap());
@@ -46,6 +49,10 @@ public class CameraManager {
         }
 
         camera.position.set(new Vector2(x, y), 0.0f);
+        debugCam.position.set(new Vector2(x,y), 0.0f);
+
+        debugCam.update();
+
         camera.update();
 
         renderer.setView(camera);

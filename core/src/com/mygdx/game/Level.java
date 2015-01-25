@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.*;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
+import com.badlogic.gdx.maps.objects.PolylineMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -17,11 +19,8 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.collision.ICollisionMask;
 import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
-import com.mygdx.game.entity.items.IItemClass;
-import com.mygdx.game.entity.items.JumpRefresher;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
-import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +32,7 @@ public class Level {
     //scaling factor
     public static float PIXELS_PER_METER = 50;
     public static float METERS_PER_PIXEL = 1/PIXELS_PER_METER;
+    Player player;
 
     //world
     private OrthogonalTiledMapRenderer renderer;
@@ -40,22 +40,34 @@ public class Level {
     private OrthographicCamera box2DCamera;
     private SpriteBatch spriteBatch;
     private CameraManager cameraManager;
+    public String currentLevel;
 
     //physics
     private World world;
     TiledMap map;
+    TiledMap backgroundLayers;
+    Box2DDebugRenderer debugRenderer;
 
     //entities
     private List<Entity> entities;
 
+    public Vector2 getStartLocation() {
+        return startLocation;
+    }
+
+    public void setStartLocation(Vector2 startLocation) {
+        this.startLocation = startLocation;
+    }
+
     //start location
     private Vector2 startLocation;
 
-    public boolean doorOpen = false;
+    public boolean doorOpen = false, dead = false;
     public MapObjects doors;
     public Audio audio;
 
     public Level(String fileName) {
+        currentLevel = fileName;
         audio = new Audio();
         map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
@@ -64,30 +76,54 @@ public class Level {
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         box2DCamera = new OrthographicCamera();
-        box2DCamera.setToOrtho(true, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
+        box2DCamera.setToOrtho(false, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
 
         renderer.setView(camera);
         camera.update();
         spriteBatch = new SpriteBatch();
 
-        cameraManager = new CameraManager(camera, renderer);
+        //Set up backgroundMap
+        TiledMapTileLayer background = (TiledMapTileLayer) map.getLayers().get("background");
+        TiledMapTileLayer middleground1 = (TiledMapTileLayer) map.getLayers().get("middleground1");
+        TiledMapTileLayer middleground = (TiledMapTileLayer) map.getLayers().get("middleground");
+        TiledMapTileLayer middleground2 = (TiledMapTileLayer) map.getLayers().get("middleground2");
+
+        backgroundLayers = new TiledMap();
+        backgroundLayers.getLayers().add(background);
+        backgroundLayers.getLayers().add(middleground1);
+        backgroundLayers.getLayers().add(middleground);
+        backgroundLayers.getLayers().add(middleground2);
+
+
+
+        cameraManager = new CameraManager(box2DCamera, camera, renderer);
 
         entities = new ArrayList<Entity>();
 
         world = new World(new Vector2(0,-50f), true);
 
+        
 
         //Create physics bodies for the ground.
         try {
             MapObjects ground = map.getLayers().get("solid").getObjects();
 
 
-
             for(MapObject object : ground)
             {
+                Shape shape;
                 if (object instanceof RectangleMapObject) {
-                    Shape shape;
+
                     shape = getRectangle((RectangleMapObject)object);
+                }
+                else if (object instanceof PolygonMapObject) {
+                    shape = getPolygon((PolygonMapObject)object);
+                }
+                else if (object instanceof PolylineMapObject) {
+                    shape = getPolyline((PolylineMapObject)object);
+                }
+                else
+                    continue;
 
                     BodyDef bd = new BodyDef();
                     bd.type = BodyDef.BodyType.StaticBody;
@@ -102,9 +138,6 @@ public class Level {
                     body.createFixture(fixtureDef);
 
                     body.getFixtureList().first().setFriction(0);
-                }
-                else
-                    continue;
 
 
                 //bd.position.set(new Vector2(((RectangleMapObject) object).getRectangle().x / PIXELS_PER_METER, ((RectangleMapObject) object).getRectangle().y / PIXELS_PER_METER));
@@ -112,6 +145,35 @@ public class Level {
 
                 //entities.add(body);
             }
+
+            try {
+                //Create physics bodies for death objects.
+                MapObjects death = map.getLayers().get("death").getObjects();
+
+
+                for (MapObject object : death) {
+                    if (object instanceof RectangleMapObject) {
+                        Shape shape;
+                        shape = getRectangle((RectangleMapObject) object);
+
+                        BodyDef bd = new BodyDef();
+                        bd.type = BodyDef.BodyType.StaticBody;
+
+                        Body body = world.createBody(bd);
+
+                        FixtureDef fixtureDef = new FixtureDef();
+                        fixtureDef.shape = shape;
+                        fixtureDef.filter.categoryBits = ICollisionMask.ENEMY;
+                        fixtureDef.filter.maskBits = ICollisionMask.PLAYER | ICollisionMask.ENEMY;
+
+                        body.createFixture(fixtureDef);
+
+                        body.getFixtureList().first().setFriction(0);
+                        shape.dispose();
+                    } else
+                        continue;
+                }
+            }catch(Exception e){}
 
 
             doors = map.getLayers().get("teleport").getObjects();
@@ -141,6 +203,7 @@ public class Level {
                     fixture.setUserData(door.getProperties().get("level"));
 
                     body.getFixtureList().first().setFriction(0);
+                    shape.dispose();
                 }
                 else
                     continue;
@@ -152,20 +215,18 @@ public class Level {
                 //entities.add(body);
             }
 
-            instantiateItems(map.getLayers().get("objects").getObjects(), world);
-
         } catch(Exception e){
             System.out.println(e.toString());
         }
 
-      //  debugRenderer = new Box2DDebugRenderer();
+        debugRenderer = new Box2DDebugRenderer();
     }
 
     public void update(float deltaTime)
     {
         camera.update();
 
-        world.step(deltaTime,6,2);
+        world.step(deltaTime, 1, 1);
 
         //Update other entities
         for(Entity entity : entities) {
@@ -175,6 +236,10 @@ public class Level {
                 if(tempPlayer.onDoor && Keys.keyDown(Keys.UP)){
                     doorOpen = true;
                 }
+                if(tempPlayer.dead)
+                {
+                    dead = true;
+                }
             }
         }
         audio.update(deltaTime);
@@ -183,28 +248,27 @@ public class Level {
 
     public void draw()
     {
+        renderer.setMap(backgroundLayers);
+        renderer.render();
+        renderer.setMap(map);
+
         renderer.render();
 
         renderer.getBatch().begin();
-        TiledMapTileLayer background = (TiledMapTileLayer)map.getLayers().get("background");
-        TiledMapTileLayer middleground1 = (TiledMapTileLayer)map.getLayers().get("middleground1");
-        TiledMapTileLayer middleground = (TiledMapTileLayer)map.getLayers().get("middleground");
-        TiledMapTileLayer middleground2 = (TiledMapTileLayer)map.getLayers().get("middleground2");
-        TiledMapTileLayer foreground = (TiledMapTileLayer)map.getLayers().get("foreground");
+        if (map != null) {
 
-        renderer.renderTileLayer(background);
-        renderer.renderTileLayer(middleground1);
-        renderer.renderTileLayer(middleground);
-        renderer.renderTileLayer(middleground2);
-        for(Entity entity : entities) {
-            entity.draw();
+            TiledMapTileLayer foreground = (TiledMapTileLayer) map.getLayers().get("foreground");
+
+            for (Entity entity : entities) {
+                entity.draw();
+            }
+
+            renderer.renderTileLayer(foreground);
+
         }
-
-        renderer.renderTileLayer(foreground);
         renderer.getBatch().end();
 
-
-        //debugRenderer.render(world, box2DCamera.combined);
+        debugRenderer.render(world, box2DCamera.combined);
     }
 
     public OrthogonalTiledMapRenderer getRenderer() {
@@ -241,7 +305,7 @@ public class Level {
 
     public void initializePlayer()
     {
-        Player player = new Player((SpriteBatch)renderer.getBatch(), cameraManager);
+        player = new Player(this,(SpriteBatch)renderer.getBatch(), cameraManager);
 
         BodyDef playerBodyDef = new BodyDef();
         playerBodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -255,8 +319,7 @@ public class Level {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = playerBox;
         fixtureDef.filter.categoryBits = ICollisionMask.PLAYER;
-        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL |
-                ICollisionMask.ITEM;
+        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL;
 
         playerBody.createFixture(fixtureDef);
         playerBox.dispose();
@@ -269,7 +332,7 @@ public class Level {
         world.setContactListener(player);
     }
 
-    public static PolygonShape getRectangle(RectangleMapObject rectangleObject) {
+    private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {
         Rectangle rectangle = rectangleObject.getRectangle();
         PolygonShape polygon = new PolygonShape();
         Vector2 size = new Vector2((rectangle.x + rectangle.width * 0.5f) / PIXELS_PER_METER,
@@ -284,15 +347,35 @@ public class Level {
         return polygon;
     }
 
-    private void instantiateItems(MapObjects mapObjects, World world) {
-        for(MapObject mapObject : mapObjects) {
-            String classToInstantiate = mapObject.getProperties().get("class").toString();
+    private static ChainShape getPolyline(PolylineMapObject polylineObject) {
+        float[] vertices = polylineObject.getPolyline().getTransformedVertices();
+        Vector2[] worldVertices = new Vector2[vertices.length / 2];
 
-            if(classToInstantiate != null) {
-                if(classToInstantiate.equalsIgnoreCase(IItemClass.JUMP_REFRESHER)) {
-                    entities.add(new JumpRefresher(mapObject, world));
-                }
-            }
+        for (int i = 0; i < vertices.length / 2; ++i) {
+            worldVertices[i] = new Vector2();
+            worldVertices[i].x = vertices[i * 2] / PIXELS_PER_METER;
+            worldVertices[i].y = vertices[i * 2 + 1] / PIXELS_PER_METER;
         }
+
+        ChainShape chain = new ChainShape();
+        chain.createChain(worldVertices);
+        return chain;
     }
+
+    private static PolygonShape getPolygon(PolygonMapObject polygonObject) {
+        PolygonShape polygon = new PolygonShape();
+        float[] vertices = polygonObject.getPolygon().getTransformedVertices();
+
+        float[] worldVertices = new float[vertices.length];
+
+        for (int i = 0; i < vertices.length; ++i) {
+            System.out.println(vertices[i]);
+            worldVertices[i] = vertices[i] / PIXELS_PER_METER;
+        }
+
+        polygon.set(worldVertices);
+        return polygon;
+    }
+
+
 }

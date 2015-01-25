@@ -1,6 +1,7 @@
 package com.mygdx.game.entity;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -24,8 +25,8 @@ public class Player extends Entity implements ContactListener {
     SpriteBatch spriteBatch;
     Texture texture;
     STATE movementState;
-    private Animation animationRight, animationLeft;
-    private TextureAtlas textureAtlas, textureAtlasLeft;
+    private Animation animationRight, animationLeft, animationIdle;
+    private TextureAtlas textureAtlas, textureAtlasLeft, textureAtlasIdle;
     private float elapsedTime = 0;
     private Body body;
     private float jumpForce = 300f;
@@ -36,6 +37,9 @@ public class Player extends Entity implements ContactListener {
     private float moveForce = 100f;
     private float maxVelocity = 10f;
     private float x, y;
+    Level level;
+    public boolean dead = false;
+    public boolean jumpSound;
 
     private boolean ignoreGravity = false;
     private boolean onGround = true;
@@ -45,15 +49,19 @@ public class Player extends Entity implements ContactListener {
     public boolean onDoor = false;
     public static String levelToLoad;
 
-    public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
+    public Player(Level level,SpriteBatch spriteBatch, CameraManager cameraManager)
     {
-        texture = new Texture(Gdx.files.internal("Base/Player/morton/morton_walking1.png"));
+        this.level = level;
+        texture = new Texture(Gdx.files.internal("Base/Player/morton/idle/idle.png"));
 
         textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/morton/right/spritesheet.atlas"));
         animationRight = new Animation(1/6f,textureAtlas.getRegions());
 
         textureAtlasLeft = new TextureAtlas(Gdx.files.internal("Base/Player/morton/left/spritesheet.atlas"));
         animationLeft = new Animation(1/6f, textureAtlasLeft.getRegions());
+
+        textureAtlasIdle = new TextureAtlas(Gdx.files.internal("Base/Player/morton/idle/spritesheet.atlas"));
+        animationIdle = new Animation(1/2f, textureAtlasIdle.getRegions());
 
         sprite = new Sprite(texture);
         this.spriteBatch = spriteBatch;
@@ -64,19 +72,22 @@ public class Player extends Entity implements ContactListener {
 
     @Override
     public void update(float deltaTime) {
-
+        jumpSound = false;
         if(ignoreGravity) {
             body.setLinearVelocity(body.getLinearVelocity().x, 0);
+            jumpSound = true;
         }
 
         //Update players location
         if(Keys.keyPressed(Keys.JUMP)) {
             if(onGround) {
                 body.setLinearVelocity(body.getLinearVelocity().x, jumpVelocity);
+                jumpSound = true;
             }
             else if(canDoubleJump) {
                 canDoubleJump = false;
                 body.setLinearVelocity(body.getLinearVelocity().x, doubleJumpVelocity);
+                jumpSound = true;
             }
         }
         if(Keys.keyDown(Keys.LEFT)) {
@@ -107,7 +118,7 @@ public class Player extends Entity implements ContactListener {
         else if(Keys.keyDown(Keys.LEFT))
             spriteBatch.draw(animationLeft.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
         else
-            spriteBatch.draw(sprite, sprite.getX(), sprite.getY());
+            spriteBatch.draw(animationIdle.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
 
         sprite.setPosition(x, y);
 
@@ -157,6 +168,10 @@ public class Player extends Entity implements ContactListener {
             if(opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
                 System.out.println("collider is a door");
             }
+            if(opposingFixture.getFilterData().categoryBits == ICollisionMask.ENEMY) {
+                System.out.println("You're dead.");
+                reset();
+            }
         }
 
         Vector2 normalVector = contact.getWorldManifold().getNormal();
@@ -187,6 +202,10 @@ public class Player extends Entity implements ContactListener {
             if(opposingFixture.getFilterData().categoryBits == ICollisionMask.ITEM) {
                 canDoubleJump = true;
                 body.getWorld().destroyBody(opposingFixture.getBody());
+            }
+            if(opposingFixture.getFilterData().categoryBits == ICollisionMask.ENEMY) {
+                System.out.println("You're dead.");
+                dead = true;
             }
         }
     }
@@ -221,6 +240,12 @@ public class Player extends Entity implements ContactListener {
                 onDoor = false;
             }
         }
+    }
+
+    public void reset()
+    {
+        //body.setTransform(level.getStartLocation().x, level.getStartLocation().y,0);
+        //level.reload();
     }
 
     @Override

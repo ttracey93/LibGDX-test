@@ -7,7 +7,6 @@ import com.badlogic.gdx.maps.*;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Matrix4;
@@ -34,6 +33,7 @@ public class Level {
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
     private OrthographicCamera box2DCamera;
+    private SpriteBatch spriteBatch;
     private CameraManager cameraManager;
 
     //physics
@@ -43,11 +43,17 @@ public class Level {
     //entities
     private List<Entity> entities;
 
-    public Level(String fileName) {
-        map = new TmxMapLoader().load(fileName);
-        renderer = new OrthogonalTiledMapRenderer(map);
+    //start location
+    private Vector2 startLocation;
 
-        //renderer = new OrthogonalTiledMapRenderer(map,2f,spriteBatch);
+    public boolean doorOpen = false;
+    public MapObjects doors;
+    public Audio audio;
+
+    public Level(String fileName) {
+        audio = new Audio();
+        TiledMap map = new TmxMapLoader().load(fileName);
+        renderer = new OrthogonalTiledMapRenderer(map);
 
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -55,9 +61,9 @@ public class Level {
         box2DCamera = new OrthographicCamera();
         box2DCamera.setToOrtho(true, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
 
-        //renderer.setMap(map);
-        //renderer.setView(camera);
-        //camera.update();
+        renderer.setView(camera);
+        camera.update();
+        spriteBatch = new SpriteBatch();
 
         cameraManager = new CameraManager(camera, renderer);
 
@@ -99,6 +105,46 @@ public class Level {
 
                 //entities.add(body);
             }
+
+
+            doors = map.getLayers().get("teleport").getObjects();
+
+            for(MapObject door : doors)
+            {
+                if(door.getProperties().get("start") != null) {
+                    startLocation = new Vector2(((RectangleMapObject)door).getRectangle().x,
+                            ((RectangleMapObject)door).getRectangle().y);
+                }
+                else if (door instanceof RectangleMapObject) {
+                    Shape shape;
+                    shape = getRectangle((RectangleMapObject)door);
+
+                    BodyDef bd = new BodyDef();
+                    bd.type = BodyDef.BodyType.StaticBody;
+
+                    Body body = world.createBody(bd);
+
+                    FixtureDef fixtureDef = new FixtureDef();
+                    fixtureDef.shape = shape;
+                    fixtureDef.filter.categoryBits = ICollisionMask.DOOR;
+                    fixtureDef.filter.maskBits = ICollisionMask.PLAYER;
+                    fixtureDef.isSensor = true;
+
+                    Fixture fixture = body.createFixture(fixtureDef);
+                    fixture.setUserData(door.getProperties().get("level"));
+
+                    body.getFixtureList().first().setFriction(0);
+                }
+                else
+                    continue;
+
+
+                //bd.position.set(new Vector2(((RectangleMapObject) object).getRectangle().x / PIXELS_PER_METER, ((RectangleMapObject) object).getRectangle().y / PIXELS_PER_METER));
+                //bd.position.set(((RectangleMapObject) object).getRectangle().getX(), ((RectangleMapObject) object).getRectangle().getY());
+
+                //entities.add(body);
+            }
+
         } catch(Exception e){
             System.out.println(e.toString());
         }
@@ -108,19 +154,27 @@ public class Level {
 
     public void update(float deltaTime)
     {
-        //camera.update();
+        camera.update();
 
         world.step(deltaTime,6,2);
 
         //Update other entities
         for(Entity entity : entities) {
             entity.update(deltaTime);
+            if(entity instanceof Player){
+                Player tempPlayer = (Player)entity;
+                if(tempPlayer.onDoor && Keys.keyDown(Keys.UP)){
+                    doorOpen = true;
+                }
+            }
         }
+        audio.update(deltaTime);
+
     }
 
     public void draw()
     {
-        //renderer.render();
+        renderer.render();
 
         renderer.getBatch().begin();
         TiledMapTileLayer background = (TiledMapTileLayer)map.getLayers().get("background");
@@ -141,8 +195,7 @@ public class Level {
         renderer.renderTileLayer(foreground);
         renderer.getBatch().end();
 
-
-        //debugRenderer.render(world, box2DCamera.combined);
+//        debugRenderer.render(world, box2DCamera.combined);
     }
 
     public OrthogonalTiledMapRenderer getRenderer() {
@@ -161,6 +214,14 @@ public class Level {
         this.camera = camera;
     }
 
+    public SpriteBatch getSpriteBatch() {
+        return spriteBatch;
+    }
+
+    public void setSpriteBatch(SpriteBatch spriteBatch) {
+        this.spriteBatch = spriteBatch;
+    }
+
     public World getWorld() {
         return world;
     }
@@ -175,7 +236,7 @@ public class Level {
 
         BodyDef playerBodyDef = new BodyDef();
         playerBodyDef.type = BodyDef.BodyType.DynamicBody;
-        playerBodyDef.position.set(100 / PIXELS_PER_METER, 200 / PIXELS_PER_METER);
+        playerBodyDef.position.set(startLocation.x / PIXELS_PER_METER, startLocation.y / PIXELS_PER_METER);
 
         Body playerBody = world.createBody(playerBodyDef);
 
@@ -193,7 +254,8 @@ public class Level {
         player.setBody(playerBody);
 
         entities.add(player);
-
+        audio.playMusic();
+        audio.getPlayer(player);
         world.setContactListener(player);
     }
 

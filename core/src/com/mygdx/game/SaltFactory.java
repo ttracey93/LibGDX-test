@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.game.entity.Player;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.state.PlayerState;
 import com.mygdx.game.state.State;
@@ -30,6 +31,12 @@ public class SaltFactory extends ApplicationAdapter {
 
 		//handle input
 		Keys.update();
+
+		if(gameState.getLevel().doorOpen) {
+			if(Player.levelToLoad != null) {
+				startGame(Player.levelToLoad);
+			}
+		}
 	}
 
 	@Override

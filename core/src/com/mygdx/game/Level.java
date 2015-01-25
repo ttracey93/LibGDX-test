@@ -105,11 +105,11 @@ public class Level {
 
         world = new World(new Vector2(0,-50f), true);
 
+        
 
         //Create physics bodies for the ground.
         try {
             MapObjects ground = map.getLayers().get("solid").getObjects();
-
 
 
             for(MapObject object : ground)
@@ -324,8 +324,7 @@ public class Level {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = playerBox;
         fixtureDef.filter.categoryBits = ICollisionMask.PLAYER;
-        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL |
-                ICollisionMask.ITEM;
+        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL;
 
         playerBody.createFixture(fixtureDef);
         playerBox.dispose();

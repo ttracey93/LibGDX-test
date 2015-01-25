@@ -16,7 +16,7 @@ public class SaltFactory extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		gameState = new PlayerState(this,ILevelName.HUBWORLD);
+		gameState = new PlayerState(this, ILevelName.HUBWORLD);
 	}
 
 	@Override

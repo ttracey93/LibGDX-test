@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="23">
+ <tileset firstgid="1" name="tiles32" tilewidth="32" tileheight="32">
+  <tile id="0">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/box.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/box2.png"/>
+  </tile>
+  <tile id="2">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/darkHouse.png"/>
+  </tile>
+  <tile id="3">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/darkHouseBrick1.png"/>
+  </tile>
+  <tile id="4">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/darkHouseBrick2.png"/>
+  </tile>
+  <tile id="5">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/flat spikes.png"/>
+  </tile>
+  <tile id="6">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/lava.png"/>
+  </tile>
+  <tile id="7">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/lavaTop.png"/>
+  </tile>
+  <tile id="8">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/smallspikes.png"/>
+  </tile>
+  <tile id="9">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/torch.png"/>
+  </tile>
+  <tile id="10">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/unevenspikes.png"/>
+  </tile>
+  <tile id="11">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltblock.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="13" name="door" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/doorbottom.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="17" name="door1" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/doortop.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="19" name="ground" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/darkHouseBottomLeft.png" width="64" height="64"/>
+ </tileset>
+ <layer name="background" width="250" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DAQkAAAwEoYPv33lBpuCqqaqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqPniuGEgUqGEAAA==
+  </data>
+ </layer>
+ <layer name="middleground1" width="250" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2ba27DIAzH06r5UnXPE+4oO0qPsqMtURUNMR5+gqH+SShqVRID/htDybI4jjM7N2K9VdQKx3E0oeo8xqruL4M/s4f9WEaw8dmJda49ZtR4oB1H1qg4skj51bPF0Biqb7bO2yH1LkGp1YPqkqvfy5K2i4u0r0HbqNGWmaH2U62eRP9D7nFjPCtXz+dDOKPkECPFA04M6zkOJV/gxmSp9XlIzs4Zgfa/dEzUmo8p9nBj1ai+Eed43HaU+o9775TOW/S7VtyE9LtWDi5Fzzneel4xK9r93kvnTl9yMQ6zvu9NbEOLGEWJwVp2Ye6rkbdrYHme8b16RxrpOIrVeSqGaq4rYlxLf5TWHhb6qGSflXxAeo0NfV5rdp1fg8/X3A8Foe7TrcEVq3foWELv23KN38IvKO2xEEtqWN+LwVDab6oxSt6eYuRceR+bdRnf93LM2q4YyF6vBTTPw2nqL+xH7ec4/eiplxHG/mMrn4Df3YBlFEYYGwkwa5BUzpNb00NzJGqeP2r+ZZWXrbwCfndaHjqOr+dluae+L2HpbLxVf4L8t98TqT6rtcPS+Fixg7Jf+baVd8C9U1quXc8gqx/U+lCzjzG+JGmHFb8Zkdy7DZix7B0rJam1JZVvp+pA5/HUlXpWoJZrOg4WqH+1ooUNm1a/z8G1RG3ermlfA67WNc/UWuew0ePlfyztf3PB7qMdWg60/UPJ5Q80/As7NrP6OOd9mRyaZzIt+AK2rvY5GQlOlZICuS4vxoAdztg+234stp0aPtizr639x9wb6HkXyv9jXG1Tc3msf7U+X5u6rwVd9qRVe7h7p7P1+wFU4ymtR5r+ymg99302Buy0eDe35TvPM+Qas2pgZrD6Tukduw7Hrtdb4O+LOZpQ5iqNeOprHMdxSvwCIF07sahhAAA=
+  </data>
+ </layer>
+ <layer name="middleground" width="250" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3XzQqCQBiF4dkV0r832KV1qU2LYJAMggb18DxwQHff5kUcS7mPZha9AkQ7LH0A0J3OIZ/OIZ/OIZ/OIZ/OIZ/OIZ/OIZ/OIV/b+bXuttQhQDdt58e601KHAD8bJpvTdn6uu/Q8CvirYeZ5yv85bJfOIcunjr913r7rHLbL9xx40znk0znk0znk0znk69n53sxWsZ6d78xsFXt1PpbyMLPsPQGypDVrqGEAAA==
+  </data>
+ </layer>
+ <layer name="middleground2" width="250" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfBhJl2AVqGEAAA==
+  </data>
+ </layer>
+ <layer name="foreground" width="250" height="25">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfBhJl2AVqGEAAA==
+  </data>
+ </layer>
+ <objectgroup name="solid">
+  <object id="2" x="2" y="2" width="7997" height="28"/>
+  <object id="4" x="7651" y="545" width="127" height="32"/>
+  <object id="5" x="7618" y="580" width="185" height="30"/>
+  <object id="6" x="7582" y="608" width="258" height="33"/>
+  <object id="7" x="7554" y="642" width="318" height="32"/>
+  <object id="8" x="7520" y="673" width="383" height="31"/>
+  <object id="9" x="7456" y="705" width="511" height="11"/>
+  <object id="10" x="0" y="771" width="7998" height="28"/>
+  <object id="11" x="0" y="31" width="32" height="736"/>
+  <object id="12" x="33" y="450" width="288" height="317"/>
+  <object id="13" x="322" y="483" width="60" height="287"/>
+  <object id="14" x="384" y="515" width="63" height="252"/>
+  <object id="15" x="446" y="545" width="33" height="222"/>
+  <object id="16" x="480" y="576" width="31" height="192"/>
+  <object id="17" x="512" y="610" width="62" height="158"/>
+  <object id="18" x="574" y="641" width="33" height="126"/>
+  <object id="19" x="608" y="674" width="62" height="94"/>
+  <object id="20" x="671" y="704" width="31" height="65"/>
+  <object id="22" x="7968" y="32" width="29" height="736"/>
+ </objectgroup>
+ <objectgroup name="teleport">
+  <object id="1" x="63" y="345" width="67" height="100">
+   <properties>
+    <property name="start" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="objects"/>
+ <objectgroup name="death">
+  <object id="21" x="707" y="715" width="7259" height="57"/>
+ </objectgroup>
+</map>

@@ -23,8 +23,8 @@ public class Player extends Entity implements ContactListener {
     SpriteBatch spriteBatch;
     Texture texture;
     STATE movementState;
-    private Animation animationRight, animationLeft;
-    private TextureAtlas textureAtlas, textureAtlasLeft;
+    private Animation animationRight, animationLeft, animationIdle;
+    private TextureAtlas textureAtlas, textureAtlasLeft, textureAtlasIdle;
     private float elapsedTime = 0;
     private Body body;
     private float jumpForce = 300f;
@@ -40,19 +40,22 @@ public class Player extends Entity implements ContactListener {
     private boolean onGround = true;
     private boolean canDoubleJump = true;
     private boolean inADoor = false;
-
+    public boolean jumpSound = false;
     public boolean onDoor = false;
     public static String levelToLoad;
 
     public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
     {
-        texture = new Texture(Gdx.files.internal("Base/Player/morton/morton_walking1.png"));
+        texture = new Texture(Gdx.files.internal("Base/Player/morton/idle/idle.png"));
 
         textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/morton/right/spritesheet.atlas"));
         animationRight = new Animation(1/6f,textureAtlas.getRegions());
 
         textureAtlasLeft = new TextureAtlas(Gdx.files.internal("Base/Player/morton/left/spritesheet.atlas"));
         animationLeft = new Animation(1/6f, textureAtlasLeft.getRegions());
+
+        textureAtlasIdle = new TextureAtlas(Gdx.files.internal("Base/Player/morton/idle/spritesheet.atlas"));
+        animationIdle = new Animation(1/2f, textureAtlasIdle.getRegions());
 
         sprite = new Sprite(texture);
         this.spriteBatch = spriteBatch;
@@ -63,18 +66,22 @@ public class Player extends Entity implements ContactListener {
 
     @Override
     public void update(float deltaTime) {
+        jumpSound = false;
         if(ignoreGravity) {
             body.setLinearVelocity(body.getLinearVelocity().x, 0);
+            jumpSound = true;
         }
 
         //Update players location
         if(Keys.keyPressed(Keys.JUMP)) {
             if(onGround) {
                 body.setLinearVelocity(body.getLinearVelocity().x, jumpVelocity);
+                jumpSound = true;
             }
             else if(canDoubleJump) {
                 canDoubleJump = false;
                 body.setLinearVelocity(body.getLinearVelocity().x, doubleJumpVelocity);
+                jumpSound = true;
             }
         }
         if(Keys.keyDown(Keys.LEFT)) {
@@ -105,7 +112,7 @@ public class Player extends Entity implements ContactListener {
         else if(Keys.keyDown(Keys.LEFT))
             spriteBatch.draw(animationLeft.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
         else
-            spriteBatch.draw(sprite, sprite.getX(), sprite.getY());
+            spriteBatch.draw(animationIdle.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
 
         sprite.setPosition(x, y);
 

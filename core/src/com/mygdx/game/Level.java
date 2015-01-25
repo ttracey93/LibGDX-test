@@ -179,22 +179,25 @@ public class Level {
         renderer.render();
 
         renderer.getBatch().begin();
-        TiledMapTileLayer background = (TiledMapTileLayer)map.getLayers().get("background");
-        TiledMapTileLayer middleground1 = (TiledMapTileLayer)map.getLayers().get("middleground1");
-        TiledMapTileLayer middleground = (TiledMapTileLayer)map.getLayers().get("middleground");
-        TiledMapTileLayer middleground2 = (TiledMapTileLayer)map.getLayers().get("middleground2");
-        TiledMapTileLayer foreground = (TiledMapTileLayer)map.getLayers().get("foreground");
+        if(map!= null) {
+            TiledMapTileLayer background = (TiledMapTileLayer) map.getLayers().get("background");
+            TiledMapTileLayer middleground1 = (TiledMapTileLayer) map.getLayers().get("middleground1");
+            TiledMapTileLayer middleground = (TiledMapTileLayer) map.getLayers().get("middleground");
+            TiledMapTileLayer middleground2 = (TiledMapTileLayer) map.getLayers().get("middleground2");
+            TiledMapTileLayer foreground = (TiledMapTileLayer) map.getLayers().get("foreground");
 
 
-        renderer.renderTileLayer(background);
-        renderer.renderTileLayer(middleground1);
-        renderer.renderTileLayer(middleground);
-        renderer.renderTileLayer(middleground2);
-        for(Entity entity : entities) {
-            entity.draw();
+            renderer.renderTileLayer(background);
+            renderer.renderTileLayer(middleground1);
+            renderer.renderTileLayer(middleground);
+            renderer.renderTileLayer(middleground2);
+            for (Entity entity : entities) {
+                entity.draw();
+            }
+
+            renderer.renderTileLayer(foreground);
+
         }
-
-        renderer.renderTileLayer(foreground);
         renderer.getBatch().end();
 
 //        debugRenderer.render(world, box2DCamera.combined);
@@ -275,4 +278,6 @@ public class Level {
         //rectangle.setPosition(rectangleObject.getRectangle().x, rectangleObject.getRectangle().y);
         return polygon;
     }
+
+
 }

@@ -765,17 +765,17 @@
   </object>
   <object id="225" name="exit" x="6306" y="2417" width="60" height="78">
    <properties>
-    <property name="level" value="hubworld.tmx"/>
+    <property name="level" value="../Maps/hubworld.tmx"/>
    </properties>
   </object>
   <object id="386" name="houseteleport" x="3296" y="2543" width="62" height="77">
    <properties>
-    <property name="level" value="foresthouse10.tmx"/>
+    <property name="level" value="../Maps/foresthouse10.tmx"/>
    </properties>
   </object>
   <object id="519" x="2082" y="1" width="61" height="62">
    <properties>
-    <property name="level" value="secretcloud1"/>
+    <property name="level" value="../Maps/secretcloud1"/>
    </properties>
   </object>
  </objectgroup>

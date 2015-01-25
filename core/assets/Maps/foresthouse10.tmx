@@ -60,7 +60,12 @@
   <object id="18" x="1122" y="580" width="60" height="62"/>
  </objectgroup>
  <objectgroup name="teleport">
-  <object id="13" name="HUBWORLD" x="582" y="563" width="50" height="76"/>
+  <object id="13" x="582" y="563" width="50" height="76">
+   <properties>
+    <property name="level" value="../Maps/world1.tmx"/>
+    <property name="start" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="objects">
   <object id="1" name="greenkey" x="1051" y="162" width="37" height="29">

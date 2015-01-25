@@ -116,6 +116,11 @@
    H4sIAAAAAAAAC+3DQQ0AAAwDoat/09OwPySsmqqqqqqqqqqqqu8HNzbruIAlAAA=
   </data>
  </layer>
+ <layer name="middleground1" width="80" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3Yuw2AMBBEQReB+Rjov02gAVaOsNCMdNFLNr5SAL5zhl7vm0Kvoc+9owAAYFBb6C30PfSjYwsAAIzu7Xf8SL/jJfS1YwsAAP92AfaRt86AJQAA
+  </data>
+ </layer>
  <layer name="middleground" width="80" height="30">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+2aywqAIBBFh94bof7/Z9vkJkzRQZ1r98AQYZIccLpRq4isLFV5ZiE5vP2RPLw/95xPz9GFLycvvL8jUHvHdeWS6ju1xrX7d1HMHYEW/a+F46nTOPrzY5N436k9bsUfah+w4g8V+tOB5M/iHkfyZ5FR/KHm578zij/m5zKYn7GhPx30p4P+dCD5Q3r/QPuOxPyMyZe/VJ60hpX8nMqL1mB+xibH31VzIY3ucRbMia0p9v2Xla7e/92MUDci4+9ggCUAAA==
@@ -129,11 +134,6 @@
  <layer name="foreground" width="80" height="30">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3UQREAMAgDMDQw/17ngB/j2CUC2r4aAQAAAAAAAMCPcnoAsNppyKx+qaMPXrgTYaNygCUAAA==
-  </data>
- </layer>
- <layer name="HUD" width="80" height="30">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3Yuw2AMBBEQReB+Rjov02gAVaOsNCMdNFLNr5SAL5zhl7vm0Kvoc+9owAAYFBb6C30PfSjYwsAAIzu7Xf8SL/jJfS1YwsAAP92AfaRt86AJQAA
   </data>
  </layer>
  <objectgroup name="solid">
@@ -168,7 +168,11 @@
     <property name="start" value="true"/>
    </properties>
   </object>
-  <object id="34" name="world1" x="1571.5" y="715.5" width="61" height="83"/>
+  <object id="34" name="world1" x="1571.5" y="715.5" width="61" height="83">
+   <properties>
+    <property name="level" value="../Maps/world1.tmx"/>
+   </properties>
+  </object>
   <object id="35" name="world2" x="1825.5" y="716.5" width="61" height="83"/>
   <object id="36" name="world3" x="2080.5" y="717.5" width="61" height="83"/>
   <object id="37" name="world4" x="2339.5" y="715.5" width="61" height="83"/>

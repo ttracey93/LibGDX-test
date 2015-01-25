@@ -34,10 +34,10 @@ public class Audio {
     public static void update(float deltaTime){
         String nothing = "debug";
         if(player != null){
-            //if(player.jumpSound) {
-              //  jumpEffect.stop();
-                //jumpEffect.play();
-            //}
+            if(player.jumpSound) {
+                jumpEffect.stop();
+                jumpEffect.play();
+            }
 
         loopTime += deltaTime;
 

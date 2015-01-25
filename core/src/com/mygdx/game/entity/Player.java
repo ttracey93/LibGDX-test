@@ -54,6 +54,9 @@ public class Player extends Entity implements ContactListener {
         textureAtlasLeft = new TextureAtlas(Gdx.files.internal("Base/Player/morton/left/spritesheet.atlas"));
         animationLeft = new Animation(1/6f, textureAtlasLeft.getRegions());
 
+        textureAtlasIdle = new TextureAtlas(Gdx.files.internal("Base/Player/morton/idle/spritesheet.atlas"));
+        animationIdle = new Animation(1/2f, textureAtlasIdle.getRegions());
+
         sprite = new Sprite(texture);
         this.spriteBatch = spriteBatch;
         this.cameraManager = cameraManager;
@@ -63,18 +66,22 @@ public class Player extends Entity implements ContactListener {
 
     @Override
     public void update(float deltaTime) {
+        jumpSound = false;
         if(ignoreGravity) {
             body.setLinearVelocity(body.getLinearVelocity().x, 0);
+            jumpSound = true;
         }
 
         //Update players location
         if(Keys.keyPressed(Keys.JUMP)) {
             if(onGround) {
                 body.setLinearVelocity(body.getLinearVelocity().x, jumpVelocity);
+                jumpSound = true;
             }
             else if(canDoubleJump) {
                 canDoubleJump = false;
                 body.setLinearVelocity(body.getLinearVelocity().x, doubleJumpVelocity);
+                jumpSound = true;
             }
         }
         if(Keys.keyDown(Keys.LEFT)) {
@@ -105,7 +112,7 @@ public class Player extends Entity implements ContactListener {
         else if(Keys.keyDown(Keys.LEFT))
             spriteBatch.draw(animationLeft.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
         else
-            spriteBatch.draw(sprite, sprite.getX(), sprite.getY());
+            spriteBatch.draw(animationIdle.getKeyFrame(elapsedTime, true), sprite.getX(), sprite.getY());
 
         sprite.setPosition(x, y);
 
@@ -157,6 +164,7 @@ public class Player extends Entity implements ContactListener {
             }
         }
 
+        Vector2 normalVector = contact.getWorldManifold().getNormal();
 
         if(playerFixture != null) {
             System.out.println("player fixture is not null");
@@ -164,13 +172,15 @@ public class Player extends Entity implements ContactListener {
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.GROUND) {
                 System.out.println("opposing force is ground");
 
-                onGround = true;
-                canDoubleJump = true;
+                if(normalVector.y > 0) {
+                    onGround = true;
+                    canDoubleJump = true;
+                }
             }
 
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
-                System.out.print("hitting door");
                 onDoor = true;
+                levelToLoad = opposingFixture.getUserData().toString();
             }
         }
     }
@@ -200,9 +210,9 @@ public class Player extends Entity implements ContactListener {
                 System.out.println("opposing force is ground");
                 onGround = false;
             }
-            if (opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
+
+            if(opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
                 onDoor = false;
-                levelToLoad = opposingFixture.getUserData().toString();
             }
         }
     }

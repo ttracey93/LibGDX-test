@@ -5,7 +5,7 @@
    <image width="256" height="256" source="../Platformer/Base/bg.png"/>
   </tile>
  </tileset>
- <tileset firstgid="2" name="middleground" tilewidth="96" tileheight="64">
+ <tileset firstgid="2" name="middleground" tilewidth="96" tileheight="70">
   <tile id="0">
    <image width="64" height="64" source="../Platformer/Base/Tiles32/doorbottom.png"/>
   </tile>
@@ -69,9 +69,81 @@
   <tile id="15">
    <image width="96" height="32" source="../Platformer/Base/Tiles32/bush3wide.png"/>
   </tile>
+  <tile id="16">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/babytree.png"/>
+  </tile>
+  <tile id="17">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltBallGround.png"/>
+  </tile>
+  <tile id="18">
+   <image width="70" height="70" source="../Platformer/Base/Tiles32/saltBallSmall.png"/>
+  </tile>
+  <tile id="19">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltblock.png"/>
+  </tile>
+  <tile id="20">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltDiagonal.png"/>
+  </tile>
+  <tile id="21">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltEdgeGround.png"/>
+  </tile>
+  <tile id="22">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltflatGround.png"/>
+  </tile>
+  <tile id="23">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltgloo.png"/>
+  </tile>
+  <tile id="24">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltgloocurve.png"/>
+  </tile>
+  <tile id="25">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltgloodoor.png"/>
+  </tile>
+  <tile id="26">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltground.png"/>
+  </tile>
+  <tile id="27">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltHillyGround.png"/>
+  </tile>
+  <tile id="28">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltrock.png"/>
+  </tile>
+  <tile id="29">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltrock2.png"/>
+  </tile>
+  <tile id="30">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltroundcorner.png"/>
+  </tile>
+  <tile id="31">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltroundedge.png"/>
+  </tile>
+  <tile id="32">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltSWcorner.png"/>
+  </tile>
+  <tile id="33">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/smallspikes.png"/>
+  </tile>
+  <tile id="34">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/unevenspikes.png"/>
+  </tile>
+  <tile id="35">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHalfRight.png"/>
+  </tile>
+  <tile id="36">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/redsaltBlock.png"/>
+  </tile>
+  <tile id="37">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/redsaltBlock2.png"/>
+  </tile>
+  <tile id="38">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/redsaltBlock3.png"/>
+  </tile>
+  <tile id="39">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/saltblock.png"/>
+  </tile>
  </tileset>
- <tileset firstgid="18" name="middleground2" tilewidth="1" tileheight="1"/>
- <tileset firstgid="18" name="foreground" tilewidth="96" tileheight="32">
+ <tileset firstgid="42" name="middleground2" tilewidth="1" tileheight="1"/>
+ <tileset firstgid="42" name="foreground" tilewidth="96" tileheight="32">
   <tile id="0">
    <image width="64" height="32" source="../Platformer/Base/Tiles32/bush2wide.png"/>
   </tile>
@@ -79,7 +151,7 @@
    <image width="96" height="32" source="../Platformer/Base/Tiles32/bush3wide.png"/>
   </tile>
  </tileset>
- <tileset firstgid="20" name="HUD" tilewidth="32" tileheight="40">
+ <tileset firstgid="44" name="HUD" tilewidth="32" tileheight="40">
   <tile id="0">
    <image width="30" height="38" source="../Platformer/Base/HUD/hud_0.png"/>
   </tile>
@@ -111,6 +183,9 @@
    <image width="32" height="39" source="../Platformer/Base/HUD/hud_9.png"/>
   </tile>
  </tileset>
+ <tileset firstgid="54" name="rock" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/Untitled.png" width="140" height="140"/>
+ </tileset>
  <layer name="background" width="80" height="30">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3DQQ0AAAwDoat/09OwPySsmqqqqqqqqqqqqu8HNzbruIAlAAA=
@@ -118,12 +193,12 @@
  </layer>
  <layer name="middleground1" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3Yuw2AMBBEQReB+Rjov02gAVaOsNCMdNFLNr5SAL5zhl7vm0Kvoc+9owAAYFBb6C30PfSjYwsAAIzu7Xf8SL/jJfS1YwsAAP92AfaRt86AJQAA
+   H4sIAAAAAAAAC+3Yuw2AMBBEQReE+RjovzWgAVaOsNCMdNFLNr5SAL5zhl7vm0Kvoc+9owAAYFBb6C30PfSjYwsAAIzu7Xf8SL/jJfS1YwsAAP92AfZ1NsiAJQAA
   </data>
  </layer>
  <layer name="middleground" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2aywqAIBBFh94bof7/Z9vkJkzRQZ1r98AQYZIccLpRq4isLFV5ZiE5vP2RPLw/95xPz9GFLycvvL8jUHvHdeWS6ju1xrX7d1HMHYEW/a+F46nTOPrzY5N436k9bsUfah+w4g8V+tOB5M/iHkfyZ5FR/KHm578zij/m5zKYn7GhPx30p4P+dCD5Q3r/QPuOxPyMyZe/VJ60hpX8nMqL1mB+xibH31VzIY3ucRbMia0p9v2Xla7e/92MUDci4+9ggCUAAA==
+   H4sIAAAAAAAAC+2abQrCMAyGS3Xqn4F6iMIu0PsfTYQWwuh3TNvUPBDW8a5aHmbJmJtSapNCleeihBrO/oQ6vL/dnWt33MOX/yVHZPzF+3sE6t5ldb8ht+9g8gPkMX+tXBFzuVBy/1HSw7EmzA+Qj/BHyU2l9x3qfBZ/XPeBWfxxRfzh4ORvxt84J38zsoo/yv45la/ibxSr+KPsn1M5d3/SP/NG/OEQfzjEHw5O/jg9f3B7j5RarwW5DeQG5Kby8zndf63YyNhjIuMSYv5y/eQsvF3p0znEgjzmT4NxiNL+Odcvzob0z7yp8feiXEin73g2zEmtKfX+Vypfo/93s0J9ACPm+WmAJQAA
   </data>
  </layer>
  <layer name="middleground2" width="80" height="30">
@@ -133,7 +208,7 @@
  </layer>
  <layer name="foreground" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3UQREAMAgDMDQw/17ngB/j2CUC2r4aAQAAAAAAAMCPcnoAsNppyKx+qaMPXrgTYaNygCUAAA==
+   H4sIAAAAAAAAC+3UQREAMAgDMPQw//7mgB/j2CUC2r4aAQAAAAAAAMCPcnoAsNppyKx+qaMPXrgRT9kygCUAAA==
   </data>
  </layer>
  <objectgroup name="solid">
@@ -173,13 +248,29 @@
     <property name="level" value="../Maps/world1.tmx"/>
    </properties>
   </object>
-  <object id="35" name="world2" x="1825.5" y="716.5" width="61" height="83"/>
-  <object id="36" name="world3" x="2080.5" y="717.5" width="61" height="83"/>
-  <object id="37" name="world4" x="2339.5" y="715.5" width="61" height="83"/>
+  <object id="35" name="world2" x="1825.5" y="716.5" width="61" height="83">
+   <properties>
+    <property name="level" value="../Maps/world2.tmx"/>
+   </properties>
+  </object>
+  <object id="36" name="world3" x="2080.5" y="717.5" width="61" height="83">
+   <properties>
+    <property name="level" value="../Maps/world3.tmx"/>
+   </properties>
+  </object>
+  <object id="37" name="world4" x="2339.5" y="715.5" width="61" height="83">
+   <properties>
+    <property name="level" value="../Maps/world4.tmx"/>
+   </properties>
+  </object>
   <object id="38" name="world8" x="2337.5" y="429.5" width="61" height="83"/>
   <object id="39" name="world7" x="2082.5" y="428.5" width="61" height="83"/>
   <object id="40" name="world6" x="1825.5" y="427.5" width="61" height="83"/>
-  <object id="41" name="world5" x="1570.5" y="426.5" width="61" height="83"/>
+  <object id="41" name="world5" x="1570.5" y="426.5" width="61" height="83">
+   <properties>
+    <property name="level" value="../Maps/world5.tmx"/>
+   </properties>
+  </object>
   <object id="42" name="world9" x="1569.5" y="138.5" width="61" height="83"/>
   <object id="43" name="world10" x="1825.5" y="141.5" width="61" height="83"/>
   <object id="44" name="world11" x="2081.5" y="139.5" width="61" height="83"/>

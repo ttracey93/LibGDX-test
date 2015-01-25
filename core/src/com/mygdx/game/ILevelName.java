@@ -10,4 +10,5 @@ public interface ILevelName {
     public static final String HUBWORLD = "../Maps/hubworld.tmx";
     public static final String WORLD1 = "../Maps/world1.tmx";
     public static final String FORESTHOUSE = "../Maps/foresthouse10.tmx";
+    public static final String WORLD2 = "../Maps/world2.tmx";
 }

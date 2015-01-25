@@ -4,28 +4,28 @@ size: 512,128
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-atlas/Walking animation4
+idle snail 1
   rotate: false
   xy: 2, 2
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-atlas/walking animation1
+idle snail 2
   rotate: false
   xy: 68, 2
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-atlas/walking animation2
+idle snail 3
   rotate: false
   xy: 134, 2
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
-atlas/walking animation3
+idle snail 4
   rotate: false
   xy: 200, 2
   size: 64, 64

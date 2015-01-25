@@ -7,6 +7,7 @@ import com.badlogic.gdx.maps.*;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Matrix4;
@@ -37,12 +38,13 @@ public class Level {
 
     //physics
     private World world;
+    TiledMap map;
 
     //entities
     private List<Entity> entities;
 
     public Level(String fileName) {
-        TiledMap map = new TmxMapLoader().load(fileName);
+        map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
 
         //renderer = new OrthogonalTiledMapRenderer(map,2f,spriteBatch);
@@ -53,7 +55,7 @@ public class Level {
         box2DCamera = new OrthographicCamera();
         box2DCamera.setToOrtho(true, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
 
-        renderer.setMap(map);
+        //renderer.setMap(map);
         //renderer.setView(camera);
         //camera.update();
 
@@ -118,17 +120,29 @@ public class Level {
 
     public void draw()
     {
-        renderer.render();
+        //renderer.render();
 
         renderer.getBatch().begin();
+        TiledMapTileLayer background = (TiledMapTileLayer)map.getLayers().get("background");
+        TiledMapTileLayer middleground1 = (TiledMapTileLayer)map.getLayers().get("middleground1");
+        TiledMapTileLayer middleground = (TiledMapTileLayer)map.getLayers().get("middleground");
+        TiledMapTileLayer middleground2 = (TiledMapTileLayer)map.getLayers().get("middleground2");
+        TiledMapTileLayer foreground = (TiledMapTileLayer)map.getLayers().get("foreground");
 
+
+        renderer.renderTileLayer(background);
+        renderer.renderTileLayer(middleground1);
+        renderer.renderTileLayer(middleground);
+        renderer.renderTileLayer(middleground2);
         for(Entity entity : entities) {
             entity.draw();
         }
 
+        renderer.renderTileLayer(foreground);
         renderer.getBatch().end();
 
-//        debugRenderer.render(world, box2DCamera.combined);
+
+        //debugRenderer.render(world, box2DCamera.combined);
     }
 
     public OrthogonalTiledMapRenderer getRenderer() {

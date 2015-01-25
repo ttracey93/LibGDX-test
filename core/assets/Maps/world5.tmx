@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="24">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="25">
  <tileset firstgid="1" name="tiles32" tilewidth="32" tileheight="32">
   <tile id="0">
    <image width="32" height="32" source="../Platformer/Base/Tiles32/box.png"/>
@@ -92,6 +92,7 @@
   <object id="19" x="608" y="674" width="62" height="94"/>
   <object id="20" x="671" y="704" width="31" height="65"/>
   <object id="22" x="7968" y="32" width="29" height="736"/>
+  <object id="24" x="91" y="320" width="10" height="2"/>
  </objectgroup>
  <objectgroup name="teleport">
   <object id="1" x="100" y="191" width="32" height="28">

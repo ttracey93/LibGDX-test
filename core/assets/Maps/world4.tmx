@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="26">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="57">
  <tileset firstgid="1" name="background" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/bg_castle.png" width="256" height="256"/>
  </tileset>
@@ -68,12 +68,12 @@
  </layer>
  <layer name="middleground" width="250" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3abW6DMAyAYR9tP1YBd9ja7mY9yo42kIoaWXFit9AweB/JGmq+nJCxiUZEpBP5mGIQ+Z2v++Q6F1PdOTx1dN9zlNpaZWn7Z/uoleuy3Dh6blYukXGs9YrW8c4j10dt7b3zKe0RvTf0/Xxmbt6w9mVunnqvzVEqi+RXWk+rzFqP3NjTTwEAAACwOdcxflonAWBVX2N8t04CwKrOY1xaJ3FAp9YJ4BA+jQAAAMDD+L/57Z3tAADYG941AFjau96f155fPN8AAK153j/xvTOANfGMwV5dhfPvwN4tff6dv4nA9nD+Hdi36Nn3/36Oi++kAAAAAABb091jSK574/PhHml5F+gj1073n+s3HXtw1CvlV2uf5t+rvtLPPH1Ex47MUdex2un74Jl/Wi+6lrq+dx56rWv7q3avanl5+ozcl1f2XO33QteLrDmAY/gDM8B4nqhhAAA=
+   H4sIAAAAAAAAC+2aa27DIAyAfbT9aJXHGfbobraj7GhLpEZCHi+XNgHyfZJVVLCxDcRNhYjIIPK2yiTyu7VHp+2TdewmOWO07U1iuqE+V/9RG6l+3eebR8cW8sUyTyhf1jG5cfhspHKfG09sj+i9odfzkdhyJbQvfXHqvbZJrM/iXyyfob5QPnxzr58CAAAAAADVcVvk+2gnTsh8tAOwK0ev9/siHwf7AFAzljNaep5L9GO6n4t8FdgGaIXZ2K4Vi4+XgMA+kOv2sZ63En0A8POsc2R5Jpc+v0ueB9SOY7iK/Oyp1wuz5O1t6zm+GNu10oKPABut/259Re0GG+QQetkDvcTRA9ed5kmteW174pGanfufcG2xAsB/OKfnJOf/p73qZm+86l249XdsAA3PGDvU7Da4Cfffzw41u3+eff+dmtgX1Os+4P57/1Cvz4317nvr97ioTX7ICwAAQP1QrwEA+mW4y+S0x8D3013c/sFgw6en7fvsunNPGeNi/qX0Xf9HZcv9LseGdW5LjHpMSE+vQ0787jhrLvX43Dh0rlP7K7VWKb9ybFrWpWTPpc6FHmfJOQCcgz9ar21UqGEAAA==
   </data>
  </layer>
  <layer name="middleground2" width="250" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3aOw6FIBAF0Ls4bWRTb+mvsLGQ+IlKxHMSAh3TMHcKEgAAAKbWBfAZU+UM9Ku0LgC4VYl3frWzM5LZCoC9SmX1QiZCMia/cWXnnKf6ytY9+htLvec5kAyV1dKeLJJXwJ30GACYyUQAeNbR/+9vz+q31w8AAAAAAAAAwDF/f+SCX6hhAAA=
+   H4sIAAAAAAAAC+3aOw6AIBAFwHc4beRSHt3CxkLiJ4qRzCQEOrZh3xYkAAAAQCtT5Qz0q3xdAPCqEu/8aXdnJLMVAGeVyuqFTIRkTOZxZ+eeVn3l6B79ja3e8xxIhsr60pksklfAm/QYAFjJRABo6+r/979n9d/rBwAAAAAAAADgmgUZ57ZbqGEAAA==
   </data>
  </layer>
  <layer name="foreground" width="250" height="25">
@@ -92,13 +92,38 @@
   <object id="9" x="2239" y="480" width="32" height="31"/>
   <object id="10" x="2464" y="384" width="31" height="33"/>
   <object id="11" x="2623" y="287" width="32" height="32"/>
-  <object id="12" x="2846" y="193" width="34" height="34"/>
+  <object id="12" x="2848" y="223" width="34" height="34"/>
   <object id="13" x="3070" y="289" width="34" height="31"/>
   <object id="14" x="3297" y="382" width="32" height="35"/>
   <object id="15" x="3551" y="383" width="34" height="32"/>
   <object id="16" x="0" y="769" width="7998" height="30"/>
   <object id="17" x="7969" y="0" width="29" height="768"/>
   <object id="18" x="0" y="1" width="30" height="766"/>
+  <object id="27" x="3967" y="673" width="33" height="32"/>
+  <object id="29" x="4225" y="610" width="29" height="30"/>
+  <object id="30" x="4447" y="546" width="31" height="32"/>
+  <object id="31" x="4703" y="480" width="33" height="30"/>
+  <object id="32" x="4927" y="417" width="32" height="31"/>
+  <object id="33" x="5119" y="386" width="66" height="31"/>
+  <object id="34" x="5441" y="384" width="32" height="30"/>
+  <object id="35" x="5693" y="354" width="34" height="27"/>
+  <object id="36" x="5820" y="289" width="37" height="31"/>
+  <object id="37" x="5919" y="289" width="34" height="32"/>
+  <object id="38" x="6014" y="286" width="33" height="36"/>
+  <object id="39" x="6114" y="288" width="29" height="32"/>
+  <object id="40" x="6273" y="256" width="30" height="32"/>
+  <object id="41" x="6463" y="321" width="33" height="30"/>
+  <object id="42" x="6623" y="254" width="33" height="36"/>
+  <object id="43" x="6815" y="223" width="31" height="35"/>
+  <object id="44" x="6974" y="318" width="33" height="35"/>
+  <object id="45" x="7134" y="254" width="35" height="36"/>
+  <object id="46" x="7296" y="352" width="31" height="30"/>
+  <object id="47" x="7423" y="287" width="35" height="35"/>
+  <object id="48" x="7618" y="255" width="31" height="33"/>
+  <object id="49" x="7776" y="193" width="192" height="30"/>
+  <object id="50" x="7775" y="257" width="193" height="30"/>
+  <object id="51" x="7776" y="319" width="191" height="32"/>
+  <object id="52" x="7961" y="746" width="6"/>
  </objectgroup>
  <objectgroup name="teleport">
   <object id="1" x="127" y="515" width="32" height="25">
@@ -117,9 +142,13 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Object Layer 3"/>
+ <objectgroup name="objects"/>
  <objectgroup name="death">
   <object id="19" x="33" y="749" width="7937" height="32"/>
-  <object id="20" x="32" y="1" width="7938" height="21"/>
+  <object id="20" x="32" y="1" width="7937" height="18"/>
+  <object id="53" x="7782" y="225" width="184" height="28"/>
+  <object id="54" x="7782" y="290" width="188" height="25"/>
+  <object id="55" x="7908" y="162" width="59" height="28"/>
+  <object id="56" x="7941" y="130" width="25" height="30"/>
  </objectgroup>
 </map>

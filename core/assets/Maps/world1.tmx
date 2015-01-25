@@ -758,7 +758,7 @@
   <object id="517" x="736" y="2623" width="31" height="16"/>
  </objectgroup>
  <objectgroup name="teleport">
-  <object id="19" name="start" x="161" y="3054" width="62" height="82">
+  <object id="19" name="start" x="195" y="3054" width="27" height="21">
    <properties>
     <property name="start" value="true"/>
    </properties>

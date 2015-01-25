@@ -19,6 +19,7 @@ import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
+import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +54,6 @@ public class Level {
     public Audio audio;
 
     public Level(String fileName) {
-        map = new TmxMapLoader().load(fileName);
         audio = new Audio();
         TiledMap map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
@@ -74,9 +74,11 @@ public class Level {
 
         world = new World(new Vector2(0,-50f), true);
 
+
         //Create physics bodies for the ground.
         try {
             MapObjects ground = map.getLayers().get("solid").getObjects();
+
 
 
             for(MapObject object : ground)
@@ -198,7 +200,8 @@ public class Level {
         renderer.renderTileLayer(foreground);
         renderer.getBatch().end();
 
-//        debugRenderer.render(world, box2DCamera.combined);
+
+        //debugRenderer.render(world, box2DCamera.combined);
     }
 
     public OrthogonalTiledMapRenderer getRenderer() {

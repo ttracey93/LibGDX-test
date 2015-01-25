@@ -305,7 +305,7 @@
    H4sIAAAAAAAAC+3ci27aMBQG4DxWeYA+ze7r1u4qdbf3nqsKLTP8NIQkuOT7pCNVtNgm8sHHOKXrLstNiQ8lPpa4PfNYoDV3JT6V+Fziy4C/f1HiZYlXJV7POC54jt6UeFviXYn3Zx4LHHLT7dZHaiSekzH1/dDn3HW79dGQGglacWx9P/Y5a+HzBMi8dwAAAAAAAECbnHVDNsVZtxyDzP0kAAAAAAAAAAAAAAAAw23OPQBoVMoNOcManTrv5Q3AetTv+WPWAOsGl2rf3N4M+B2sxRz7DnnEc7Xp5p+/8oNL8tR8PlRzwSXahJ+naA8AfJ7F2qVzkEPzX26wVlOcG57yPGjdKft3ecGaDDkzkROsVZ0fcoG1u+oe8+CqCmjR0u/Z1113v82POk/gnFqoXx7yo58T/RzpujbGCH3HzMkp5m9dW1k/4J99a4f8gEfWD1rR4j208gOyQ/tzWDvrB2TyAzL1FWsxZu9u/YDMPViQWT8gc34OmfWD1qU5usRclR+0rr7PvB/XE/WR/jdQftC6JfIjkR+07hz11XYNcT4ImfUDMp/vQub8HDL1FWTyAzL1FWQ+34VMfkBm/wGZ/IBsW1c5H4Rd/X2H/Qf8r66rtjkC2H/AIe5PhMz5B2TqK8jkB2TqK8jszyGzfkBm/wGZ/IBd9fdf2X/ALusHS0rz7L7EjwX6r/tJ/fbXj023/x73lCupzfT4MeMdY4o2jml7jv5Sm/XjS41nLv3v0u1/d+7PEr8W6L/u56l+U33Vv+e9/g7g1OaY1zjFdZnz2u5re47+hl7TpcYzpa8lvpX43uX8+F3izwJjqft5qt9UX/Xj4XX0X2Nqc8xrnOK6zHlt97U9R39Dr+lS4wGAU/0FwkH2bIA4AQA=
   </data>
  </layer>
- <objectgroup name="solid" visible="0">
+ <objectgroup name="solid">
   <object id="1" name="ground" x="1" y="3137" width="6396" height="59"/>
   <object id="37" name="wall" x="32" y="0" width="98" height="3135"/>
   <object id="38" x="607" y="2495" width="129" height="570"/>
@@ -757,7 +757,7 @@
   <object id="516" x="2815" y="2012" width="68" height="33"/>
   <object id="517" x="736" y="2623" width="31" height="16"/>
  </objectgroup>
- <objectgroup name="teleport" visible="0">
+ <objectgroup name="teleport">
   <object id="19" name="start" x="161" y="3054" width="62" height="82">
    <properties>
     <property name="start" value="true"/>
@@ -779,14 +779,14 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="objects" visible="0">
+ <objectgroup name="objects">
   <object id="221" name="greenLock" x="6274" y="2433" width="31" height="29">
    <properties>
     <property name="locked" value="true"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="death" visible="0">
+ <objectgroup name="death">
   <object id="223" name="death" x="6185" y="2370" width="47" height="119"/>
   <object id="224" name="death" x="6051" y="2439" width="121" height="50"/>
   <object id="514" name="death" x="6052" y="3006" width="57" height="128"/>

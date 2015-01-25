@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="30" tilewidth="32" tileheight="32" nextobjectid="46">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="30" tilewidth="32" tileheight="32" nextobjectid="47">
  <tileset firstgid="1" name="background" tilewidth="256" tileheight="256">
   <tile id="0">
    <image width="256" height="256" source="../Platformer/Base/bg.png"/>
@@ -198,7 +198,7 @@
  </layer>
  <layer name="middleground" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2abQrCMAyGS3Xqn4F6iMIu0PsfTYQWwuh3TNvUPBDW8a5aHmbJmJtSapNCleeihBrO/oQ6vL/dnWt33MOX/yVHZPzF+3sE6t5ldb8ht+9g8gPkMX+tXBFzuVBy/1HSw7EmzA+Qj/BHyU2l9x3qfBZ/XPeBWfxxRfzh4ORvxt84J38zsoo/yv45la/ibxSr+KPsn1M5d3/SP/NG/OEQfzjEHw5O/jg9f3B7j5RarwW5DeQG5Kby8zndf63YyNhjIuMSYv5y/eQsvF3p0znEgjzmT4NxiNL+Odcvzob0z7yp8feiXEin73g2zEmtKfX+Vypfo/93s0J9ACPm+WmAJQAA
+   H4sIAAAAAAAAC+2abQrCMAyGS3Xqn4F6iMIu0PsfbQxaCKPpp+mamgeCHa/O8hhGxlyUUotUU3luSijh7E8ow/tb3bF2r2v47X/JhqwPvL9XoJ5ddvcbUtedlnwDOeZPwMnpP0ruxOc/0IT5BvLZ+u+h4tcd6nwUfz16lIJR/HGlxh/XXqGAU/+N+Ltx8jcis/ijnJ9j+Sz+rmIWf5Tzcyzn7k/mZ96IvzbEXxvirw1O/jjdf3B7jhTbrwW5DeQG5Kbw/Jz6rxaLrD0GWeeA+UvNk6PwdaVPxxALcsyfBusQufNzal4cDZmfeVPi70O5kU7f8a74TGxPsee/Uum6+n83M9QOjphR94AlAAA=
   </data>
  </layer>
  <layer name="middleground2" width="80" height="30">
@@ -229,7 +229,7 @@
   <object id="18" name="platform" x="1345" y="672.5" width="30" height="29"/>
   <object id="19" name="platform" x="1057" y="259.5" width="30" height="29"/>
   <object id="20" name="platform" x="768" y="194.5" width="30" height="29"/>
-  <object id="21" name="platform" x="480" y="159.5" width="30" height="29"/>
+  <object id="21" name="platform" x="385" y="321.5" width="30" height="29"/>
   <object id="23" name="ground" x="0" y="896" width="2558" height="61"/>
   <object id="25" name="wall" x="2529" y="2" width="27" height="893"/>
   <object id="26" name="wall" x="2.5" y="0.5" width="27" height="893"/>
@@ -275,5 +275,12 @@
   <object id="43" name="world10" x="1825.5" y="141.5" width="61" height="83"/>
   <object id="44" name="world11" x="2081.5" y="139.5" width="61" height="83"/>
   <object id="45" name="world12" x="2336.5" y="141.5" width="61" height="83"/>
+ </objectgroup>
+ <objectgroup name="objects">
+  <object id="46" x="267" y="477" width="36" height="32">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

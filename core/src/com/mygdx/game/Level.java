@@ -21,6 +21,7 @@ import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
+import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -215,6 +216,8 @@ public class Level {
                 //entities.add(body);
             }
 
+            instantiateItems(map.getLayers().get("objects").getObjects(), world);
+
         } catch(Exception e){
             System.out.println(e.toString());
         }
@@ -319,7 +322,8 @@ public class Level {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = playerBox;
         fixtureDef.filter.categoryBits = ICollisionMask.PLAYER;
-        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL;
+        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL |
+                ICollisionMask.ITEM;
 
         playerBody.createFixture(fixtureDef);
         playerBox.dispose();
@@ -332,7 +336,7 @@ public class Level {
         world.setContactListener(player);
     }
 
-    private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {
+    public static PolygonShape getRectangle(RectangleMapObject rectangleObject) {
         Rectangle rectangle = rectangleObject.getRectangle();
         PolygonShape polygon = new PolygonShape();
         Vector2 size = new Vector2((rectangle.x + rectangle.width * 0.5f) / PIXELS_PER_METER,
@@ -347,6 +351,19 @@ public class Level {
         return polygon;
     }
 
+<<<<<<< Temporary merge branch 1
+    private void instantiateItems(MapObjects mapObjects, World world) {
+        for(MapObject mapObject : mapObjects) {
+            String classToInstantiate = mapObject.getProperties().get("class").toString();
+
+            if(classToInstantiate != null) {
+                if(classToInstantiate.equalsIgnoreCase(IItemClass.JUMP_REFRESHER)) {
+                    entities.add(new JumpRefresher(mapObject, world));
+                }
+            }
+        }
+    }
+=======
     private static ChainShape getPolyline(PolylineMapObject polylineObject) {
         float[] vertices = polylineObject.getPolyline().getTransformedVertices();
         Vector2[] worldVertices = new Vector2[vertices.length / 2];
@@ -378,4 +395,5 @@ public class Level {
     }
 
 
+>>>>>>> Temporary merge branch 2
 }

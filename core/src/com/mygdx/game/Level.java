@@ -102,7 +102,7 @@ public class Level {
 
         world = new World(new Vector2(0,-50f), true);
 
-        world.destr
+        
 
         //Create physics bodies for the ground.
         try {

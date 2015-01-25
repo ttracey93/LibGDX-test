@@ -19,6 +19,13 @@ public class MainMenu extends State implements InputProcessor{
         Gdx.input.setInputProcessor(this);
     }
 
+    public MainMenu(SaltFactory parent, String world ) {
+        this.parent = parent;
+        level = new Level(ILevelName.MAIN_MENU);
+        Gdx.input.setInputProcessor(this);
+    }
+
+
     @Override
     public boolean keyDown(int keycode) {
         return false;

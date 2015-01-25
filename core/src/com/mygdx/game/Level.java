@@ -44,8 +44,15 @@ public class Level {
     //entities
     private List<Entity> entities;
 
-    public Level(String fileName) {
+    //start location
+    private Vector2 startLocation;
 
+    public boolean doorOpen = false;
+    public MapObjects doors;
+    public Audio audio;
+
+    public Level(String fileName) {
+        audio = new Audio();
         TiledMap map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
 
@@ -103,11 +110,15 @@ public class Level {
             }
 
 
-            MapObjects doors = map.getLayers().get("teleport").getObjects();
+            doors = map.getLayers().get("teleport").getObjects();
 
             for(MapObject door : doors)
             {
-                if (door instanceof RectangleMapObject) {
+                if(door.getProperties().get("start") != null) {
+                    startLocation = new Vector2(((RectangleMapObject)door).getRectangle().x,
+                            ((RectangleMapObject)door).getRectangle().y);
+                }
+                else if (door instanceof RectangleMapObject) {
                     Shape shape;
                     shape = getRectangle((RectangleMapObject)door);
 
@@ -122,7 +133,8 @@ public class Level {
                     fixtureDef.filter.maskBits = ICollisionMask.PLAYER;
                     fixtureDef.isSensor = true;
 
-                    body.createFixture(fixtureDef);
+                    Fixture fixture = body.createFixture(fixtureDef);
+                    fixture.setUserData(door.getProperties().get("level"));
 
                     body.getFixtureList().first().setFriction(0);
                 }
@@ -148,18 +160,18 @@ public class Level {
         camera.update();
 
         world.step(deltaTime,6,2);
-
+        doorOpen = false;
         //Update other entities
         for(Entity entity : entities) {
             entity.update(deltaTime);
             if(entity instanceof Player){
                 Player tempPlayer = (Player)entity;
                 if(tempPlayer.onDoor && Keys.keyDown(Keys.UP)){
-                    System.out.println("run the jewels");
-
+                    doorOpen = true;
                 }
             }
         }
+        audio.update(deltaTime);
 
     }
 
@@ -216,7 +228,7 @@ public class Level {
 
         BodyDef playerBodyDef = new BodyDef();
         playerBodyDef.type = BodyDef.BodyType.DynamicBody;
-        playerBodyDef.position.set(100 / PIXELS_PER_METER, 200 / PIXELS_PER_METER);
+        playerBodyDef.position.set(startLocation.x / PIXELS_PER_METER, startLocation.y / PIXELS_PER_METER);
 
         Body playerBody = world.createBody(playerBodyDef);
 
@@ -234,7 +246,8 @@ public class Level {
         player.setBody(playerBody);
 
         entities.add(player);
-
+        audio.playMusic();
+        audio.getPlayer(player);
         world.setContactListener(player);
     }
 

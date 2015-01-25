@@ -41,6 +41,7 @@ public class Player extends Entity implements ContactListener {
     private boolean inADoor = false;
 
     public boolean onDoor = false;
+    public static String levelToLoad;
 
     public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
     {
@@ -200,6 +201,7 @@ public class Player extends Entity implements ContactListener {
             }
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
                 onDoor = false;
+                levelToLoad = opposingFixture.getUserData().toString();
             }
         }
     }

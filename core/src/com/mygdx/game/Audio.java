@@ -16,6 +16,7 @@ public class Audio {
     public static Player player;
     public static Music background, backgroundloop;
     public static float loopTime = 0;
+    public int dicks = 0;
     //public static Player player;
 
     public Audio(){

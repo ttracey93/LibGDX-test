@@ -136,7 +136,7 @@
     <property name="level" value="../Maps/hubworld.tmx"/>
    </properties>
   </object>
-  <object id="25" x="7904" y="659" width="62" height="86">
+  <object id="25" x="7874" y="637" width="93" height="111">
    <properties>
     <property name="level" value="../Maps/spikesecret1.tmx"/>
    </properties>

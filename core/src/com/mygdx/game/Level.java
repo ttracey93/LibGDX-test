@@ -19,9 +19,10 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.collision.ICollisionMask;
 import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
+import com.mygdx.game.entity.items.IItemClass;
+import com.mygdx.game.entity.items.JumpRefresher;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
-import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,15 +96,19 @@ public class Level {
         backgroundLayers.getLayers().add(middleground);
         backgroundLayers.getLayers().add(middleground2);
 
-
-
         cameraManager = new CameraManager(box2DCamera, camera, renderer);
 
         entities = new ArrayList<Entity>();
 
         world = new World(new Vector2(0,-50f), true);
 
-        
+        try {
+            instantiateItems(map.getLayers().get("objects").getObjects());
+        }
+        catch(Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("no objects layer");
+        }
 
         //Create physics bodies for the ground.
         try {
@@ -215,8 +220,6 @@ public class Level {
 
                 //entities.add(body);
             }
-
-            instantiateItems(map.getLayers().get("objects").getObjects(), world);
 
         } catch(Exception e){
             System.out.println(e.toString());
@@ -351,19 +354,23 @@ public class Level {
         return polygon;
     }
 
-<<<<<<< Temporary merge branch 1
-    private void instantiateItems(MapObjects mapObjects, World world) {
+    private void instantiateItems(MapObjects mapObjects) {
         for(MapObject mapObject : mapObjects) {
+            System.out.println("for map object");
             String classToInstantiate = mapObject.getProperties().get("class").toString();
 
+            System.out.println("classToInstantiate: " + classToInstantiate);
+
             if(classToInstantiate != null) {
+                System.out.println("class not null");
                 if(classToInstantiate.equalsIgnoreCase(IItemClass.JUMP_REFRESHER)) {
-                    entities.add(new JumpRefresher(mapObject, world));
+                    System.out.println("class = jumprefresher");
+                    entities.add(new JumpRefresher(mapObject, world, (SpriteBatch)renderer.getBatch()));
                 }
             }
         }
     }
-=======
+
     private static ChainShape getPolyline(PolylineMapObject polylineObject) {
         float[] vertices = polylineObject.getPolyline().getTransformedVertices();
         Vector2[] worldVertices = new Vector2[vertices.length / 2];
@@ -393,7 +400,4 @@ public class Level {
         polygon.set(worldVertices);
         return polygon;
     }
-
-
->>>>>>> Temporary merge branch 2
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="207">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="229">
  <tileset firstgid="1" name="tiles32" tilewidth="32" tileheight="32">
   <tile id="0">
    <image width="32" height="32" source="../Platformer/Base/Tiles32/box.png"/>
@@ -80,7 +80,7 @@
  </layer>
  <layer name="middleground" width="250" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2aW07DMBBFpxICVFWiEs988GYhLIWlsBSWigMKSo3jR2yPx9N7pCs1TevYjY8dWx2IPgYEQVSHDKdE7wiC5OfW+HQnzKkdAQBKcmly07oSFvBcN5vWFThC4LkeNrO43p8f2+dTXofqUOIzuWAsOcTVL1pjez6tLYCfXjyP/c424zrS+nRNXG3tof1zz8d7fW1yRf77DmTj63clx4aS1+BkExlN2PP55DmQB8c8H/puzPgv3REp6x1ObM9PmtQCxFCz78V6vrZcSYx12pF/b0pivXPAPhxIQcMzfKznEuu+Frut2toHypLbN2o8L6yJi7kL2tbpmM8BJ7Y3ufu9JT1c8rx2OOjV83uTBwFlgLZomW/XsrWyBKfnJcevR5MnAWWAPNas90vNhyE3emC78NqmV8+fTV4ElAHyqDEfL+2xhfbeQufJcb72cQiJnodIGaNfTd4yr1eiDCAHjvVzS89dHvs8nx/36HmJ5zbN/306Vo7xPvY4n6cQ4+ee6HOfWUZtMNak0Wrv2i6b+3h6b20be/U8xOj4xW/I53pr4DngQKPnM8d/PJfuOgC10ea55fif561dx5ydBn6rsmjy3OH4gectXYfnaeC3KktNz88Zs+D4P88n1znrhiCtU9PzM6Z4HHd6PrnOVT8EaZ3R84HoC0EQ3fkG2CJSP6hhAAA=
+   H4sIAAAAAAAAC+2aaU7DMBBGJwgBqipRiaX0BzsH4SgchaNwVBwgKJjESzy2x5PvSZ/UJI3jLM+O3R6I3g4IgqgOGU6IXhEESc/e+HQjzKktAQA4uTC5rl0JC3ium652BVYIPNdDN8rU+vGyvT3ms68OHN8B+rE9H8YWwE0rnofus2E+jlamrkUL12fseX+vr0wuyX3fgWxczx1n28B5jJJ0gdGE3Z8PngN5lOjnffuGtP/SHck93jn6iSRsz4+r1AKEkNOfUM9d+8Zuq0Vfpy2556Yk1jsFzMOBGGLHpxJ9CfVcYt2XYp+rtvMDvKQ+G9zPVuhYO2TsPXZB2zgd/Tkoie1N6nwvp4dznudOCVr1/NbkTkAZoC5a+tulbKzMUdJzzvbr3uRBQBkgjSW/2XH1hz43WmAz89mmVc8fTZ4ElAHSyNEfz82x+ebefNtpYnvuZR8SPfcR00Y/m7wkHo+jDCCHEuPnmp5PvX+4PB8vt+g5x3ub5v8+rZU13scW+/MYQvzcEb3vEsvIDdqaOGrNXdtll14e1i09x1Y999E7fv4dcrleG3gOSqDR85HjX55Ldx2A3Gjz3HL81/ParqPPjgPXihdNnk84/sfzmq7D8zhwrXjJ6flZwcw4/s/zwfWSdUOQ2snp+WmhOByf9HxwvVT9EKR2es8PRB8IgujOJ6PEAfeoYQAA
   </data>
  </layer>
  <layer name="middleground2" width="250" height="25">
@@ -132,7 +132,6 @@
   <object id="138" x="3939" y="161" width="24" height="61"/>
   <object id="140" x="4194" y="225" width="29" height="61"/>
   <object id="141" x="4354" y="161" width="28" height="62"/>
-  <object id="144" x="4610" y="127" width="27" height="63"/>
   <object id="145" x="4738" y="195" width="29" height="58"/>
   <object id="146" x="4835" y="256" width="26" height="63"/>
   <object id="147" x="4963" y="323" width="27" height="58"/>
@@ -148,8 +147,6 @@
   <object id="161" x="7073" y="543" width="30" height="32"/>
   <object id="162" x="7201" y="544" width="30" height="32"/>
   <object id="163" x="7330" y="545" width="30" height="32"/>
-  <object id="164" x="7521" y="547" width="30" height="32"/>
-  <object id="182" x="6784" y="131" width="59" height="25"/>
   <object id="183" x="6340" y="291" width="25" height="61"/>
   <object id="184" x="6368" y="322" width="27" height="32"/>
   <object id="187" x="6497" y="162" width="30" height="28"/>
@@ -160,6 +157,8 @@
   <object id="199" x="1952" y="512" width="126" height="30"/>
   <object id="200" x="1987" y="547" width="59" height="26"/>
   <object id="201" x="100" y="321" width="60" height="31"/>
+  <object id="208" x="4610" y="257" width="29" height="62"/>
+  <object id="228" x="6787" y="222" width="59" height="34"/>
  </objectgroup>
  <objectgroup name="teleport">
   <object id="1" x="114" y="199" width="32" height="28">
@@ -174,126 +173,102 @@
   </object>
  </objectgroup>
  <objectgroup name="objects">
-  <object id="49" x="707" y="482" width="26" height="27">
+  <object id="210" x="674" y="449" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="50" x="2115" y="387.5" width="26" height="27">
+  <object id="212" x="1284" y="515" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="53" x="1282" y="516.5" width="26" height="27">
+  <object id="213" x="1439" y="611" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="54" x="1507" y="641.5" width="26" height="27">
+  <object id="214" x="1569" y="542" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="56" x="1635" y="577.5" width="26" height="27">
+  <object id="215" x="1727" y="482" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="57" x="1733" y="515.5" width="26" height="27">
+  <object id="216" x="1891" y="577" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="67" x="1891" y="611.5" width="26" height="27">
+  <object id="217" x="2017" y="609" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="70" x="1889" y="515.5" width="26" height="27">
+  <object id="218" x="1853" y="387" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="71" x="1922" y="419.5" width="26" height="27">
+  <object id="219" x="1987" y="290" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="73" x="1986" y="322.5" width="26" height="27">
+  <object id="220" x="2115" y="384" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="76" x="2210" y="322.5" width="26" height="27">
+  <object id="221" x="2211" y="254" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="77" x="2275" y="225.5" width="26" height="27">
+  <object id="222" x="2342" y="166" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="78" x="1991" y="651.5" width="26" height="27">
+  <object id="223" x="2353" y="590" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="79" x="2111" y="647.5" width="26" height="27">
+  <object id="224" x="2508" y="598" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="80" x="2212" y="647.5" width="26" height="27">
+  <object id="225" x="2671" y="605" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="81" x="2371" y="644.5" width="26" height="27">
+  <object id="226" x="3203" y="384" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="82" x="2531" y="646.5" width="26" height="27">
-   <properties>
-    <property name="class" value="JumpRefresher"/>
-   </properties>
-  </object>
-  <object id="83" x="2692" y="644.5" width="26" height="27">
-   <properties>
-    <property name="class" value="JumpRefresher"/>
-   </properties>
-  </object>
-  <object id="103" x="3235" y="384.5" width="26" height="27">
-   <properties>
-    <property name="class" value="JumpRefresher"/>
-   </properties>
-  </object>
-  <object id="104" x="3299" y="290.5" width="26" height="27">
+  <object id="227" x="3297" y="258" width="60" height="62">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="death">
-  <object id="21" x="707" y="715" width="7259" height="57"/>
   <object id="41" x="7681" y="518" width="63" height="23"/>
   <object id="42" x="7618" y="572" width="190" height="32"/>
   <object id="44" x="7844" y="638">
    <polyline points="0,0 25,3 29,33 62,37 61,65 121,64"/>
   </object>
-  <object id="46" x="7585" y="642">
-   <polyline points="0,0 -35,-2 -32,33 -63,29 -63,62 -149,66"/>
-  </object>
   <object id="55" x="1537" y="768">
    <polygon points="0,0 222,-225 447,-1"/>
   </object>
   <object id="58" x="1448" y="396" width="44" height="110"/>
-  <object id="88" x="2339" y="131.5" width="26" height="27">
-   <properties>
-    <property name="class" value="JumpRefresher"/>
-   </properties>
-  </object>
   <object id="93" x="36" y="33" width="7933" height="13"/>
   <object id="165" x="5762" y="450" width="58" height="29"/>
   <object id="166" x="5956" y="453" width="56" height="26"/>
@@ -318,5 +293,6 @@
   <object id="204" x="2441" y="647" width="44" height="110"/>
   <object id="205" x="2601" y="651" width="44" height="110"/>
   <object id="206" x="2761" y="650" width="44" height="110"/>
+  <object id="207" x="703" y="750" width="7262" height="17"/>
  </objectgroup>
 </map>

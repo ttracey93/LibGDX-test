@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="229">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="231">
  <tileset firstgid="1" name="tiles32" tilewidth="32" tileheight="32">
   <tile id="0">
    <image width="32" height="32" source="../Platformer/Base/Tiles32/box.png"/>
@@ -80,7 +80,7 @@
  </layer>
  <layer name="middleground" width="250" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2aaU7DMBBGJwgBqipRiaX0BzsH4SgchaNwVBwgKJjESzy2x5PvSZ/UJI3jLM+O3R6I3g4IgqgOGU6IXhEESc/e+HQjzKktAQA4uTC5rl0JC3ium652BVYIPNdDN8rU+vGyvT3ms68OHN8B+rE9H8YWwE0rnofus2E+jlamrkUL12fseX+vr0wuyX3fgWxczx1n28B5jJJ0gdGE3Z8PngN5lOjnffuGtP/SHck93jn6iSRsz4+r1AKEkNOfUM9d+8Zuq0Vfpy2556Yk1jsFzMOBGGLHpxJ9CfVcYt2XYp+rtvMDvKQ+G9zPVuhYO2TsPXZB2zgd/Tkoie1N6nwvp4dznudOCVr1/NbkTkAZoC5a+tulbKzMUdJzzvbr3uRBQBkgjSW/2XH1hz43WmAz89mmVc8fTZ4ElAHSyNEfz82x+ebefNtpYnvuZR8SPfcR00Y/m7wkHo+jDCCHEuPnmp5PvX+4PB8vt+g5x3ub5v8+rZU13scW+/MYQvzcEb3vEsvIDdqaOGrNXdtll14e1i09x1Y999E7fv4dcrleG3gOSqDR85HjX55Ldx2A3Gjz3HL81/ParqPPjgPXihdNnk84/sfzmq7D8zhwrXjJ6flZwcw4/s/zwfWSdUOQ2snp+WmhOByf9HxwvVT9EKR2es8PRB8IgujOJ6PEAfeoYQAA
+   H4sIAAAAAAAAC+2aaU7DMBBGpwgBiipRiaXkBzsH4SgchaNwVBwgKBjH+zKefk/6pKZRHGd5nsTtSPQ2IggiOqQ4IXpFECQ9e+XTDTOntgQAyMmFynXrTmjAcwDyAs/lsFnE9P1yWV8f8hmAHOiez+8WwE6vnq+1PURsc4iYzkUP52fp+XStr1QuyX7dAW9s913MPRm6Dff7fuMZSej1fPYc8MP33ktx2bWtz/jP3RGf/qUcw9FPOKF7ftykF8CHkrXY1/PQfXB0furTluxzUxz7nQLm4fqldF3ybU+q5xz7Hot+rNKOTzItrlPqPkuMOzExsXRB2ns66jmoie5N6nxvTg/XPC+dGvTq+a3KHYM2QFuk1NtYBi1r1PQ85/h1r/LAoA2QRsxvdrnqocuNHhhWPuv06vmjyhODNkAaJerx2hyba+7NtZ4M60svu+DouYuQMfpZ5SVxfznaAHyo8f7c0nPT84fN8+Vyj57neG6T/N+nQ+UQr2OP9TwEHz93RO+7xDZKg7EmjFZz13rbtZfn72KPsVfPXUyOn3+HbK63Bp6DGkj0fOH4l+fcXQegNNI81xz/9by166jZYeBc5UWS5wbH/3je0nV4HgbOVV5Ken5WMSuO//N8dr1m3xCkdUp6flopFseNns+u1+ofgrTO5PlI9IEgiOx8AmjmYC2oYQAA
   </data>
  </layer>
  <layer name="middleground2" width="250" height="25">
@@ -126,9 +126,7 @@
   <object id="131" x="3107" y="130" width="26" height="61"/>
   <object id="132" x="3204" y="131" width="25" height="58"/>
   <object id="133" x="3395" y="224" width="25" height="64"/>
-  <object id="134" x="3523" y="131" width="29" height="58"/>
   <object id="135" x="3715" y="195" width="26" height="57"/>
-  <object id="137" x="3812" y="96" width="25" height="62"/>
   <object id="138" x="3939" y="161" width="24" height="61"/>
   <object id="140" x="4194" y="225" width="29" height="61"/>
   <object id="141" x="4354" y="161" width="28" height="62"/>
@@ -159,6 +157,8 @@
   <object id="201" x="100" y="321" width="60" height="31"/>
   <object id="208" x="4610" y="257" width="29" height="62"/>
   <object id="228" x="6787" y="222" width="59" height="34"/>
+  <object id="229" x="3520" y="289" width="31" height="62"/>
+  <object id="230" x="3810" y="257" width="29" height="62"/>
  </objectgroup>
  <objectgroup name="teleport">
   <object id="1" x="114" y="199" width="32" height="28">

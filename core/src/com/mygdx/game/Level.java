@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.*;
 import com.badlogic.gdx.maps.objects.PolygonMapObject;
@@ -23,6 +24,8 @@ import com.mygdx.game.entity.items.IItemClass;
 import com.mygdx.game.entity.items.JumpRefresher;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
+import javafx.scene.text.Font;
+import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +46,7 @@ public class Level {
     private SpriteBatch spriteBatch;
     private CameraManager cameraManager;
     public String currentLevel;
+    BitmapFont font;
 
     //physics
     private World world;
@@ -84,6 +88,8 @@ public class Level {
         camera.update();
         spriteBatch = new SpriteBatch();
 
+        font = new BitmapFont();
+
         //Set up backgroundMap
         TiledMapTileLayer background = (TiledMapTileLayer) map.getLayers().get("background");
         TiledMapTileLayer middleground1 = (TiledMapTileLayer) map.getLayers().get("middleground1");
@@ -95,6 +101,8 @@ public class Level {
         backgroundLayers.getLayers().add(middleground1);
         backgroundLayers.getLayers().add(middleground);
         backgroundLayers.getLayers().add(middleground2);
+
+
 
         cameraManager = new CameraManager(box2DCamera, camera, renderer);
 
@@ -261,6 +269,7 @@ public class Level {
         renderer.render();
 
         renderer.getBatch().begin();
+        font.draw(renderer.getBatch(), Integer.toString(SaltFactory.numDeaths), player.getSprite().getX() + 30, player.getSprite().getY() + 80);
         if (map != null) {
 
             TiledMapTileLayer foreground = (TiledMapTileLayer) map.getLayers().get("foreground");

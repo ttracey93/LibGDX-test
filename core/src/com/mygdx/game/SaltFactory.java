@@ -12,6 +12,7 @@ import com.mygdx.game.state.State;
 public class SaltFactory extends ApplicationAdapter {
 	private SpriteBatch batch;
 	private State gameState;
+	public static int numDeaths = 0;
 
 	@Override
 	public void create () {
@@ -41,6 +42,7 @@ public class SaltFactory extends ApplicationAdapter {
 		if(gameState.getLevel().dead)
 		{
 			gameState.getLevel().audio.stopMusic();
+			numDeaths++;
 			startGame(gameState.getLevel().currentLevel);
 		}
 

@@ -55,7 +55,7 @@ public class Level {
 
     public Level(String fileName) {
         audio = new Audio();
-        TiledMap map = new TmxMapLoader().load(fileName);
+        map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
 
         camera = new OrthographicCamera();

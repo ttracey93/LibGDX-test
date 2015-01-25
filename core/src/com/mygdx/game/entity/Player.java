@@ -83,6 +83,7 @@ public class Player extends Entity implements ContactListener {
             if(onGround) {
                 body.setLinearVelocity(body.getLinearVelocity().x, jumpVelocity);
                 jumpSound = true;
+                onGround = false;
             }
             else if(canDoubleJump) {
                 canDoubleJump = false;
@@ -188,6 +189,7 @@ public class Player extends Entity implements ContactListener {
             }
 
             if(opposingFixture.getFilterData().categoryBits == ICollisionMask.ITEM) {
+                onGround = true;
                 canDoubleJump = true;
             }
             if(opposingFixture.getFilterData().categoryBits == ICollisionMask.ENEMY) {

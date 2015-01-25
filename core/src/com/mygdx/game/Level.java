@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.*;
+import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.maps.objects.PolylineMapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
@@ -96,27 +97,34 @@ public class Level {
 
             for(MapObject object : ground)
             {
+                Shape shape;
                 if (object instanceof RectangleMapObject) {
-                    Shape shape;
+
                     shape = getRectangle((RectangleMapObject)object);
-
-                    BodyDef bd = new BodyDef();
-                    bd.type = BodyDef.BodyType.StaticBody;
-
-                    Body body = world.createBody(bd);
-
-                    FixtureDef fixtureDef = new FixtureDef();
-                    fixtureDef.shape = shape;
-                    fixtureDef.filter.categoryBits = ICollisionMask.GROUND;
-                    fixtureDef.filter.maskBits = ICollisionMask.PLAYER | ICollisionMask.ENEMY;
-
-                    body.createFixture(fixtureDef);
-
-                    body.getFixtureList().first().setFriction(0);
+                }
+                else if (object instanceof PolygonMapObject) {
+                    shape = getPolygon((PolygonMapObject)object);
+                }
+                else if (object instanceof PolylineMapObject) {
+                    shape = getPolyline((PolylineMapObject)object);
                 }
                 else
                     continue;
 
+                BodyDef bd = new BodyDef();
+                bd.type = BodyDef.BodyType.StaticBody;
+
+                Body body = world.createBody(bd);
+
+                FixtureDef fixtureDef = new FixtureDef();
+                fixtureDef.shape = shape;
+                fixtureDef.filter.categoryBits = ICollisionMask.GROUND;
+                fixtureDef.filter.maskBits = ICollisionMask.PLAYER | ICollisionMask.ENEMY;
+
+                body.createFixture(fixtureDef);
+
+                body.getFixtureList().first().setFriction(0);
+                shape.dispose();
 
                 //bd.position.set(new Vector2(((RectangleMapObject) object).getRectangle().x / PIXELS_PER_METER, ((RectangleMapObject) object).getRectangle().y / PIXELS_PER_METER));
                 //bd.position.set(((RectangleMapObject) object).getRectangle().getX(), ((RectangleMapObject) object).getRectangle().getY());
@@ -147,6 +155,7 @@ public class Level {
                         body.createFixture(fixtureDef);
 
                         body.getFixtureList().first().setFriction(0);
+                        shape.dispose();
                     } else
                         continue;
                 }
@@ -180,6 +189,7 @@ public class Level {
                     fixture.setUserData(door.getProperties().get("level"));
 
                     body.getFixtureList().first().setFriction(0);
+                    shape.dispose();
                 }
                 else
                     continue;
@@ -332,6 +342,21 @@ public class Level {
         ChainShape chain = new ChainShape();
         chain.createChain(worldVertices);
         return chain;
+    }
+
+    private static PolygonShape getPolygon(PolygonMapObject polygonObject) {
+        PolygonShape polygon = new PolygonShape();
+        float[] vertices = polygonObject.getPolygon().getTransformedVertices();
+
+        float[] worldVertices = new float[vertices.length];
+
+        for (int i = 0; i < vertices.length; ++i) {
+            System.out.println(vertices[i]);
+            worldVertices[i] = vertices[i] / PIXELS_PER_METER;
+        }
+
+        polygon.set(worldVertices);
+        return polygon;
     }
 
 

@@ -23,8 +23,8 @@ public class Player extends Entity implements ContactListener {
     SpriteBatch spriteBatch;
     Texture texture;
     STATE movementState;
-    private Animation animationRight, animationLeft, animationIdle;
-    private TextureAtlas textureAtlas, textureAtlasLeft, textureAtlasIdle;
+    private Animation animationRight, animationLeft;
+    private TextureAtlas textureAtlas, textureAtlasLeft;
     private float elapsedTime = 0;
     private Body body;
     private float jumpForce = 300f;
@@ -40,13 +40,13 @@ public class Player extends Entity implements ContactListener {
     private boolean onGround = true;
     private boolean canDoubleJump = true;
     private boolean inADoor = false;
-    public boolean jumpSound = false;
+
     public boolean onDoor = false;
     public static String levelToLoad;
 
     public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
     {
-        texture = new Texture(Gdx.files.internal("Base/Player/morton/idle/idle.png"));
+        texture = new Texture(Gdx.files.internal("Base/Player/morton/morton_walking1.png"));
 
         textureAtlas = new TextureAtlas(Gdx.files.internal("Base/Player/morton/right/spritesheet.atlas"));
         animationRight = new Animation(1/6f,textureAtlas.getRegions());
@@ -164,6 +164,7 @@ public class Player extends Entity implements ContactListener {
             }
         }
 
+        Vector2 normalVector = contact.getWorldManifold().getNormal();
 
         if(playerFixture != null) {
             System.out.println("player fixture is not null");
@@ -171,13 +172,15 @@ public class Player extends Entity implements ContactListener {
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.GROUND) {
                 System.out.println("opposing force is ground");
 
-                onGround = true;
-                canDoubleJump = true;
+                if(normalVector.y > 0) {
+                    onGround = true;
+                    canDoubleJump = true;
+                }
             }
 
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
-                System.out.print("hitting door");
                 onDoor = true;
+                levelToLoad = opposingFixture.getUserData().toString();
             }
         }
     }
@@ -207,9 +210,9 @@ public class Player extends Entity implements ContactListener {
                 System.out.println("opposing force is ground");
                 onGround = false;
             }
-            if (opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
+
+            if(opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
                 onDoor = false;
-                levelToLoad = opposingFixture.getUserData().toString();
             }
         }
     }

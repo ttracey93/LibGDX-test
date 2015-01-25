@@ -13,8 +13,9 @@ public class Keys {
     public static final Integer RIGHT = 1;
     public static final Integer JUMP = 2;
     public static final Integer UP = 3;
+    public static final Integer MENU = 4;
 
-    public static final Integer numKeys = 4 ;
+    public static final Integer numKeys = 5;
 
     static {
         keys = new boolean[numKeys];

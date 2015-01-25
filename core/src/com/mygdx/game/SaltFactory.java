@@ -36,6 +36,10 @@ public class SaltFactory extends ApplicationAdapter {
 				startGame(Player.levelToLoad);
 			}
 		}
+
+		if(Keys.keyDown(Keys.MENU)) {
+			startGame(ILevelName.HUBWORLD);
+		}
 	}
 
 	public void startGame(String levelName) {

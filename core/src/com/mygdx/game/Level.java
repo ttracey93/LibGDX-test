@@ -21,6 +21,7 @@ import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
+import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,7 +90,7 @@ public class Level {
 
         entities = new ArrayList<Entity>();
 
-        world = new World(new Vector2(0,-50f), false);
+        world = new World(new Vector2(0,-50f), true);
 
         //Create physics bodies for the ground.
         try {
@@ -100,7 +101,7 @@ public class Level {
             {
                 Shape shape;
                 if (object instanceof RectangleMapObject) {
-
+                    Shape shape;
                     shape = getRectangle((RectangleMapObject)object);
                 }
                 else if (object instanceof PolygonMapObject) {
@@ -112,20 +113,23 @@ public class Level {
                 else
                     continue;
 
-                BodyDef bd = new BodyDef();
-                bd.type = BodyDef.BodyType.StaticBody;
+                    BodyDef bd = new BodyDef();
+                    bd.type = BodyDef.BodyType.StaticBody;
 
-                Body body = world.createBody(bd);
+                    Body body = world.createBody(bd);
 
-                FixtureDef fixtureDef = new FixtureDef();
-                fixtureDef.shape = shape;
-                fixtureDef.filter.categoryBits = ICollisionMask.GROUND;
-                fixtureDef.filter.maskBits = ICollisionMask.PLAYER | ICollisionMask.ENEMY;
+                    FixtureDef fixtureDef = new FixtureDef();
+                    fixtureDef.shape = shape;
+                    fixtureDef.filter.categoryBits = ICollisionMask.GROUND;
+                    fixtureDef.filter.maskBits = ICollisionMask.PLAYER | ICollisionMask.ENEMY;
 
-                body.createFixture(fixtureDef);
+                    body.createFixture(fixtureDef);
 
-                body.getFixtureList().first().setFriction(0);
-                shape.dispose();
+                    body.getFixtureList().first().setFriction(0);
+                }
+                else
+                    continue;
+
 
                 //bd.position.set(new Vector2(((RectangleMapObject) object).getRectangle().x / PIXELS_PER_METER, ((RectangleMapObject) object).getRectangle().y / PIXELS_PER_METER));
                 //bd.position.set(((RectangleMapObject) object).getRectangle().getX(), ((RectangleMapObject) object).getRectangle().getY());
@@ -206,14 +210,14 @@ public class Level {
             System.out.println(e.toString());
         }
 
-        //debugRenderer = new Box2DDebugRenderer();
+      //  debugRenderer = new Box2DDebugRenderer();
     }
 
     public void update(float deltaTime)
     {
         camera.update();
 
-        world.step(deltaTime, 1, 1);
+        world.step(deltaTime,6,2);
 
         //Update other entities
         for(Entity entity : entities) {
@@ -238,7 +242,11 @@ public class Level {
         renderer.render();
 
         renderer.getBatch().begin();
-        if (map != null) {
+        TiledMapTileLayer background = (TiledMapTileLayer)map.getLayers().get("background");
+        TiledMapTileLayer middleground1 = (TiledMapTileLayer)map.getLayers().get("middleground1");
+        TiledMapTileLayer middleground = (TiledMapTileLayer)map.getLayers().get("middleground");
+        TiledMapTileLayer middleground2 = (TiledMapTileLayer)map.getLayers().get("middleground2");
+        TiledMapTileLayer foreground = (TiledMapTileLayer)map.getLayers().get("foreground");
 
             TiledMapTileLayer foreground = (TiledMapTileLayer) map.getLayers().get("foreground");
 
@@ -246,12 +254,10 @@ public class Level {
                 entity.draw();
             }
 
-            renderer.renderTileLayer(foreground);
-
-        }
+        renderer.renderTileLayer(foreground);
         renderer.getBatch().end();
 
-        //debugRenderer.render(world, box2DCamera.combined);
+//        debugRenderer.render(world, box2DCamera.combined);
     }
 
     public OrthogonalTiledMapRenderer getRenderer() {

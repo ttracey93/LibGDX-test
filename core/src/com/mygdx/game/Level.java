@@ -7,6 +7,7 @@ import com.badlogic.gdx.maps.*;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Matrix4;
@@ -16,6 +17,7 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.collision.ICollisionMask;
 import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
+import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
 
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ public class Level {
 
     public Level(String fileName) {
         audio = new Audio();
-        TiledMap map = new TmxMapLoader().load(fileName);
+        map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
 
         camera = new OrthographicCamera();

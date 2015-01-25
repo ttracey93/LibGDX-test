@@ -16,7 +16,7 @@ public class SaltFactory extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		gameState = new PlayerState(this,ILevelName.WORLD1);
+		gameState = new PlayerState(this,ILevelName.HUBWORLD);
 	}
 
 	@Override
@@ -37,6 +37,10 @@ public class SaltFactory extends ApplicationAdapter {
 				startGame(Player.levelToLoad);
 			}
 		}
+	}
+
+	public void startGame(String levelName) {
+		gameState = new PlayerState(this, levelName);
 	}
 
 	@Override

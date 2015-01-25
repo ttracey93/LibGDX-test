@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="200" height="100" tilewidth="32" tileheight="32" nextobjectid="59">
+ <tileset firstgid="1" name="background" tilewidth="256" tileheight="256">
+  <tile id="0">
+   <image width="256" height="256" source="../Platformer/Base/bg.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="2" name="tiles32" tilewidth="34" tileheight="34">
+  <tile id="0">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCenter.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="../Platformer/Base/Tree/brownersquare.png"/>
+  </tile>
+  <tile id="2">
+   <image width="34" height="34" source="../Platformer/Base/Tree/tree.png"/>
+  </tile>
+  <tile id="3">
+   <image width="34" height="34" source="../Platformer/Base/Tree/treeTrunkSquare.png"/>
+  </tile>
+  <tile id="4">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassMid.png"/>
+  </tile>
+  <tile id="5">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/door_openMid.png"/>
+  </tile>
+  <tile id="6">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/moss.png"/>
+  </tile>
+  <tile id="7">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/water.png"/>
+  </tile>
+  <tile id="8">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/waterTop.png"/>
+  </tile>
+  <tile id="9">
+   <image width="33" height="33" source="../Platformer/Base/Tiles32/cyprus.png"/>
+  </tile>
+  <tile id="10">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/cyprusFlower.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="13" name="small branch" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tree/treeBranchSmall.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="17" name="door1" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/doorbottom.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="21" name="door2" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/doortop.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="23" name="rock" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/Untitled.png" width="140" height="140"/>
+ </tileset>
+ <layer name="backround" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3OoQEAAAgDoM3/j/YCs4VAp0kKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQO3y/4srd6hs6AOAEA
+  </data>
+ </layer>
+ <layer name="middleground1" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3dQQqDMBBA0UD1/lfuSiiSmeiiLc68B4EuXHTh18S0uI0xtsWArj472IPPWqGr/TRWfeiETo4Wzm1kQyN0MbtXnDv4PEYjdBLNpaI+zLXoJJtfXe1DI1R159nV7B5zHAsVzc71rA9rdTrJzvvV8yvzK6q700LWh0aoKGrj6vzKHIvKsjXFlXas0alsdu2/uw+iD6pa9ZE907X2gPU+CAAAAAAAAPBs9v1gzr44AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBveXcUxLxfDWLaAAAAAAAAAAAAAIDvev37C8AD+a07xLbh/1IQ0QbEtAEAAAAAAAAAAAAAAAAAAAB09wYFW4YPgDgBAA==
+  </data>
+ </layer>
+ <layer name="middleground" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3dMUvDUBhG4SJUh4Kr//+fSsGhhh6t7b2kic8D75KpHQ7fFHI4AAAAAAAAAAAAAMxxvBjwnT6g6QOaPqDpA5o+oOkDmj6g6QOaPqDpA5o+oF328b7yb4Fn435A0wc0fUDTBzR9QNMHNH1A0wc0fUDTBzR9QNMHNH1A0wc0fUDTBzR9QNMHtK33cfrab8/gHvqApg9o+oCmD2j6gKYPaPqApg9o+oCmD2j6gKYPaPqApg9o+oC29e+r6YOZ3A9o+oCmD2j6gLa3Pk5XnsG99tLHcjDC1vs40waz7KGPM20wgz6g6QOaPqDpA5o+oOkDmj6g6QOaPqAt3x+83JbogxncD2j6gKYPaLP6+LhhI+mDGfQB7ZE+bmlAH2zZPX082sXIPrw7yEx/6WNUF+4HW7FmHyMb0Qcz6AOaPqDpA9pPfczoYXYfOmGkvfUBI63Zx9vA/6EPRjse3A8oyz6WjeiD/0wf0PQB170+yUbRByO9mFnuE2ztaI2AOAEA
+  </data>
+ </layer>
+ <layer name="middleground2" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3dSwqDMBQFUMEV9Of+l1o7EtQEvITEwjkQnL7J5eYhrdMEAAAAAAAAAAAAAPQ2jx4AgL+mR+CcbECZfACQ0B9QJh8AXKU7oE5GAADacr+Cc7IBQEqHAAAAvdg/AADamSf3K6iRDwAS+gPK5AMAoJ159wQ2cgEAAADj2c8BSOkQKJMPAACgF/sHACkdAsBVugPqZASO/H8i1MkHAADQg90DgJQOASClQwBI6A84+uXis55l9CBwU4/1PEcPATf1Ws979BBwQ74fBUBKdwCQ8BtbABK6A4CE/QMAoC13KwBSOgTOyQYAQBv794LuWbCRDaiTCwCANr4Z9a2ygDgBAA==
+  </data>
+ </layer>
+ <layer name="foreground" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DoQ0AAAgDMCz8fzAX4BATbdIqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPo0GTtEaGLgtWSMRL4A4AQA=
+  </data>
+ </layer>
+ <objectgroup name="solid">
+  <object id="3" x="1" y="321" width="31" height="32"/>
+  <object id="4" x="0" y="65" width="129" height="29"/>
+  <object id="5" x="99" y="32" width="29" height="31"/>
+  <object id="6" x="34" y="96" width="63" height="31"/>
+  <object id="7" x="33" y="128" width="31" height="95"/>
+  <object id="8" x="66" y="193" width="29" height="61"/>
+  <object id="9" x="68" y="257" width="60" height="160"/>
+  <object id="10" x="35" y="355" width="34" height="61"/>
+  <object id="11" x="195" y="33" width="30" height="63"/>
+  <object id="12" x="160" y="96" width="257" height="31"/>
+  <object id="13" x="386" y="127" width="62" height="31"/>
+  <object id="14" x="322" y="129" width="33" height="96"/>
+  <object id="15" x="162" y="127" width="64" height="34"/>
+  <object id="16" x="194" y="160" width="32" height="62"/>
+  <object id="17" x="162" y="192" width="32" height="187"/>
+  <object id="18" x="130" y="289" width="32" height="129"/>
+  <object id="19" x="226" y="288" width="190" height="33"/>
+  <object id="20" x="194" y="322" width="65" height="28"/>
+  <object id="21" x="387" y="257" width="127" height="28"/>
+  <object id="22" x="481" y="226" width="63" height="31"/>
+  <object id="23" x="355" y="321" width="61" height="31"/>
+  <object id="24" x="388" y="351" width="159" height="34"/>
+  <object id="25" x="511" y="386" width="67" height="28"/>
+  <object id="26" x="546" y="416" width="31" height="30"/>
+  <object id="27" x="259" y="383" width="157" height="31"/>
+  <object id="28" x="258" y="413" width="32" height="37"/>
+  <object id="30" x="387" y="415" width="30" height="64"/>
+  <object id="31" x="419" y="449" width="30" height="30"/>
+  <object id="32" x="163" y="800" width="29" height="17"/>
+  <object id="33" x="164" y="1921" width="26" height="18"/>
+  <object id="34" x="92" y="2496" width="195" height="18"/>
+  <object id="35" x="63" y="417" width="97" height="1992"/>
+  <object id="36" x="64" y="2412" width="24" height="101"/>
+  <object id="37" x="65" y="2515" width="94" height="618"/>
+  <object id="39" x="162" y="3039" width="30" height="96"/>
+  <object id="40" x="33" y="3006" width="30" height="128"/>
+  <object id="41" x="0" y="3137" width="593" height="61"/>
+  <object id="42" x="595" y="3193" width="79" height="2"/>
+  <object id="43" x="673" y="3137" width="411" height="59"/>
+  <object id="44" x="290" y="2913" width="303" height="223"/>
+  <object id="45" x="417" y="2753" width="637" height="160"/>
+  <object id="46" x="1055" y="2784" width="34" height="129"/>
+  <object id="47" x="481" y="2722" width="63" height="29"/>
+  <object id="48" x="544" y="2689" width="510" height="63"/>
+  <object id="49" x="769" y="2624" width="285" height="64"/>
+  <object id="52" x="1088" y="3168" width="5307" height="28"/>
+  <object id="55" x="596" y="2913" width="490" height="101"/>
+  <object id="56" x="1600" y="2719" width="126" height="33"/>
+  <object id="57" x="1664" y="2111" width="63" height="1003"/>
+  <object id="58" x="1728" y="2912" width="63" height="31"/>
+ </objectgroup>
+ <objectgroup name="teleport">
+  <object id="1" x="94" y="2413" width="66" height="83">
+   <properties>
+    <property name="start" value="true"/>
+   </properties>
+  </object>
+  <object id="50" x="597" y="3119" width="74" height="74">
+   <properties>
+    <property name="level" value="../Maps/rocksecret1.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="objects"/>
+ <objectgroup name="death">
+  <object id="53" x="1088" y="3116" width="5309" height="49"/>
+ </objectgroup>
+</map>

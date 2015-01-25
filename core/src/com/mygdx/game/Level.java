@@ -101,7 +101,7 @@ public class Level {
         entities = new ArrayList<Entity>();
 
         world = new World(new Vector2(0,-50f), true);
-
+//
         try {
             instantiateItems(map.getLayers().get("objects").getObjects());
         }

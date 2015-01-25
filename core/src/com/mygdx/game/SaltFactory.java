@@ -39,6 +39,10 @@ public class SaltFactory extends ApplicationAdapter {
 		}
 	}
 
+	public void startGame(String levelName) {
+		gameState = new PlayerState(this, levelName);
+	}
+
 	@Override
 	public void resize(int width, int height) {
 		Gdx.graphics.setDisplayMode(width, height, false);

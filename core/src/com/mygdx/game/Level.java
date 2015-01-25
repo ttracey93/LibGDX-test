@@ -19,8 +19,11 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.collision.ICollisionMask;
 import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
+import com.mygdx.game.entity.items.IItemClass;
+import com.mygdx.game.entity.items.JumpRefresher;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
+import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,11 +105,11 @@ public class Level {
 
         world = new World(new Vector2(0,-50f), true);
 
-        
 
         //Create physics bodies for the ground.
         try {
             MapObjects ground = map.getLayers().get("solid").getObjects();
+
 
 
             for(MapObject object : ground)
@@ -215,6 +218,8 @@ public class Level {
                 //entities.add(body);
             }
 
+            instantiateItems(map.getLayers().get("objects").getObjects(), world);
+
         } catch(Exception e){
             System.out.println(e.toString());
         }
@@ -319,7 +324,8 @@ public class Level {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = playerBox;
         fixtureDef.filter.categoryBits = ICollisionMask.PLAYER;
-        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL;
+        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL |
+                ICollisionMask.ITEM;
 
         playerBody.createFixture(fixtureDef);
         playerBox.dispose();
@@ -332,7 +338,7 @@ public class Level {
         world.setContactListener(player);
     }
 
-    private static PolygonShape getRectangle(RectangleMapObject rectangleObject) {
+    public static PolygonShape getRectangle(RectangleMapObject rectangleObject) {
         Rectangle rectangle = rectangleObject.getRectangle();
         PolygonShape polygon = new PolygonShape();
         Vector2 size = new Vector2((rectangle.x + rectangle.width * 0.5f) / PIXELS_PER_METER,
@@ -345,6 +351,18 @@ public class Level {
         //polygon.setAsBox(rectangle.width / PIXELS_PER_METER, rectangle.height / PIXELS_PER_METER);
         //rectangle.setPosition(rectangleObject.getRectangle().x, rectangleObject.getRectangle().y);
         return polygon;
+    }
+
+    private void instantiateItems(MapObjects mapObjects, World world) {
+        for(MapObject mapObject : mapObjects) {
+            String classToInstantiate = mapObject.getProperties().get("class").toString();
+
+            if(classToInstantiate != null) {
+                if(classToInstantiate.equalsIgnoreCase(IItemClass.JUMP_REFRESHER)) {
+                    entities.add(new JumpRefresher(mapObject, world));
+                }
+            }
+        }
     }
 
     private static ChainShape getPolyline(PolylineMapObject polylineObject) {

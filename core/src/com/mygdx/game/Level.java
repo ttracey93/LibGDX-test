@@ -33,7 +33,6 @@ public class Level {
     private OrthogonalTiledMapRenderer renderer;
     private OrthographicCamera camera;
     private OrthographicCamera box2DCamera;
-    private SpriteBatch spriteBatch;
     private CameraManager cameraManager;
 
     //physics
@@ -46,15 +45,17 @@ public class Level {
         TiledMap map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
 
+        //renderer = new OrthogonalTiledMapRenderer(map,2f,spriteBatch);
+
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         box2DCamera = new OrthographicCamera();
         box2DCamera.setToOrtho(true, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
 
-        renderer.setView(camera);
-        camera.update();
-        spriteBatch = new SpriteBatch();
+        renderer.setMap(map);
+        //renderer.setView(camera);
+        //camera.update();
 
         cameraManager = new CameraManager(camera, renderer);
 
@@ -105,7 +106,7 @@ public class Level {
 
     public void update(float deltaTime)
     {
-        camera.update();
+        //camera.update();
 
         world.step(deltaTime,6,2);
 
@@ -146,14 +147,6 @@ public class Level {
         this.camera = camera;
     }
 
-    public SpriteBatch getSpriteBatch() {
-        return spriteBatch;
-    }
-
-    public void setSpriteBatch(SpriteBatch spriteBatch) {
-        this.spriteBatch = spriteBatch;
-    }
-
     public World getWorld() {
         return world;
     }
@@ -173,7 +166,7 @@ public class Level {
         Body playerBody = world.createBody(playerBodyDef);
 
         PolygonShape playerBox = new PolygonShape();
-        playerBox.setAsBox((player.getSprite().getWidth() / 2)/PIXELS_PER_METER, (player.getSprite().getHeight() /2)/PIXELS_PER_METER);
+        playerBox.setAsBox((player.getSprite().getWidth() / 4)/PIXELS_PER_METER, (player.getSprite().getHeight() /2)/PIXELS_PER_METER);
 
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = playerBox;

@@ -44,6 +44,8 @@ public class Player extends Entity implements ContactListener {
     public boolean onDoor = false;
     public static String levelToLoad;
 
+    public boolean jumpSound = false;
+
     public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
     {
         texture = new Texture(Gdx.files.internal("Base/Player/morton/morton_walking1.png"));
@@ -63,6 +65,7 @@ public class Player extends Entity implements ContactListener {
 
     @Override
     public void update(float deltaTime) {
+        jumpSound = false;
         if(ignoreGravity) {
             body.setLinearVelocity(body.getLinearVelocity().x, 0);
         }
@@ -71,10 +74,12 @@ public class Player extends Entity implements ContactListener {
         if(Keys.keyPressed(Keys.JUMP)) {
             if(onGround) {
                 body.setLinearVelocity(body.getLinearVelocity().x, jumpVelocity);
+                jumpSound = true;
             }
             else if(canDoubleJump) {
                 canDoubleJump = false;
                 body.setLinearVelocity(body.getLinearVelocity().x, doubleJumpVelocity);
+                jumpSound = true;
             }
         }
         if(Keys.keyDown(Keys.LEFT)) {

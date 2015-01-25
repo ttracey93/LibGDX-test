@@ -20,12 +20,21 @@ public class Audio {
     //public static Player player;
 
     public Audio(String filename){
-        String backgroundPath = "Audio/homeTheme_full.wav";
-        helloSound = Gdx.audio.newSound(Gdx.files.internal(backgroundPath)); //64
-        jumpEffect = Gdx.audio.newSound(Gdx.files.internal("Audio/smb_jump-small.wav"));
-        background = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
-        backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/homeTheme_shortBuild.wav"));
+
+        jumpEffect = Gdx.audio.newSound(Gdx.files.internal("Audio/jumpOGGtest.ogg "));
+
+        if(filename == "../Maps/hubworld.tmx") {
+            String backgroundPath = "Audio/homeTheme_full.wav";
+            background = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
+            backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/homeTheme_shortBuild.wav"));
+        }else{
+            String backgroundPath = "Audio/loopingDemo.wav";
+            background = Gdx.audio.newMusic(Gdx.files.internal(backgroundPath));
+            backgroundloop = Gdx.audio.newMusic(Gdx.files.internal("Audio/loopingDemo.wav"));
+        }
     }
+
+
 
     public static void playMusic(){
         background.play();
@@ -34,10 +43,10 @@ public class Audio {
     public static void update(float deltaTime){
         String nothing = "debug";
         if(player != null){
-            //if(player.jumpSound) {
-              //  jumpEffect.stop();
-                //jumpEffect.play();
-            //}
+            if(player.jumpSound) {
+                jumpEffect.stop();
+                jumpEffect.play();
+            }
 
         loopTime += deltaTime;
 

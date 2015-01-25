@@ -76,7 +76,7 @@
   <object id="16" x="226" y="193" width="2299" height="30"/>
  </objectgroup>
  <objectgroup name="teleport">
-  <object id="4" x="65" y="6" width="97" height="93">
+  <object id="4" x="84" y="6" width="41" height="36">
    <properties>
     <property name="start" value="true"/>
    </properties>

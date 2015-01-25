@@ -44,6 +44,7 @@ public class Level {
     private World world;
     TiledMap map;
     TiledMap backgroundLayers;
+    //Box2DDebugRenderer debugRenderer;
 
     //entities
     private List<Entity> entities;
@@ -205,14 +206,14 @@ public class Level {
             System.out.println(e.toString());
         }
 
-      //  debugRenderer = new Box2DDebugRenderer();
+        //debugRenderer = new Box2DDebugRenderer();
     }
 
     public void update(float deltaTime)
     {
         camera.update();
 
-        world.step(deltaTime,1,1);
+        world.step(deltaTime, 1, 1);
 
         //Update other entities
         for(Entity entity : entities) {
@@ -250,7 +251,7 @@ public class Level {
         }
         renderer.getBatch().end();
 
-//        debugRenderer.render(world, box2DCamera.combined);
+        //debugRenderer.render(world, box2DCamera.combined);
     }
 
     public OrthogonalTiledMapRenderer getRenderer() {

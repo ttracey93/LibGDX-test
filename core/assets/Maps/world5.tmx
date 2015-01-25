@@ -94,7 +94,7 @@
   <object id="22" x="7968" y="32" width="29" height="736"/>
  </objectgroup>
  <objectgroup name="teleport">
-  <object id="1" x="94" y="351" width="32" height="28">
+  <object id="1" x="100" y="191" width="32" height="28">
    <properties>
     <property name="start" value="true"/>
    </properties>

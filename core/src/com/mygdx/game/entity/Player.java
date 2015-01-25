@@ -38,6 +38,9 @@ public class Player extends Entity implements ContactListener {
     private boolean ignoreGravity = false;
     private boolean onGround = true;
     private boolean canDoubleJump = true;
+    private boolean inADoor = false;
+
+    public boolean onDoor = false;
 
     public Player(SpriteBatch spriteBatch, CameraManager cameraManager)
     {
@@ -146,7 +149,12 @@ public class Player extends Entity implements ContactListener {
 
             playerFixture = contact.getFixtureB();
             opposingFixture = contact.getFixtureA();
+
+            if(opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
+                System.out.println("collider is a door");
+            }
         }
+
 
         if(playerFixture != null) {
             System.out.println("player fixture is not null");
@@ -156,6 +164,11 @@ public class Player extends Entity implements ContactListener {
 
                 onGround = true;
                 canDoubleJump = true;
+            }
+
+            if (opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
+                System.out.print("hitting door");
+                onDoor = true;
             }
         }
     }
@@ -184,6 +197,9 @@ public class Player extends Entity implements ContactListener {
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.GROUND) {
                 System.out.println("opposing force is ground");
                 onGround = false;
+            }
+            if (opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
+                onDoor = false;
             }
         }
     }

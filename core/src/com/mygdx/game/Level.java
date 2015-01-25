@@ -16,7 +16,9 @@ import com.badlogic.gdx.physics.box2d.*;
 import com.mygdx.game.collision.ICollisionMask;
 import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
+import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
+import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,7 @@ public class Level {
     private List<Entity> entities;
 
     public Level(String fileName) {
+
         TiledMap map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
 
@@ -62,9 +65,11 @@ public class Level {
 
         world = new World(new Vector2(0,-50f), true);
 
+
         //Create physics bodies for the ground.
         try {
             MapObjects ground = map.getLayers().get("solid").getObjects();
+
 
 
             for(MapObject object : ground)
@@ -96,6 +101,41 @@ public class Level {
 
                 //entities.add(body);
             }
+
+
+            MapObjects doors = map.getLayers().get("teleport").getObjects();
+
+            for(MapObject door : doors)
+            {
+                if (door instanceof RectangleMapObject) {
+                    Shape shape;
+                    shape = getRectangle((RectangleMapObject)door);
+
+                    BodyDef bd = new BodyDef();
+                    bd.type = BodyDef.BodyType.StaticBody;
+
+                    Body body = world.createBody(bd);
+
+                    FixtureDef fixtureDef = new FixtureDef();
+                    fixtureDef.shape = shape;
+                    fixtureDef.filter.categoryBits = ICollisionMask.DOOR;
+                    fixtureDef.filter.maskBits = ICollisionMask.PLAYER;
+                    fixtureDef.isSensor = true;
+
+                    body.createFixture(fixtureDef);
+
+                    body.getFixtureList().first().setFriction(0);
+                }
+                else
+                    continue;
+
+
+                //bd.position.set(new Vector2(((RectangleMapObject) object).getRectangle().x / PIXELS_PER_METER, ((RectangleMapObject) object).getRectangle().y / PIXELS_PER_METER));
+                //bd.position.set(((RectangleMapObject) object).getRectangle().getX(), ((RectangleMapObject) object).getRectangle().getY());
+
+                //entities.add(body);
+            }
+
         } catch(Exception e){
             System.out.println(e.toString());
         }
@@ -112,7 +152,15 @@ public class Level {
         //Update other entities
         for(Entity entity : entities) {
             entity.update(deltaTime);
+            if(entity instanceof Player){
+                Player tempPlayer = (Player)entity;
+                if(tempPlayer.onDoor && Keys.keyDown(Keys.UP)){
+                    System.out.println("run the jewels");
+
+                }
+            }
         }
+
     }
 
     public void draw()

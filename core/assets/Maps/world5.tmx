@@ -234,27 +234,27 @@
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="78" x="1986" y="672.5" width="26" height="27">
+  <object id="78" x="1991" y="651.5" width="26" height="27">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="79" x="2112" y="666.5" width="26" height="27">
+  <object id="79" x="2111" y="647.5" width="26" height="27">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="80" x="2219" y="668.5" width="26" height="27">
+  <object id="80" x="2212" y="647.5" width="26" height="27">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="81" x="2371" y="671.5" width="26" height="27">
+  <object id="81" x="2371" y="644.5" width="26" height="27">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>
   </object>
-  <object id="82" x="2530" y="673.5" width="26" height="27">
+  <object id="82" x="2531" y="646.5" width="26" height="27">
    <properties>
     <property name="class" value="JumpRefresher"/>
    </properties>

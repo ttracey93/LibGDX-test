@@ -27,6 +27,9 @@ public class InputListener extends InputAdapter {
             case Input.Keys.SPACE:
                 Keys.setKeyState(Keys.JUMP, true);
                 break;
+            case Input.Keys.UP:
+                Keys.setKeyState(Keys.UP, true);
+                break;
             default:
                 break;
         }
@@ -45,6 +48,9 @@ public class InputListener extends InputAdapter {
                 break;
             case Input.Keys.SPACE:
                 Keys.setKeyState(Keys.JUMP, false);
+                break;
+            case Input.Keys.UP:
+                Keys.setKeyState(Keys.UP, false);
                 break;
             default:
                 break;

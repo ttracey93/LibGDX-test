@@ -33,8 +33,8 @@ public abstract class Entity {
         this.sprite = sprite;
     }
 
-    private Body body;
-    private FixtureDef fixtureDef;
+    protected Body body;
+    protected FixtureDef fixtureDef;
 
     public BodyDef getBodyDef() {
         return bodyDef;
@@ -44,8 +44,8 @@ public abstract class Entity {
         this.bodyDef = bodyDef;
     }
 
-    private BodyDef bodyDef;
-    private Sprite sprite;
+    protected BodyDef bodyDef;
+    protected Sprite sprite;
 
     public abstract void update(float deltaTime);
     public abstract void draw();

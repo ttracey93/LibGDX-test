@@ -21,7 +21,6 @@ import com.mygdx.game.entity.Entity;
 import com.mygdx.game.entity.Player;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
-import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +32,7 @@ public class Level {
     //scaling factor
     public static float PIXELS_PER_METER = 50;
     public static float METERS_PER_PIXEL = 1/PIXELS_PER_METER;
+    Player player;
 
     //world
     private OrthogonalTiledMapRenderer renderer;
@@ -40,24 +40,34 @@ public class Level {
     private OrthographicCamera box2DCamera;
     private SpriteBatch spriteBatch;
     private CameraManager cameraManager;
+    public String currentLevel;
 
     //physics
     private World world;
     TiledMap map;
     TiledMap backgroundLayers;
-    //Box2DDebugRenderer debugRenderer;
+    Box2DDebugRenderer debugRenderer;
 
     //entities
     private List<Entity> entities;
 
+    public Vector2 getStartLocation() {
+        return startLocation;
+    }
+
+    public void setStartLocation(Vector2 startLocation) {
+        this.startLocation = startLocation;
+    }
+
     //start location
     private Vector2 startLocation;
 
-    public boolean doorOpen = false;
+    public boolean doorOpen = false, dead = false;
     public MapObjects doors;
     public Audio audio;
 
     public Level(String fileName) {
+        currentLevel = fileName;
         audio = new Audio();
         map = new TmxMapLoader().load(fileName);
         renderer = new OrthogonalTiledMapRenderer(map);
@@ -66,7 +76,7 @@ public class Level {
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         box2DCamera = new OrthographicCamera();
-        box2DCamera.setToOrtho(true, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
+        box2DCamera.setToOrtho(false, Gdx.graphics.getWidth() / PIXELS_PER_METER, Gdx.graphics.getHeight() / PIXELS_PER_METER);
 
         renderer.setView(camera);
         camera.update();
@@ -86,11 +96,13 @@ public class Level {
 
 
 
-        cameraManager = new CameraManager(camera, renderer);
+        cameraManager = new CameraManager(box2DCamera, camera, renderer);
 
         entities = new ArrayList<Entity>();
 
         world = new World(new Vector2(0,-50f), true);
+
+        world.destr
 
         //Create physics bodies for the ground.
         try {
@@ -101,7 +113,7 @@ public class Level {
             {
                 Shape shape;
                 if (object instanceof RectangleMapObject) {
-                    Shape shape;
+
                     shape = getRectangle((RectangleMapObject)object);
                 }
                 else if (object instanceof PolygonMapObject) {
@@ -126,9 +138,6 @@ public class Level {
                     body.createFixture(fixtureDef);
 
                     body.getFixtureList().first().setFriction(0);
-                }
-                else
-                    continue;
 
 
                 //bd.position.set(new Vector2(((RectangleMapObject) object).getRectangle().x / PIXELS_PER_METER, ((RectangleMapObject) object).getRectangle().y / PIXELS_PER_METER));
@@ -210,14 +219,14 @@ public class Level {
             System.out.println(e.toString());
         }
 
-      //  debugRenderer = new Box2DDebugRenderer();
+        debugRenderer = new Box2DDebugRenderer();
     }
 
     public void update(float deltaTime)
     {
         camera.update();
 
-        world.step(deltaTime,6,2);
+        world.step(deltaTime, 1, 1);
 
         //Update other entities
         for(Entity entity : entities) {
@@ -226,6 +235,10 @@ public class Level {
                 Player tempPlayer = (Player)entity;
                 if(tempPlayer.onDoor && Keys.keyDown(Keys.UP)){
                     doorOpen = true;
+                }
+                if(tempPlayer.dead)
+                {
+                    dead = true;
                 }
             }
         }
@@ -242,11 +255,7 @@ public class Level {
         renderer.render();
 
         renderer.getBatch().begin();
-        TiledMapTileLayer background = (TiledMapTileLayer)map.getLayers().get("background");
-        TiledMapTileLayer middleground1 = (TiledMapTileLayer)map.getLayers().get("middleground1");
-        TiledMapTileLayer middleground = (TiledMapTileLayer)map.getLayers().get("middleground");
-        TiledMapTileLayer middleground2 = (TiledMapTileLayer)map.getLayers().get("middleground2");
-        TiledMapTileLayer foreground = (TiledMapTileLayer)map.getLayers().get("foreground");
+        if (map != null) {
 
             TiledMapTileLayer foreground = (TiledMapTileLayer) map.getLayers().get("foreground");
 
@@ -254,10 +263,12 @@ public class Level {
                 entity.draw();
             }
 
-        renderer.renderTileLayer(foreground);
+            renderer.renderTileLayer(foreground);
+
+        }
         renderer.getBatch().end();
 
-//        debugRenderer.render(world, box2DCamera.combined);
+        debugRenderer.render(world, box2DCamera.combined);
     }
 
     public OrthogonalTiledMapRenderer getRenderer() {
@@ -294,7 +305,7 @@ public class Level {
 
     public void initializePlayer()
     {
-        Player player = new Player((SpriteBatch)renderer.getBatch(), cameraManager);
+        player = new Player(this,(SpriteBatch)renderer.getBatch(), cameraManager);
 
         BodyDef playerBodyDef = new BodyDef();
         playerBodyDef.type = BodyDef.BodyType.DynamicBody;

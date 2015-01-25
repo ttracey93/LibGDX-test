@@ -35,6 +35,11 @@ public class SaltFactory extends ApplicationAdapter {
 			if(Player.levelToLoad != null) {
 				startGame(Player.levelToLoad);
 			}
+
+		}
+		if(gameState.getLevel().dead)
+		{
+			startGame(gameState.getLevel().currentLevel);
 		}
 
 		if(Keys.keyDown(Keys.MENU)) {

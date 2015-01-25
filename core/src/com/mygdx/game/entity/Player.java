@@ -92,6 +92,7 @@ public class Player extends Entity implements ContactListener {
             if(onGround) {
                 body.setLinearVelocity(body.getLinearVelocity().x, jumpVelocity);
                 jumpSound = true;
+                onGround = false;
             }
             else if(canDoubleJump) {
                 canDoubleJump = false;
@@ -160,32 +161,21 @@ public class Player extends Entity implements ContactListener {
 
     @Override
     public void beginContact(Contact contact) {
-
-        System.out.println("player ocllision mask: " + ICollisionMask.PLAYER);
-        System.out.println("ground collision mask: " + ICollisionMask.GROUND);
-        System.out.println("A collision set: " + contact.getFixtureA().getFilterData().categoryBits);
-        System.out.println("B collision set: " + contact.getFixtureB().getFilterData().categoryBits);
-
         Fixture playerFixture = null;
         Fixture opposingFixture = null;
 
-        if(contact.getFixtureA().getFilterData().categoryBits == ICollisionMask.PLAYER) {
-            System.out.println("A is a player");
+        System.out.println("FA.c: " + contact.getFixtureA().getFilterData().categoryBits);
+        System.out.println("FB.c: " + contact.getFixtureB().getFilterData().categoryBits);
 
+        if(contact.getFixtureA().getFilterData().categoryBits == ICollisionMask.PLAYER) {
             playerFixture = contact.getFixtureA();
             opposingFixture = contact.getFixtureB();
         }
         else if(contact.getFixtureB().getFilterData().categoryBits == ICollisionMask.PLAYER) {
-            System.out.println("B is a player");
-
             playerFixture = contact.getFixtureB();
             opposingFixture = contact.getFixtureA();
 
-            if(opposingFixture.getFilterData().categoryBits == ICollisionMask.DOOR) {
-                System.out.println("collider is a door");
-            }
             if(opposingFixture.getFilterData().categoryBits == ICollisionMask.ENEMY) {
-                System.out.println("You're dead.");
                 reset();
             }
         }
@@ -193,11 +183,10 @@ public class Player extends Entity implements ContactListener {
         Vector2 normalVector = contact.getWorldManifold().getNormal();
 
         if(playerFixture != null) {
-            System.out.println("player fixture is not null");
+            System.out.println("player category: " + playerFixture.getFilterData().categoryBits);
+            System.out.println("opposing category: " + playerFixture.getFilterData().categoryBits);
 
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.GROUND) {
-                System.out.println("opposing force is ground");
-
                 if(normalVector.y > 0) {
                     onGround = true;
                     canDoubleJump = true;
@@ -216,11 +205,10 @@ public class Player extends Entity implements ContactListener {
             }
 
             if(opposingFixture.getFilterData().categoryBits == ICollisionMask.ITEM) {
+                onGround = true;
                 canDoubleJump = true;
-                body.getWorld().destroyBody(opposingFixture.getBody());
             }
             if(opposingFixture.getFilterData().categoryBits == ICollisionMask.ENEMY) {
-                System.out.println("You're dead.");
                 dead = true;
             }
         }
@@ -232,23 +220,18 @@ public class Player extends Entity implements ContactListener {
         Fixture opposingFixture = null;
 
         if(contact.getFixtureA().getFilterData().categoryBits == ICollisionMask.PLAYER) {
-            System.out.println("A is a player");
 
             playerFixture = contact.getFixtureA();
             opposingFixture = contact.getFixtureB();
         }
         else if(contact.getFixtureB().getFilterData().categoryBits == ICollisionMask.PLAYER) {
-            System.out.println("B is a player");
 
             playerFixture = contact.getFixtureB();
             opposingFixture = contact.getFixtureA();
         }
 
         if(playerFixture != null) {
-            System.out.println("player fixture is not null");
-
             if (opposingFixture.getFilterData().categoryBits == ICollisionMask.GROUND) {
-                System.out.println("opposing force is ground");
                 onGround = false;
             }
 

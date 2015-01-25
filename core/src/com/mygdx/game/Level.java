@@ -23,7 +23,6 @@ import com.mygdx.game.entity.items.IItemClass;
 import com.mygdx.game.entity.items.JumpRefresher;
 import com.mygdx.game.entity.playerutils.Keys;
 import com.mygdx.game.manager.CameraManager;
-import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,15 +96,19 @@ public class Level {
         backgroundLayers.getLayers().add(middleground);
         backgroundLayers.getLayers().add(middleground2);
 
-
-
         cameraManager = new CameraManager(box2DCamera, camera, renderer);
 
         entities = new ArrayList<Entity>();
 
         world = new World(new Vector2(0,-50f), true);
 
-        
+        try {
+            instantiateItems(map.getLayers().get("objects").getObjects());
+        }
+        catch(Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("no objects layer");
+        }
 
         //Create physics bodies for the ground.
         try {
@@ -218,8 +221,6 @@ public class Level {
                 //entities.add(body);
             }
 
-            instantiateItems(map.getLayers().get("objects").getObjects(), world);
-
         } catch(Exception e){
             System.out.println(e.toString());
         }
@@ -324,7 +325,8 @@ public class Level {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = playerBox;
         fixtureDef.filter.categoryBits = ICollisionMask.PLAYER;
-        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL;
+        fixtureDef.filter.maskBits = ICollisionMask.GROUND | ICollisionMask.ENEMY | ICollisionMask.WALL |
+                ICollisionMask.ITEM;
 
         playerBody.createFixture(fixtureDef);
         playerBox.dispose();
@@ -352,13 +354,18 @@ public class Level {
         return polygon;
     }
 
-    private void instantiateItems(MapObjects mapObjects, World world) {
+    private void instantiateItems(MapObjects mapObjects) {
         for(MapObject mapObject : mapObjects) {
+            System.out.println("for map object");
             String classToInstantiate = mapObject.getProperties().get("class").toString();
 
+            System.out.println("classToInstantiate: " + classToInstantiate);
+
             if(classToInstantiate != null) {
+                System.out.println("class not null");
                 if(classToInstantiate.equalsIgnoreCase(IItemClass.JUMP_REFRESHER)) {
-                    entities.add(new JumpRefresher(mapObject, world));
+                    System.out.println("class = jumprefresher");
+                    entities.add(new JumpRefresher(mapObject, world, (SpriteBatch)renderer.getBatch()));
                 }
             }
         }
@@ -393,6 +400,4 @@ public class Level {
         polygon.set(worldVertices);
         return polygon;
     }
-
-
 }

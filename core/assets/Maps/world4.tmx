@@ -133,7 +133,7 @@
   </object>
   <object id="22" x="7840" y="95" width="64" height="98">
    <properties>
-    <property name="level" value="../Maps/hubworld.tmx"/>
+    <property name="level" value="../Maps/world5.tmx"/>
    </properties>
   </object>
   <object id="25" x="7874" y="637" width="93" height="111">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="32" tileheight="32" nextobjectid="22">
- <tileset firstgid="1" name="tiles" tilewidth="64" tileheight="64">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="32" tileheight="32" nextobjectid="25">
+ <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32">
   <tile id="0">
    <image width="32" height="32" source="../Platformer/Base/Tiles32/brownbase.png"/>
   </tile>
@@ -13,12 +13,15 @@
   <tile id="3">
    <image width="32" height="32" source="../Platformer/Base/Tiles32/brownbox.png"/>
   </tile>
-  <tile id="4">
-   <image width="64" height="64" source="../Platformer/Base/Tiles32/doorbottom.png"/>
-  </tile>
-  <tile id="5">
-   <image width="64" height="32" source="../Platformer/Base/Tiles32/doortop.png"/>
-  </tile>
+ </tileset>
+ <tileset firstgid="5" name="door" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/doorbottom.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="9" name="door1" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/doortop.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="11" name="message1" tilewidth="32" tileheight="32">
+  <image source="../Messages/message1.png" width="555" height="73"/>
  </tileset>
  <layer name="background" width="40" height="22">
   <data encoding="base64" compression="zlib">
@@ -32,7 +35,7 @@
  </layer>
  <layer name="middleground" width="40" height="22">
   <data encoding="base64" compression="zlib">
-   eJzt1NEKwCAIBVDB1nfv03sSRrSo9MIlvCC9LD2QTEVe5SyxsxBW72NK+nxB+Wx3Ivqw+EZ3mN4X5Yt6y7/et/uQSd945uqcVd/ujs2+Z/ftJPfPF4SvBvSwnPiQ/+N+BsL3+HlTH1t9fczVAPzHIWg=
+   eJzt1NkKgkAUgOEBK1utbF9stb2H7NH7b4SQIWYmB07igQ9vdOZHRgOlXoFMKrvWBMr3SRpdXwdd9BChjwGGiDHCGBNMMcMcCyyxcmxpoW3Qt0aCDbbYYY8DjkhxwhkXXHHDHQ88HfvqaBj0FTHZ2bGZEE3NOlL6dM9I+j589bm8K5u1y97nc6o+/Z6m+5j22Z6xb/dL77OZ6vz9NmXs8/k/zu/xj33SfPZJ9gYN+yUx
   </data>
  </layer>
  <layer name="middleground2" width="40" height="22">
@@ -60,22 +63,17 @@
   <object id="18" x="1122" y="580" width="60" height="62"/>
  </objectgroup>
  <objectgroup name="teleport">
-  <object id="13" x="573" y="557" width="64" height="85">
-   <properties>
-    <property name="level" value="../Maps/world1.tmx"/>
-   </properties>
-  </object>
   <object id="20" x="608" y="548" width="33" height="24">
    <properties>
     <property name="start" value="true"/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup name="objects">
-  <object id="1" name="greenkey" x="1051" y="162" width="37" height="29">
+  <object id="23" x="929" y="503"/>
+  <object id="24" x="1024" y="112" width="63" height="79">
    <properties>
-    <property name="key" value="true"/>
+    <property name="level" value="../Maps/world2.tmx"/>
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="objects"/>
 </map>

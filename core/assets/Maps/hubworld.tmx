@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="30" tilewidth="32" tileheight="32" nextobjectid="49">
- <tileset firstgid="1" name="background" tilewidth="256" tileheight="256">
-  <tile id="0">
-   <image width="256" height="256" source="../Platformer/Base/bg.png"/>
-  </tile>
- </tileset>
- <tileset firstgid="2" name="middleground" tilewidth="96" tileheight="70">
+ <tileset firstgid="1" name="middleground" tilewidth="96" tileheight="70">
   <tile id="0">
    <image width="64" height="64" source="../Platformer/Base/Tiles32/doorbottom.png"/>
   </tile>
@@ -142,8 +137,7 @@
    <image width="32" height="32" source="../Platformer/Base/Tiles32/saltblock.png"/>
   </tile>
  </tileset>
- <tileset firstgid="42" name="middleground2" tilewidth="1" tileheight="1"/>
- <tileset firstgid="42" name="foreground" tilewidth="96" tileheight="32">
+ <tileset firstgid="41" name="foreground" tilewidth="96" tileheight="32">
   <tile id="0">
    <image width="64" height="32" source="../Platformer/Base/Tiles32/bush2wide.png"/>
   </tile>
@@ -151,7 +145,7 @@
    <image width="96" height="32" source="../Platformer/Base/Tiles32/bush3wide.png"/>
   </tile>
  </tileset>
- <tileset firstgid="44" name="HUD" tilewidth="32" tileheight="40">
+ <tileset firstgid="43" name="HUD" tilewidth="32" tileheight="40">
   <tile id="0">
    <image width="30" height="38" source="../Platformer/Base/HUD/hud_0.png"/>
   </tile>
@@ -183,22 +177,25 @@
    <image width="32" height="39" source="../Platformer/Base/HUD/hud_9.png"/>
   </tile>
  </tileset>
- <tileset firstgid="54" name="rock" tilewidth="32" tileheight="32">
+ <tileset firstgid="53" name="rock" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/Untitled.png" width="140" height="140"/>
+ </tileset>
+ <tileset firstgid="69" name="background" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/bg.png" width="256" height="256"/>
  </tileset>
  <layer name="background" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3DQQ0AAAwDoat/09OwPySsmqqqqqqqqqqqqu8HNzbruIAlAAA=
+   H4sIAAAAAAAAC81ZaXMTMQz1n1toacPZcDZQIOFMOBPOBgrkh+OdsWZfXyXZew18eKNEvqS33rUkH4YQDiMODDmNmBmoIi5FXI7Yi9gm/UJp24+4kub12g5p/SrZwGMmzjxVwiRhCsitvUo+ePOjnUcJt0hyX5ELAM+/SfpVgX9t+ONnZXG6r/BWFawn8gh8KOG6xnHCA5I3Im4Cn9p4/L2X1lslG7z12/A3UZ6VPJsSbiw9+iay9nsbmj1YYuc84SnJexH3gc/rCqfe3Lm1+4y19JqN1ww9+iay9nsXmj1Ywt8y4TXJxxFPgM+7CqdXHfsmmfY+Yy29ZuMdQ4++iVwmrmQPlvC3TvhI8mXEK+DzROH0tmPfNNPeZ6yl12x8ZOjRN5Hr0HwfNoX81TiN+E7yfcQH4POFwulDx75Zpr3PWEuv2fjc0KNvIk9DczZtC/nD//W7/yfJrxHfgM93CqfPHPsWmfY+Yy29ZuNbQ4++idwF/bzXuDsKzbnJbWcRvyJ+A59fFE7fOPatMu19xlp6zcbPhh59E1nzpZ33GkfHIX8O1nv4R8RPg9NPjn2bTHufsZZes9GyfRcu7jsvruS9Nw9lscIKeNwSPG5z7X3GWnqRFr/yzvG40vga48RlaOLT3Hj0R+s7DfY7Z+UIXm7H50cFesuWqoD3Y+CQ43SPL5EYJ65Dk99iPO/xeKb0Eb+sd057Prm8hM8PsU3TY06S428OHHLequUjHF9jnHiaOJm15FDjYuHYrn1PcvzxXha7NP2l0Hy3ct/NJXDIeauWj3B8jXHiLjT1AOSw5H1mLrzzUosFrPkl70AepO8kXOQH+eN3G5+h7L81cMh5q5aPcHyNcSKeD8gh1ixK9qPmFz53LRawvomSd/A3DmNa5Af5GwKen+tw/rzGeg1yKLUvxFD2jQW2tytKucQYcEscLsL5euO0xfr/CmxvV2hcejzOUztyKLUvxFD2jQWrPt4WGpc5HkUvHErtCzGUfWOB7e0Kjcvcmcr3F1L7Qgxl31hge7tC4zJ3b6LpNoSh7BsLbG9XaFxad2Uef5znDmXfWGB7u0LjcuFwd+Doq2DXDf43eDFzVdBHcmKNy1VH/ia0Ls4xDX7OhjWis9B8P2ahqYtPQlMn0Oap2zkX4by69k3ynio0+TGvhf20uqGWE28zvEn9QetThfPxfmk8aYH78fg2d2xj60t+4715jhtvfq5XWOB+fG/W5o5tbH3Jb6kB1pD3xJrPm5/rFRa4H9+btbljG1tf8ltqgDXq99S7K/Tm53qFBe7H92Yniq7t3dtQ+pLfUgOsId9waz5vfq7vWOB+fG/W5o5tbH3Jb6kB1vgL66+f14AlAAA=
   </data>
  </layer>
  <layer name="middleground1" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3Yuw2AMBBEQReE+RjovzWgAVaOsNCMdNFLNr5SAL5zhl7vm0Kvoc+9owAAYFBb6C30PfSjYwsAAIzu7Xf8SL/jJfS1YwsAAP92AfZ1NsiAJQAA
+   H4sIAAAAAAAAC+3Yuw2AMBBEQfeD+RjovzagAVaOsNCMdNFLNr5SAL5zhl7vm0Kvoc+9owAAYFBb6C30PfSjYwsAAIzu7Xf8SL/jJfS1YwsAAP92AZML4taAJQAA
   </data>
  </layer>
  <layer name="middleground" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2abQrCMAyGS3Xqn4F6iMIu0PsfbQxaCKPpp+mamgeCHa/O8hhGxlyUUotUU3luSijh7E8ow/tb3bF2r2v47X/JhqwPvL9XoJ5ddvcbUtedlnwDOeZPwMnpP0ruxOc/0IT5BvLZ+u+h4tcd6nwUfz16lIJR/HGlxh/XXqGAU/+N+Ltx8jcis/ijnJ9j+Sz+rmIWf5Tzcyzn7k/mZ96IvzbEXxvirw1O/jjdf3B7jhTbrwW5DeQG5Kbw/Jz6rxaLrD0GWeeA+UvNk6PwdaVPxxALcsyfBusQufNzal4cDZmfeVPi70O5kU7f8a74TGxPsee/Uum6+n83M9QOjphR94AlAAA=
+   H4sIAAAAAAAAC+2abQrCMAyGW536Z6AeorAL9P5XG4MWwmj6abqm5oFgx6uzPIaRMRel1CLVVJ6bEko4+xPK8P5Wd6zd6xp++1+yIesD7+8VqGeX3f2G1HWnJd9AjvkTcHL6j5I78fkPNGG+gXy2/nuo+HWHOh/FX48epWAUf1yp8ce1Vyjg1H8j/m6c/I3ILP4o5+dYPou/q5jFH+X8HMu5+5P5mTfirw3x14b4a4OTP073H9yeI8X2a0FuA7kBuSk8P6f+q8Uia49B1jlg/lLz5Ch8XenTMcSCHPOnwTpE7vycmhdHQ+Zn3pT4+1BupNN3vCs+E9tT7PmvVLqu/t/NDLUDRxIl1oAlAAA=
   </data>
  </layer>
  <layer name="middleground2" width="80" height="30">
@@ -208,7 +205,7 @@
  </layer>
  <layer name="foreground" width="80" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3UQREAMAgDMPQw//7mgB/j2CUC2r4aAQAAAAAAAMCPcnoAsNppyKx+qaMPXrgRT9kygCUAAA==
+   H4sIAAAAAAAAC+3UQREAMAgDMOww/wLngB/j2CUC2r4aAQAAAAAAAMCPcnoAsNppyKx+qaMPXrjdt4FngCUAAA==
   </data>
  </layer>
  <objectgroup name="solid">

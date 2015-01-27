@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="200" height="100" tilewidth="32" tileheight="32" nextobjectid="401">
+ <tileset firstgid="1" name="background" tilewidth="256" tileheight="256">
+  <tile id="0">
+   <image width="256" height="256" source="../Platformer/Base/bg.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="2" name="tiles32" tilewidth="34" tileheight="34">
+  <tile id="0">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCenter.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="../Platformer/Base/Tree/brownersquare.png"/>
+  </tile>
+  <tile id="2">
+   <image width="34" height="34" source="../Platformer/Base/Tree/tree.png"/>
+  </tile>
+  <tile id="3">
+   <image width="34" height="34" source="../Platformer/Base/Tree/treeTrunkSquare.png"/>
+  </tile>
+  <tile id="4">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassMid.png"/>
+  </tile>
+  <tile id="5">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/door_openMid.png"/>
+  </tile>
+  <tile id="6">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/moss.png"/>
+  </tile>
+  <tile id="7">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/water.png"/>
+  </tile>
+  <tile id="8">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/waterTop.png"/>
+  </tile>
+  <tile id="9">
+   <image width="33" height="33" source="../Platformer/Base/Tiles32/cyprus.png"/>
+  </tile>
+  <tile id="10">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/cyprusFlower.png"/>
+  </tile>
+  <tile id="11">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassHillLeft.png"/>
+  </tile>
+  <tile id="12">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/redsaltBlock.png"/>
+  </tile>
+  <tile id="13">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/redsaltBlock2.png"/>
+  </tile>
+  <tile id="14">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/redsaltBlock3.png"/>
+  </tile>
+  <tile id="15">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/swamp green.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="18" name="small branch" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tree/treeBranchSmall.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="22" name="door1" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/doorbottom.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="26" name="door2" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/doortop.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="28" name="rock" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/Untitled.png" width="140" height="140"/>
+ </tileset>
+ <tileset firstgid="44" name="cloud1" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/cloud1.png" width="128" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="level" value="../Maps/hubworld.tmx"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="level" value="../Maps/hubworld.tmx"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="level" value="../Maps/hubworld.tmx"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="level" value="../Maps/hubworld.tmx"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="level" value="../Maps/hubworld.tmx"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="level" value="../Maps/hubworld.tmx"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="level" value="../Maps/hubworld.tmx"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="level" value="../Maps/hubworld.tmx"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="52" name="cloud2" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/cloud2.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="60" name="cloud3" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/cloud3.png" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="68" name="tiles" tilewidth="1" tileheight="1"/>
+ <layer name="background" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DQQ0AAAwDoat/0/tPAySsmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvgfhcDnTgDgBAA==
+  </data>
+ </layer>
+ <layer name="middleground1" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3dW27jIAAFUEvTLqD73+woH5VSxMsx5mHOkaKJPIlNgGsgdtSv4zi+Cg/Y1XsOvhPPZYVdfQePUj7khJ38ZiHMRu4hI+wiNlaEOXh/jYywk9RcKpUPcy12kptf1eZDRniqM99dxcaY39fCE8X6ei4f1ursJNfvS99fmV/xdGeykMuHjPBEqWzUzq/MsXiy3JqiJjvW6DxZ7Nx/9jqIfPBUpXzkvtO19oDydRAAAAAAAABgba77QZzr4gAAAAAA3Onn7cFn1N9zhG35E2wPH7H3jDAyx6njhnXE2moyEGZnlvYfldVUfR2Z5zMwLzgvVl9h/18lH7l+2/q4qTqJlW+0nnXzJKXzb6kuR9VxzTh3JLa1PH6r191thjI8Ual976732rVPzVrgfVurctW+NnxfaVtr8nGP0Wvf2nXQceTzURpnPi1fzT5jZSxta2mWMeyJ7qjbK3OTmkyk9tNy/l2al8ZeG74vt411tJqP/P57pn9eXfOemXedkernZ7KS2xf7yJ2/R63/W+231Xj0vq/YvunrjjnHlXL01vKY1tbPMfKcnTqW9o8zfvQ321w3Vw59g92VxjHnUHZWykbpdVeOK3fMrjYfrY85+nsJuKLneCEbrMZ3aPfY6bOuJDx/z9ZGs5XnDuaV85nlOiTxetceaT3qRj5Y0Y73lEDKJ/cGtjpuzbbVta5P55C+Yuvj2PM7jluzrfa9swrr8krZzUH7qhkvWo0pqf2c2V+P3LaUW/d+sp/VPv/KauZVLdr2/b2f/F/s+CudR+8o4yqffVU/wfPc2NGjLKXjpMq4az/Z8XP3+ttRs32vWnv8kRmeza756JGR2HpxdF1fyceudquLntkIn8+gNiMAAAAAAOxtpus/I8x0jZh5zHb/wCjqgVqr9YtW91OX9g0vK/SFVCbuuJ+aflY4H81ctpfcvZmflH329tiFue11uVxcyQfzkZF2dsjHv9EFGMBY0s6uddjrt1IjyEY7u9bj19Hv91K97dqmtPPUbLzIB1c9NRsv8gEAwCfc/wdpsfukZIQRZutzcsAMZp27zFYe9jRz/1spH7OeZ55kRL3O3I4zly3U8t554tTnXyvVhd8S9qEe11PT/7VrG+aw69FO/cnHOrRTf+p8HdqqP3W+BuM8AAAAAJz3H9TLRg+AOAEA
+  </data>
+ </layer>
+ <layer name="middleground" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2d0YrcOBBFh4XNPgwkgcBmd5P//86MHwxaxSWVbJV1q30O6KF72uOrko4kd2Dy9gYAAAAAAAAAAAAAAAAAAPA8/vtoP1aHABDl74/2fXUIAFH++Wj/rg4BkIw/iwYA/wc/AGzwA8AGPwBs8APABj8AbPADwAY/AGzwA8AGPwBs8APABj8AbEo/vi3OAqAG+weADX4A2OAHgA1+ANjgB4ANfgDY4Ac8ic+Dn8/qx/vqAMl5Yv2+FM1LFj/q8Tx6/d74+SpW5rDuXdfqKby/jfc9kx9l3476iB+/3/to3VCpzZ2c7XMWP3Zaa8B75+crsPa5O/Mp1qWmzng156zflc2PnVafVeaA2tq9+v4jnJ3bs9cB/LhG715Ka7cnR+/cugJv7SJqjB/X6M05JS+s1/VnPe/djaeOETnxYw6tZyLvtREu9Z7VPO8r+LGxYh3K7MfIGngHo3PrjnOX5/6taxT2v5KjbJEZs/qxMXpGGG1nM7Xml8qzyE5vH4mo0RXqWnr5/Db+b+cbqn54xqO3/q0ay9Yap+JFifKZquZMLa/UXtUPixFvVp+z1L0oyZTXm3FGX7L5saPsR51Bea6VZMnbq+3MfmT1Y2O1H6174EccVm0j8uNHfAb1+baTJW/Lj9m8sh8rstSvR7Os9CqzH1GZM/uxoeJHee8yQy+L0nOxQgYP+OFHzY/y/grnvxEUcnnujR9+FP0oM1jnLkUU/PDkuHPPfbofUc931hq3eu61UPFjx/vdx1P9GNlre+/1rp9d5zvPALNQ82On990HfrQ/M2v/mMnRGKrNuxrlnFY9n+TH0Toxeo31Xuv6CNTcGH3uvfq7oniyHxujfccPH54snqxZ+jILNT92jp5rvS5450BkjZXcqPE893qvWcGT/fCucdbr1mc8187I2LqnEnW+kTVoJU/1w9vf3vp/NOat33WWkX1KmVY9FfOv8iPb/6/mOSd4fbuaoZVNbX5ZWPuJGk/dP84w4zxwtc4zHFXgyA9F8MOPynnZ+8yjTO/cqsKVjE/5++07Kn6U9y4zKM+zmiyZz+T8WrQR8GMuR2uw8lwryZJ5JOfVsXg1PxTGFz9i6eWc2Y9X8UNtbNXyeMiS16ptRP7sfmwozkXFTD2y5D2qbVTuV/BjQ21c8SOOO88M+BEDfvjveeaau+qLHzFYa5zq89LGKj9Ga3Fn7fAjhixOlIxmi+rHnd9P9cCPGDL4UNPLuqJPrWdx/PCjNgezubHhWbNXsmIffmU/Vq7hr+KHYh/wYxxr/7U+c1cetbnVwjrHqIEf46jNR7U8HrI8M+HHOGpjmmGe1WTJvMqPb1XLhNqYZplrJVkys3+MozamWeZaSZa8+DGO2rjiRxz4MY7auOJHHK/gx09Hm4nauOJHHPgxjtq4KvnhzaKSt0cWPzwO4EeeXIp5jxip7ejfY6g548dVL2b6kXEeqlBnU8+7463t9rd8vly814gfs7x4tf2jHq+jpkq2vBu9rDP7stKPmY4ojWv2+aayzox8Lio/fsxHZb6NoJa3lePOPQ8/YlCbbz0U83q+R4jOix8xKM63Fsp5W98jrPQjwodoP1TGVy2PB/W80c8aR7yaHyrgx3xWfNe20o+/JvZDbVzxI4ZVZyv2j7ngRxyr/KgdwY/z4Ecc+DGO2rjiRxz4MY7auOJHHHfU9pNIm4XauOJHHHfU9g8ajWa2XxKsINmAOAEA
+  </data>
+ </layer>
+ <layer name="middleground2" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3cy27jMBBEUQPeep2ZZP7/P2MthDgcUpRksllF3QMYWQSBSk22qWduNwAAAAAAAAAAAAAAAAAAAADR7qMDAACssY4AefQGUEZ/AADOYP0AyugPAMBRrB3ANnoEAACgLY6vgDx6AwBwFmsIAAAAgCicf/TzGB0g43HTzIX31MZVccxHZqIPrmdrzB+V34+QZlHKpuSR+Si43zi+iqI07urO1qpHjWfrD9U5qJoL1xI9D93WBbe8o7F+tNmm4pwr5VLNq4j+aLddpznnlhcxctdKouaJy5ws1UjxGtMVzToWLvvhkrO3e/ITwA/3vphpbcF+jPl+uXvUkecTtd87jaVLXpeco21dvxy5/egcrTjldco6yuj+qDmaY/Q1CZW67eGUdSTlOu09/prtOl2EiHpxft4ecz0ONd5Gfa4tYvyd15CW9aHXtNTW4ag1WrU/9u77O9d3Ofb3xHid3/8jf6dyn0SBQ8aVU9ZW0u+EiP7o6XV/VDJtcci4uur60WJOqdTN7djNIeOrqLyq5x89RM5Z5fmW23+Fc+Ej1PJE6fHMRq4veo+54/iVnkVQ25foTCpryJ59bnWe0pvivKoZ+aznEYqZkDfT84kpxfxXXTtc1Y7b4c+1R1Tm39HzXXjg/ycC29z7g+/otqjnPNTHUj1faoZjQqd7shGU66CcLeWUdeGWdxTl7wvFTCWqNSy58rPtM3CbbwuXvC45MReXecf9wfkoHweuorOlz8WdfScOdco1U++LlUPGRXTOGdYQxbF16YvVmedDRxi9fTcKY4Y4rB9tuL3Dh/2iru9+PT//ArYVyeU9H2XqtYrK9/H8/AnaVk/q4+nEoZZRGf8+P59B27oShzmW47LORt4/dz//UBxPl3mWcsnsklOBaq3cesQtK89g7aM8rsrZUk5ZF2558RvrR19R6wdrSHtuveGI+vpSGbuZ+5TzD08zz0kl1NgT/RGD8w8vr33h0B8u/6u1xC3vKIp1cllDVPrj3fekXOo9gmpdVHOVuOWNMMOxFePaBnWcE2trG9QwjzUEC2r4vxl6Y6E4toqZahwzY5vq8ZVipi2qdcR7FMdUMVONY+Ze0vuCzsdZauPq+j3slLl31ll6A+249AfvRgEAAHj5BlGrjzuAOAEA
+  </data>
+ </layer>
+ <layer name="foreground" width="200" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2YW24kIQxF+7Nm1jBLmPfsf2/TUdRKifCwDdgXuEcqJd0F2GU4FMnjQQghhBBCCCGE5Pn+vH48r5/P61dwLoSg8ft5/Xlef5/Xv8z9kj/p9/SMaNlhzZT8Sb9veUZICtcM2Q30PR89vxor507eQd/z0fOrEZU7vSSnoVnzK+8phNyRrvvZa771/zntZ0JGgLLXt/4/p/1MCCGEkHPgOZmQMjwnE0IIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIRhch8ZG5Lpdp4H6zNF+oNYlgt3rUXs21OdO8/Lcw1ZaD9ft54y8T3h31J7xylwIIPiBVI8SM+YvNyZ6HXpA9KMVh37IKK1lS961sdDr0IPGD8+cpPe9c7Ssj6j1M2pNn+bEHakfnrTmAdEPxPXS8kOS8yrPOosV/JDG9zh3lXJDXTe9jpzqhZSefWZEXK0fs/e62titeJK1OjtfTbzTvOjZP7Rjjpr7Xjci/JC8j1fw4yFos5M7ljr1zPPsuZfkMjte733PfEvxe8feBcv6rXkT6YUkB4+Yvfcj/egd71Q/rqRP7vfWmOn9WUT6IclH0sYj31xs7RieeUeg8aPlSm3c3D1LjrU22j6jmOXHLEbPya5uvJA+Z+1dURtX06eVX62NJsbIOR0RK9oPS/+T/dD2t8TTtm+9kyQ5zZjTUS6usr5OcuNFzzPO7mPxQzoGmh9IaPcYtPxH0vN8s+uS5pabD8tcjpzX1fyQxLLsOeQzUX5I+3n4ockDAWk+Gu9Rng2FK/nZamuto8UPjRte84q0jqQ1oB92tH7kftfE0YyF6Mc9r2ikdaAfdqz1GFnHFf1AQVoPTY1PRbu3aMeyUtv3IvxAHasWo1UTzTtkR7TnI0k/y35kBc0P6ZiSvD2gH5/RPpfUj4jzC6ofrRi5fYN+xGOZhwg/evpH+SGJfW/X6uOF1Y+07w7M8mP0Guwdg37IiYyNxig/JOPOeAf09o/0I23T6uMF/fhglh+lsa/kXk+eK/hRim3J0wv68cHMWrTGHrW+Nf1bY3n4oWkbtUbpxzve54v0nnUcyztvZT+8GRl/Zb88/LjHyd2TjiNd16VYpe88/dC0XdmP6PxHsYsfubat70oxRqMZF8WPNBdte4T8R9DzLNL9UNO+No609tY4s+axVVfJey0KSQ6avWs1PP3owcOPWVjeW2jrq5RHyw2U/K3Qj/l41mkWpTrv7MaLFfx4jbXDWkvxXkuWeJIz4O5+WPp5Io133X6uMHcRddTW43Q/PPtZsex5u8zdyNwldUnj5D5LxtuBVZ7jVD9m5G7Z/yV+5D6vTs9z5PqirMMd/JiVu9SPdN23xit9PhXpuTSClfyQ1nFU3lY/0OqGTu6dirQWEXPKsYIfuTxJndI5FGUtIuaUQ3JOHZ23xQ+iA/l89QIxpxRkP8g4omscsc5GEJU3/fAlusa1WKvNt1ct6YcfCDUuxVtxvj39yMUjdlDPMjv58YZHLUt/RxI7pRpG70E1P9CQ5uRdT/rRz2p+eCJ9h0prhHLmiY6/Goh+IKD5e5d+7EX691ytzcx6Is+V5n9C2jNWJNHxVwDBD/R3VMuPK2kbjeYdlvsOfT480fgxOwfUOVnFD039pG6gzYU3Ej9a90blgDonM85XM9DUkO8OGQh1QF5zr/gr+qHJkW7kQahDbT6Q8kNfQ7mzntZh1GdDIaI2Uec6Kbv58Sh8J7lH6EcKuhcvNH60xkHhW+dF5rOCG2+UzlL0g8wG3Y03LGcpdOjHGqywxlbIUUuvH1958QK8UPjCixfgRQgp8x/n6XG3gDgBAA==
+  </data>
+ </layer>
+ <objectgroup name="solid">
+  <object id="32" x="163" y="800" width="29" height="17"/>
+  <object id="33" x="164" y="1921" width="26" height="18"/>
+  <object id="34" x="92" y="2496" width="195" height="18"/>
+  <object id="36" x="64" y="2412" width="24" height="101"/>
+  <object id="37" x="65" y="2515" width="94" height="618"/>
+  <object id="39" x="162" y="3039" width="30" height="96"/>
+  <object id="40" x="33" y="3006" width="30" height="128"/>
+  <object id="41" x="0" y="3137" width="593" height="61"/>
+  <object id="42" x="595" y="3193" width="79" height="2"/>
+  <object id="43" x="673" y="3137" width="411" height="59"/>
+  <object id="52" x="1088" y="3168" width="5307" height="28"/>
+  <object id="261" x="6381" y="2" width="14" height="3113"/>
+  <object id="301" x="5744" y="385" width="622" height="12"/>
+  <object id="302" x="5313" y="321" width="126" height="10"/>
+  <object id="303" x="4971" y="351" width="112" height="13"/>
+  <object id="304" x="4654" y="384" width="111" height="15"/>
+  <object id="305" x="4362" y="289" width="116" height="13"/>
+  <object id="306" x="4079" y="191" width="108" height="13"/>
+  <object id="307" x="3756" y="192" width="113" height="14"/>
+  <object id="308" x="3500" y="158" width="109" height="12"/>
+  <object id="309" x="3495" y="513" width="118" height="12"/>
+  <object id="310" x="2858" y="288" width="113" height="9"/>
+  <object id="311" x="2189" y="222" width="114" height="14"/>
+  <object id="312" x="1582" y="286" width="111" height="11"/>
+  <object id="387" x="64" y="479" width="96" height="1928"/>
+  <object id="389" x="160" y="477">
+   <polyline points="0,0 126,-28 225,0 288,0 416,-26 415,-94 383,-252 255,-383 64,-445 -123,-445"/>
+  </object>
+  <object id="390" x="289" y="3136">
+   <polyline points="0,0 -1,-224 128,-223 127,-384 191,-383 190,-417 255,-417 254,-450 479,-449 477,-511 767,-512 769,-351 800,-352 798,-128 295,-127 300,0"/>
+  </object>
+  <object id="391" x="1663" y="3115">
+   <polyline points="0,0 0,-364 -65,-363 -64,-397 64,-396 65,-207 129,-206 129,-172 65,-172 64,0"/>
+  </object>
+  <object id="392" x="1663" y="2623">
+   <polyline points="0,0 66,2 63,-126 96,-127 191,-193 290,-194 351,-192 352,-224 320,-254 162,-257 97,-221 66,-255 64,-415 162,-511 160,-669 225,-672 290,-733 415,-736 476,-675 480,-638 544,-638 543,-671 482,-733 512,-766 511,-796 482,-860 574,-896 575,-957 542,-958 544,-932 485,-929 483,-958 448,-958 450,-803 320,-802 165,-704 160,-1057 195,-1087 192,-1217 288,-1216 673,-1247 673,-1281 253,-1281 255,-1251 161,-1249 162,-1220 131,-1219 130,-1441 163,-1440 162,-1535 130,-1535 129,-1472 67,-1473 65,-1537 0,-1538 0,-1504 33,-1504 32,-1438 96,-1437 95,-543 65,-544 64,-513 3,-514 1,-1215 -64,-1279 -64,-1313 -95,-1313 -95,-1567 -128,-1567 -127,-1471 -158,-1471 -159,-1504 -223,-1503 -224,-1535 -255,-1536 -256,-1471 -128,-1395 -127,-1280 -189,-1248 -383,-1248 -382,-1216 -98,-1119 -97,-1054 -61,-738 -97,-738 -162,-800 -257,-803 -318,-864 -319,-928 -351,-928 -351,-833 -417,-863 -480,-864 -480,-700 -415,-700 -415,-730 -351,-734 -290,-767 -224,-765 -64,-608 -63,-480 0,-415 1,2"/>
+  </object>
+  <object id="393" x="2655" y="2752">
+   <polyline points="0,0 289,1 289,364"/>
+  </object>
+  <object id="394" x="2816" y="3114">
+   <polyline points="0,0 2,-237 -98,-329 -159,-331 -159,-361"/>
+  </object>
+  <object id="395" x="2817" y="2655">
+   <polyline points="0,0 127,1 125,-287 191,-349 289,-350 382,-382 382,-415 129,-417 128,-799 161,-832 193,-897 317,-1024 479,-1055 572,-1085 573,-1118 447,-1119 448,-1090 322,-1090 322,-1056 221,-1058 223,-1024 189,-1023 190,-993 158,-993 127,-992 125,-1184 286,-1277 385,-1310 480,-1343 479,-1377 351,-1378 350,-1345 288,-1344 288,-1315 194,-1313 192,-1283 128,-1280 128,-1408 190,-1409 283,-1471 286,-1503 192,-1504 191,-1471 158,-1471 158,-1439 93,-1440 91,-1566 61,-1566 64,-1472 31,-1473 31,-1439 65,-1439 62,-1249 1,-1249 0,-1311 -96,-1407 -162,-1409 -162,-1439 -198,-1438 -195,-1373 -128,-1375 -131,-1345 -35,-1247 -33,-1217 -34,-1088 -98,-1150 -164,-1182 -227,-1180 -225,-1158 -4,-960 -1,-608 -193,-800 -294,-801 -288,-770 -1,-508 -1,-1"/>
+  </object>
+  <object id="397" x="5601" y="3115">
+   <polyline points="0,0 -2,-77 -323,-299 -323,-332 -193,-332 -3,-202 -1,-715 -161,-778 -256,-810 -417,-842 -419,-911 -385,-907 -256,-877 -255,-845 -129,-843 -128,-812 -33,-812 -1,-812 1,-1293 -289,-1484 -289,-1516 -259,-1516 -257,-1483 -163,-1484 -161,-1452 -94,-1453 -5,-1393 -2,-1705 -33,-1707 -354,-1932 -352,-1964 -194,-1965 -68,-1900 -3,-1835 62,-1802 127,-1802 192,-1901 290,-1963 415,-1963 416,-1996 446,-2025 541,-2025 542,-1995 96,-1677 192,-1644 256,-1643 255,-1677 318,-1674 318,-1711 382,-1711 382,-1740 478,-1740 480,-1708 414,-1675 191,-1481 163,-1321 255,-1035 351,-1069 511,-1066 509,-1037 129,-859 126,-330 258,-364 385,-364 386,-330 128,-139 129,2"/>
+  </object>
+  <object id="399" x="4255" y="3114">
+   <polyline points="0,0 2,-171 -223,-395 -317,-427 -319,-459 -192,-457 -192,-426 -97,-427 -98,-395 -62,-395 -63,-363 97,-363 98,1"/>
+  </object>
+  <object id="400" x="4351" y="2655">
+   <polyline points="0,0 -95,0 -93,-706 -382,-832 -383,-896 -352,-895 -353,-863 -258,-863 -96,-797 -93,-1184 -319,-1408 -418,-1310 -448,-1310 -447,-1375 -478,-1503 -479,-1567 -446,-1567 -446,-1534 -383,-1534 -384,-1503 -320,-1503 -320,-1534 -286,-1535 -287,-1568 -256,-1566 -257,-1598 -224,-1598 -225,-1535 -286,-1441 -255,-1441 -63,-1250 2,-1250 1,-1311 -30,-1309 -64,-1344 -65,-1439 -32,-1438 -30,-1377 0,-1376 1,-1310 67,-1312 65,-1345 96,-1344 95,-1439 128,-1438 130,-1313 319,-1311 320,-1281 0,-1182 1,-672 32,-734 130,-832 226,-896 257,-897 259,-833 64,-638 1,-413 1,-220 35,-222 32,-256 65,-257 64,-288 128,-288 127,-320 160,-321 160,-351 288,-349 289,-386 353,-386 352,-351 319,-320 193,-290 1,-94 2,-1"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="teleport">
+  <object id="1" x="124" y="2410" width="38" height="30">
+   <properties>
+    <property name="start" value="true"/>
+   </properties>
+  </object>
+  <object id="50" x="597" y="3119" width="74" height="74">
+   <properties>
+    <property name="level" value="../Maps/rocksecret1.tmx"/>
+   </properties>
+  </object>
+  <object id="323" x="6272" y="303" width="61" height="80"/>
+ </objectgroup>
+ <objectgroup name="objects">
+  <object id="343" name="JumpRefresher" x="1343" y="2721" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="346" name="JumpRefresher" x="1952.5" y="2657.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="347" name="JumpRefresher" x="2239.5" y="2783.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="348" name="JumpRefresher" x="2429.5" y="2657.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="349" name="JumpRefresher" x="3135.5" y="2815.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="350" name="JumpRefresher" x="3360.5" y="2750.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="351" name="JumpRefresher" x="3485.5" y="2591.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="352" name="JumpRefresher" x="3486.5" y="2430.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="353" name="JumpRefresher" x="3679.5" y="2369.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="354" name="JumpRefresher" x="4414.5" y="2653.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="355" name="JumpRefresher" x="4577.5" y="2591.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="356" name="JumpRefresher" x="4832.5" y="2590.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="357" name="JumpRefresher" x="5023.5" y="2783.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="358" name="JumpRefresher" x="5280.5" y="2655.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="359" name="JumpRefresher" x="5151.5" y="2493.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="360" name="JumpRefresher" x="5026.5" y="2367.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="361" name="JumpRefresher" x="4862.5" y="2272.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="362" name="JumpRefresher" x="4544.5" y="2144.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="363" name="JumpRefresher" x="4704.5" y="2017.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="364" name="JumpRefresher" x="4704.5" y="1888.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="365" name="JumpRefresher" x="4704.5" y="1760.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="366" name="JumpRefresher" x="4703.5" y="1630.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="367" name="JumpRefresher" x="4798.5" y="1470.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="368" name="JumpRefresher" x="4799.5" y="1344.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="369" name="JumpRefresher" x="3550.5" y="993.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="370" name="JumpRefresher" x="1920.5" y="1183.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="371" name="JumpRefresher" x="1535.5" y="897.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="372" name="JumpRefresher" x="1535.5" y="833.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="373" name="JumpRefresher" x="1535.5" y="770.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="374" name="JumpRefresher" x="1534.5" y="704.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="375" name="JumpRefresher" x="1534.5" y="639.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="376" name="JumpRefresher" x="1535.5" y="576.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="377" name="JumpRefresher" x="1535.5" y="513.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="378" name="JumpRefresher" x="1534.5" y="450.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="379" name="JumpRefresher" x="1536.5" y="385.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="380" name="JumpRefresher" x="1535.5" y="320.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="381" name="JumpRefresher" x="1888.5" y="193.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="382" name="JumpRefresher" x="2528.5" y="160.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="383" name="JumpRefresher" x="3297.5" y="352.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="384" name="JumpRefresher" x="3102.5" y="193.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+  <object id="385" name="JumpRefresher" x="3328.5" y="128.5" width="33" height="31">
+   <properties>
+    <property name="class" value="JumpRefresher"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="death">
+  <object id="53" x="1088" y="3116" width="5309" height="49"/>
+ </objectgroup>
+</map>

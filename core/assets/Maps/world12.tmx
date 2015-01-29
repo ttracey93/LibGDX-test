@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="39">
+ <tileset firstgid="1" name="background" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/bg.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="65" name="tiles32" tilewidth="33" tileheight="33">
+  <tile id="0">
+   <image width="20" height="21" source="../Platformer/Base/Tiles32/particleStar.png"/>
+  </tile>
+  <tile id="1">
+   <image width="33" height="33" source="../Platformer/Base/Tree/black33.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="67" name="rock" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Items/rock.png" width="70" height="70"/>
+ </tileset>
+ <tileset firstgid="71" name="salt" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/saltshacker.png" width="64" height="128"/>
+ </tileset>
+ <tileset firstgid="79" name="door" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/doorbottom.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="83" name="door1" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/doortop.png" width="64" height="32"/>
+ </tileset>
+ <layer name="background" width="250" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztwwENAAAMw6Bqm39RF3JIWDVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVdUHDx27S68=
+  </data>
+ </layer>
+ <layer name="middleground1" width="250" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztmluOwzAIRbu17n9To35UU0VJeF3gEvtIlTppAg7GGMO8XpvN5sm8L66dXa/QbfldI//3E5EzkWz7roLFTlp/88jU3NeNZwwM42Ym2z5WX6xmdf9AxZL3xfeoXC1VsaHTXyp1X+VulTDniRlju5OZtU9X+9Tq8fZD9zqezoS4zRA/73RKscYr9+w+1Fn5V553PGgyY1qV3Oh8I+Y0A4QfT4g1Fiblr5Z1vnMLmap1ior1T0c6M0euHX9nnouK/byqzuWtd2XVydjn/ktnDsFoH48/ee5HPBvx3QqdbGjz0snv+GXCO7DWzDy19w791bJWpNsXoqxU85T2OO/e7h1L1Tr26OqeKwvo/72IPJ8Z8yM5GrpP1VXD04CqZ3vuyegFap9lXeeZtdoJ5zAGNLGDbd9DjCerfpNJRgxheDeGMVSA7Kt69U/Wh+old/sb09yz1PMqazQoXVqbSrlZxhhWQ9ubicyFpg7QNR/RGoU3Pkz0v2MMiOb+aNtV5uBd+b4WprEgQMx5Rv44oSeBoiL/ZnxvL5LPsvWdKur1E/NVBrr6SpNtyLpHo8+UHl2o+60w2P9Id7xjsQnLODYykd6l9IymJ3ZXU0TnNdl1pyw52TXC7vWaMdeIZyLXzu7J8BuW+nFUpmQfa79Qa+/fs0r3OlgZtvxSgyW+VtVxreskW6dmb7esVy8VNQlGrLZF5n+I5xnWTXePEJGHRPokTwfZj7LovPsbrQtZ182QHYHRr7Ps4pHLWr+00lW7rtA/cT40RM+EVWPw7v9SHJ88rxG7TX7vOzx5wlNtIbHqmYsVtprf5hlsH/i3wR+Y6195
+  </data>
+ </layer>
+ <layer name="middleground" width="250" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzt2FmOwyAMgOFcrZrOvi8HzFHmaOM8WIqYRg3EgIH/k1AVqZUoMTZmmgDAl7tp+r2VUfq3AMo5yz69SdyrR34LXCM1ZJb4mmvPwxvqK3oi8Tyf2ef/UF/RsnsZD6tn6jnQn0cZT6vnFuu5nqk5W2PL6LHxLONl9dxiPdczNWdrbBk9Nl5lvK2eW6zntY1eK1BebMyF/TnijV4rUF5szIX9OYD+hP052sH942Ue1sPDHNbC/hzt4P7xMg/r4WEOC8039Of5eMvpGI/mG0/9+beMn9qTMOQlp8NWi/nbU3/+LuOj9iQ2tPhukUeu/J0zxjz1558yvmpPYkMvtTk1lixi0CqOe825OWOsdn8e3hlzh5xXaixZxKBVHPeSc1PJf1/WYBfdR7X78/DOuPQdMvkErZF4XeJ2F91HnvrzGkavDfDjtPN7KbXJU38OjGzvPk+pTbH9OedcwNYp+Mwhtj/nnIuSqCvH6Pppf269nrwfWKCuHKPrp/259XryfgCk+AOLH6Cs
+  </data>
+ </layer>
+ <layer name="middleground2" width="250" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
+  </data>
+ </layer>
+ <layer name="foreground" width="250" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
+  </data>
+ </layer>
+ <objectgroup name="wall">
+  <object id="4" x="6750.67" y="65.3333" width="34.6667" height="190.667"/>
+ </objectgroup>
+ <objectgroup name="solid">
+  <object id="5" x="188" y="189.333" width="125.333" height="10.6667"/>
+  <object id="6" x="673.333" y="576" width="60" height="9.33333"/>
+  <object id="7" x="990.667" y="478.667" width="61.3333" height="8"/>
+  <object id="8" x="1216" y="253.333" width="60" height="6.66667"/>
+  <object id="9" x="1408" y="32" width="61.3333" height="6.66667"/>
+  <object id="10" x="1886.67" y="29.3333" width="60" height="6.66667"/>
+  <object id="11" x="2180" y="349.333" width="117.333" height="10.6667"/>
+  <object id="12" x="2593.33" y="508" width="60" height="14.6667"/>
+  <object id="13" x="3041.33" y="512" width="61.3333" height="6.66667"/>
+  <object id="14" x="3582.67" y="512" width="60" height="9.33333"/>
+  <object id="15" x="3998.67" y="700" width="66.6667" height="12"/>
+  <object id="16" x="4156" y="506.667" width="65.3333" height="14.6667"/>
+  <object id="18" x="4414.67" y="353.333" width="62.6667" height="10.6667"/>
+  <object id="19" x="4573.33" y="189.333" width="66.6667" height="13.3333"/>
+  <object id="20" x="5184" y="445.333" width="61.3333" height="9.33333"/>
+  <object id="21" x="5473.33" y="349.333" width="57.3333" height="10.6667"/>
+  <object id="22" x="5888" y="478.667" width="64" height="12"/>
+  <object id="23" x="6240" y="256" width="62.6667" height="10.6667"/>
+  <object id="24" x="6688" y="705.333" width="61.3333" height="8"/>
+  <object id="25" x="7005.33" y="640" width="64" height="12"/>
+  <object id="26" x="7326.67" y="706.667" width="64" height="9.33333"/>
+  <object id="27" x="7646.67" y="510.667" width="253.333" height="14.6667"/>
+  <object id="30" x="1408" y="416" width="62.6667" height="9.33333"/>
+  <object id="31" x="992" y="93.3333" width="61.3333" height="12"/>
+  <object id="32" x="6560" y="700" width="60" height="17.3333"/>
+  <object id="33" x="6564" y="540" width="54.6667" height="13.3333"/>
+  <object id="34" x="6562.67" y="380" width="54.6667" height="14.6667"/>
+  <object id="35" x="6750.67" y="66.6667" width="30.6667" height="189.333"/>
+ </objectgroup>
+ <objectgroup name="teleport">
+  <object id="28" x="236" y="86.6667" width="62.6667" height="36">
+   <properties>
+    <property name="start" value="true"/>
+   </properties>
+  </object>
+  <object id="29" x="7748" y="426.667" width="58.6667" height="81.3333">
+   <properties>
+    <property name="level" value="../Maps/hubworld.tmx"/>
+   </properties>
+  </object>
+  <object id="37" x="5829.33" y="593.333" width="77.3333" height="110.667">
+   <properties>
+    <property name="level" value="../Maps/starsecret1.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="objects"/>
+ <objectgroup name="death">
+  <object id="1" x="2.66667" y="0" width="9.33333" height="798.667"/>
+  <object id="2" x="10.6667" y="765.333" width="7988" height="34.6667"/>
+  <object id="3" x="7976" y="2.66667" width="18.6667" height="760"/>
+  <object id="36" x="6633.33" y="132" width="42.6667" height="632"/>
+ </objectgroup>
+</map>

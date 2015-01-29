@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="80" tilewidth="32" tileheight="32" nextobjectid="76">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="80" tilewidth="32" tileheight="32" nextobjectid="127">
  <tileset firstgid="1" name="background" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/bg.png" width="256" height="256"/>
  </tileset>
@@ -70,43 +70,49 @@
   <tile id="21">
    <image width="32" height="32" source="../Platformer/Base/Tiles32/grayblockwall.png"/>
   </tile>
+  <tile id="22">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/snowCenter.png"/>
+  </tile>
+  <tile id="23">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/snowMid.png"/>
+  </tile>
  </tileset>
- <tileset firstgid="87" name="door" tilewidth="32" tileheight="32">
+ <tileset firstgid="89" name="door" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/doorbottom.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="91" name="door1" tilewidth="32" tileheight="32">
+ <tileset firstgid="93" name="door1" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/doortop.png" width="64" height="32"/>
  </tileset>
- <tileset firstgid="93" name="castle1" tilewidth="32" tileheight="32">
+ <tileset firstgid="95" name="castle1" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/darkHouseBottomLeft.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="97" name="door2" tilewidth="32" tileheight="32">
+ <tileset firstgid="99" name="door2" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/darkHouseBottomRight.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="101" name="wall" tilewidth="32" tileheight="32">
+ <tileset firstgid="103" name="wall" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/darkHouseTopLeft.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="105" name="wall2" tilewidth="32" tileheight="32">
+ <tileset firstgid="107" name="wall2" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/darkHouseTopRight.png" width="64" height="64"/>
  </tileset>
  <layer name="background" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   eJztlrFywyAMQJMuaecsHT127Jg1U7cu7f9/S8935U7HIUuAbBPnDW9oClh6IMH9dDrdAQAAAAAAAAAAAABgKH4AAAAA4Kn4BQAAAAAA2Ih3BxOoeHx9gIp19uYxnxviqYdRGDHeaSAeLd6ZnlqJIn3P47C3vkehd98kR45bmxt5J0TE7J2/ddza3Mg7LOL+XbOutbvWE6+W8y2QGtfaPrfOS9TWote5lvM5kBrXWrzWvJZazN15z/Lk8PQWSI1rLebWeUv1KF3KWiy5zsdanl4DqXGt5W7Ns3KeDJ+yFj09z/J0/cfqExppnUu2rrWW5q+0lvyt5T6VvUzWotVrb+K7Xwtcjby8uZfmeH+XvUnr163vgPTN5C6dKavXnh3ucqy8W/H4lu567ifNZ3KXzrTVa9PYGn81Hmvee/l6ud/cXc/9pPmU7i7KN/K7ocWdx2NNDZfev6VeLd313E+az1KvXuq1ve5KHnuQ/kq9WnNXyrHmHZA8evY6cQ32N/OS0bMPpV7dWjPWOfK8ffJ6iHYnHUasE9mrc4/5PteylrtI1ujVco+P7C6dlbV6davDvZ2MBv7W8bh3PI8I3gAAAADW4dtg7/hGx/KHwzZnOMRfjY+lv/FnO6v5/7P78+SjjWlxdyR/3lxK41rdHcVfTx497kb3J2PMY47M4aj+tt6nFv4Avt4UTQ==
+   eJzt17tOwzAUgOHAQpm7MHZk7MjaqR0qFpDK+z8JQmqkyBzH5/gSX/oP30CpUp8/TjGnaZpOAAAAAAAAAACgKV8AAGA4N0ft9fRm9H7fBbntboU/bzRSPxqmtaNfWjv60c/ix5Ha7pEaXoyza9uN3vB6b3f2yNFu9H6+dm7DmG6jd9T0y9Ftpv1ubdGbY/nsXjykllLXtd6++3LojNQvtPfW+i1bre3Zteu9d0Tae9aGvlaa1yTuPW3VUWh3juinbarp1dIzrGl4mP6fV3L0SxV6VkqaP0/TUDrrXRtpaJn5kJHlc33n5Bb6SQ19M+f8m2Bp7Vu3Zg9u1VjT6ZiRpXWoj6/Rls+4ptNHRpbWobWv9dvyOQ51esrI0rqXfudAp9eMLK176jeTZt5lZGkdahf6/qvRUZp5fxd7tpmv8+JcN3StWnuohP1iLk1Hy7nS93rtmUsJzR3LvV7tObV2BTvGnK1761dqP1qeYel/8dpz1eqY4pH7/Xl2pNyH2rPUbFh7DQAAAAAAoG+fAbXX17pQPxrGNaMh/Sw91n6mX7iZ5feP3k8zj+89Me1G6qedRXpfbLtR+qXMkdKu9X7LNbprzjnDqP22vk8xfgHLnqui
   </data>
  </layer>
  <layer name="middleground1" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt2dGKwyAQBdD+Wx82UNj//5x9DWKaUUfTbM8B6UsyjRcdQ/t4AAAAAAAAAAAAAAAAAAAAcJWtMog5ykqO5yL5yLGuJRP7Ooccc8gxTy3D2nl+NqLflV2z1Yza2+6zt/bZvT11s+c6c79l1H73LjVaN6PGLHepPbI3ZpjVC2b2sNH+kvlcdz1/jzJoOYdGz6u7ZreXce6V9SK1PiW7ZzF63Km3ZSgzq42IVfM76hP7Z1j1LJHsIjletS5a+2l2vqP5XbWnst4/R7PMWn8Rr2L0WvGOF60/kt9IHr35reyx0e96t74i+fVove+qPvEzsfbIHoze63e9ukh+35Rb1tnwLfY5ldnV8otcs8pvYMxUm/9ZHq3X/2c9c//0vFatPWjV+h+b4b0z0x+pxmHW
+   eJzt2UsOgjAUhWH25kASE8fsfyVOHGBt4T5bHv+XNBojVzgp7Q1OEwAAAAAAAAAAAAAAAICWpRhANuaZX5khmcYhy7pWLrXPyXCbJkvY0NPsWxrvgSzMs33zd2CcuTEAKeucYZ790uRBdnWSXMgOIzH/bOhNbMjNLiu3O/Tcmdm1Pr9ijpGk/RE5/tP25+ToR44xyDFOLcPWc7StIf2t6JpaGbXn1au19t6x1mdSkdeaeb9F1N7qpbx1I2pkOUttz72RIWstyFzDvOtL5Hmddf9tZaDZh7z71VmzW4vY98p6klpHye5RDIszrW0RysxqQ6LX9bXWifU59DoXSXaSHEfNC+16Gp2vN79R91RU/+nNMmr+SbyKYdWjx5PW9+TnycOaX881VvpbW/NLkp+F9rhR68QzsbbnHpQey3O9Okl+d8otam+4i3VOZXa1/CTf6eUtGJlq17+Xh/b7V2a59qPn1WvuAVra/9gY9J2RPtRPbjY=
   </data>
  </layer>
  <layer name="middleground" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="middleground2" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt10sOgjAUBVDW5gIcmOB/4NJcikuzDJqY8ok2YK2ck7zQiGhz8yilaQAAAAAAAAAAAAAAAAAAAKhBW3oCldolR6Ae1j1K04OUpgfzyG0eaY5z7afty/vSd5Y1v8O0yXHsPOMuoa4Z17UTtSaHUMfks3ZkTN8p1PnDa9Zyv+/fqCk5z4Z/ep6EfG5T61Q4f8/53dw1szZdfnGcm9/QPTm0Zo59t2ZdfrFX5uy/nDUzx+YL/zGlyy/2ypz5Lal0Zq9CPo/YK914qApPkYX8Uh/WRnaUFPcMa+nDbekJAPyoJ+OaLF8=
+   eJzt2ltqwzAQheGsrRDIS/pQcKBXurQupUur9GAwg+TIo8so0/8DEefiWJzMyDbt6QQAAAAAAAAAAAAAAEb4DOPLehIAAADAIFz/Asjxtj5crScAoIplD18Mj+2Fhwzv1eC14DNHnTfbnjNsldtZPJeZeciwJ2/5yHrAMffqoWe+3n671Bon89WeQ1JZeerl3td/o7JaBh3HmxfxOJK3dWi0I71F1nU061ht5iX7e173as8duf3phToyV8812AL1VqdkHaAGy23rcdbcZu6ZVD3KHFtdT2u/x9M9qiTvWSzvYawt4jH3/ixm7Gvt3+WXndHLjH39GsabeG3JbLcwYw1F2nm9h/FxcJ+afh9dQ6W5pOZ1Kxh7NOeG2c4nNb9XyOd7b50K7/9ovtfb/zLlxPzWbW1+qZ5MrZm5zz6ymN9aKy3rT7NmajwNOMaemN9aKy3z68k6s62Qz+9aK3E7NYyniE5mqsNHQ3awtF4z/Jc6fLaeAABM6g9Zij0R
   </data>
  </layer>
  <layer name="foreground" width="80" height="80">
@@ -169,8 +175,32 @@
   <object id="60" x="2551" y="3" width="4" height="2553"/>
   <object id="72" x="1313" y="2495" width="29" height="33"/>
   <object id="73" x="1443" y="2495" width="29" height="33"/>
-  <object id="74" x="1758" y="2210" width="95" height="33"/>
-  <object id="75" x="1857" y="2177" width="30" height="30"/>
+  <object id="76" x="1760" y="2208" width="126" height="30"/>
+  <object id="97" x="706" y="1600" width="26" height="24"/>
+  <object id="98" x="738" y="1570" width="26" height="30"/>
+  <object id="99" x="768" y="1538" width="60" height="28"/>
+  <object id="100" x="836" y="1508" width="58" height="28"/>
+  <object id="102" x="896" y="1410" width="28" height="24"/>
+  <object id="103" x="930" y="1376" width="30" height="30"/>
+  <object id="104" x="960" y="1342" width="28" height="30"/>
+  <object id="105" x="994" y="1284" width="186" height="24"/>
+  <object id="106" x="228" y="1188" width="186" height="22"/>
+  <object id="107" x="448" y="1248" width="58" height="24"/>
+  <object id="108" x="514" y="1344" width="62" height="24"/>
+  <object id="109" x="576" y="1382" width="28" height="20"/>
+  <object id="110" x="604" y="1408" width="32" height="32"/>
+  <object id="113" x="1056" y="1156" width="60" height="22"/>
+  <object id="114" x="998" y="1124" width="54" height="28"/>
+  <object id="115" x="962" y="1060" width="24" height="24"/>
+  <object id="116" x="926" y="1028" width="26" height="26"/>
+  <object id="117" x="772" y="902" width="118" height="22"/>
+  <object id="118" x="260" y="1024" width="116" height="28"/>
+  <object id="119" x="606" y="1060" width="28" height="26"/>
+  <object id="120" x="672" y="964" width="32" height="22"/>
+  <object id="122" x="1184" y="1312" width="32" height="30"/>
+  <object id="123" x="1216" y="1342" width="32" height="30"/>
+  <object id="124" x="1249" y="1378" width="32" height="26"/>
+  <object id="125" x="1280" y="1409" width="28" height="23"/>
  </objectgroup>
  <objectgroup name="wall"/>
  <objectgroup name="teleport">
@@ -214,6 +244,21 @@
     <property name="level" value="../Maps/world7.tmx"/>
    </properties>
   </object>
+  <object id="111" x="1058" y="1198" width="58" height="86">
+   <properties>
+    <property name="level" value="../Maps/world8.tmx"/>
+   </properties>
+  </object>
+  <object id="112" x="290" y="1104" width="56" height="84">
+   <properties>
+    <property name="level" value="../Maps/world9.tmx"/>
+   </properties>
+  </object>
+  <object id="121" x="810" y="816" width="48" height="80">
+   <properties>
+    <property name="level" value="../Maps/world10.tmx"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="objects"/>
  <objectgroup name="death">
@@ -221,5 +266,23 @@
   <object id="62" x="1345" y="2512" width="94" height="15"/>
   <object id="63" x="1473" y="2513" width="94" height="14"/>
   <object id="64" x="2080" y="2516" width="470" height="42"/>
+  <object id="79" x="162" y="1070" width="60" height="16"/>
+  <object id="80" x="162" y="1086" width="28" height="98"/>
+  <object id="81" x="130" y="1166" width="26" height="82"/>
+  <object id="82" x="98" y="1236" width="26" height="40"/>
+  <object id="83" x="66" y="1266" width="28" height="48"/>
+  <object id="84" x="32" y="1294" width="28" height="60"/>
+  <object id="85" x="12" y="1330" width="16" height="40"/>
+  <object id="86" x="160" y="1232" width="32" height="146"/>
+  <object id="87" x="192" y="1328" width="26" height="108"/>
+  <object id="88" x="220" y="1392" width="34" height="82"/>
+  <object id="89" x="256" y="1420" width="32" height="180"/>
+  <object id="90" x="224" y="1550" width="34" height="46"/>
+  <object id="91" x="192" y="1582" width="32" height="16"/>
+  <object id="92" x="448" y="1426" width="30" height="172"/>
+  <object id="93" x="480" y="1570" width="60" height="28"/>
+  <object id="94" x="514" y="1546" width="60" height="18"/>
+  <object id="95" x="482" y="1392" width="58" height="16"/>
+  <object id="96" x="478" y="1408" width="30" height="60"/>
  </objectgroup>
 </map>

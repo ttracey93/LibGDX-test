@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="6">
+ <tileset firstgid="1" name="tiles32" tilewidth="33" tileheight="33">
+  <tile id="0">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/darkAtmosphere.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/snowCenter.png"/>
+  </tile>
+  <tile id="2">
+   <image width="33" height="33" source="../Platformer/Base/Tiles32/snowMid.png"/>
+  </tile>
+ </tileset>
  <layer name="background" width="250" height="25">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
+   eJztw7EJAAAIA7DW/4/2CCchgTRJVVVVVVXV01FVVVVVVVVVVVVVVVVVVVVVVfXFBcsfKvk=
   </data>
  </layer>
  <layer name="middleground1" width="250" height="25">
@@ -25,8 +36,23 @@
    eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
   </data>
  </layer>
- <objectgroup name="solid"/>
- <objectgroup name="teleport"/>
+ <objectgroup name="solid">
+  <object id="1" x="0" y="1" width="30" height="799"/>
+  <object id="2" x="30" y="770" width="7968" height="28"/>
+  <object id="3" x="7969" y="0" width="27" height="767"/>
+ </objectgroup>
+ <objectgroup name="teleport">
+  <object id="4" x="99" y="640" width="88" height="61">
+   <properties>
+    <property name="start" value="true"/>
+   </properties>
+  </object>
+  <object id="5" x="7850" y="676" width="78" height="93">
+   <properties>
+    <property name="level" value="../Maps/world11.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="objects"/>
  <objectgroup name="death"/>
 </map>

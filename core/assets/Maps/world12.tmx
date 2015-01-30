@@ -89,7 +89,7 @@
   </object>
   <object id="29" x="7748" y="426.667" width="58.6667" height="81.3333">
    <properties>
-    <property name="level" value="../Maps/hubworld.tmx"/>
+    <property name="level" value="../Maps/newhubworld.tmx"/>
    </properties>
   </object>
   <object id="37" x="5829.33" y="593.333" width="77.3333" height="110.667">

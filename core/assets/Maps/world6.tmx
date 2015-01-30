@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="25" height="250" tilewidth="32" tileheight="32" nextobjectid="49">
+ <tileset firstgid="1" name="background" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/bg_castle.png" width="256" height="256"/>
+ </tileset>
+ <tileset firstgid="65" name="tower" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/darkHouseBottomLeft.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="69" name="torew2" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/darkHouseBottomRight.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="73" name="tower3" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/darkHouseTopLeft.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="77" name="tower4" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/Tiles32/darkHouseTopRight.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="81" name="tiles32" tilewidth="32" tileheight="32">
+  <tile id="0">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/smallspikes.png"/>
+  </tile>
+ </tileset>
+ <layer name="background" width="25" height="250">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
+  </data>
+ </layer>
+ <layer name="middleground1" width="25" height="250">
+  <data encoding="base64" compression="zlib">
+   eJzt1bVORWEQReGDu7te3N2dQyBYAu//OKyCSaj+ZnIrVrGqKXY1+T6qqvpsUl/0TU90TTd0S3d0Tw/0SHXy/vq70Upt1E4d1Eld1E0tyXts9FIf9dMADdIQDVNP8h4bozRG4zRBkzRF0zSSvMfGLM3RPC3QIjVoiWaS99hYoVVao3XaoE3aouXkPTZ2aJf2aJ8O6JCOaDt5j40TOqUzOqcLuqQrOk7eY6NZv1H/2cj+QOkeG9kfKN1jI/sDpXtsZH+gdI+N7A+U7rGR/YHSPTayP1C6x4Z+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Edd6Yd+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Edd6Yd+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+6Id+/A8/numF3prUO/0A9uxlWA==
+  </data>
+ </layer>
+ <layer name="middleground" width="25" height="250">
+  <data encoding="base64" compression="zlib">
+   eJzt2EEKg0AMQFFv6P1v030dKtNM4kTeh64CfQghlh6HJEmSJEmSJEmSJEnaqfNm9mu+ylgRo5dhrxgZxuq9+v7OjOeoMGZmjOvMvWJkGPaKkWHYK0aVMWvv+hyM5wz3ilFluFeMqNHpXo3+X1j1DJXGP7M3GO4VI2p0uleM3oZ7xYga7hWjynCvGFHDvWJkGPaKkWHYK0aV4fcVI2q4V4wqw71iZBj2ihE1vAcZVYZ7xcgw7BUjw9h9r87Bp6MxM3uDsfteMXoaq2xp1AeOlnNr
+  </data>
+ </layer>
+ <layer name="middleground2" width="25" height="250">
+  <data encoding="base64" compression="zlib">
+   eJzt2LEJADAIAEFXdP9lbKzsxCaBO/glPgIAAAAAAAAAAOAmOwAAAICXzYfhaQAAAAAAAAAAAOzkCAB+VcktAys=
+  </data>
+ </layer>
+ <layer name="foreground" width="25" height="250">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
+  </data>
+ </layer>
+ <objectgroup name="solid">
+  <object id="1" x="0" y="7968" width="800" height="30"/>
+  <object id="2" x="0" y="1" width="31" height="7966"/>
+  <object id="4" x="767" y="2" width="31" height="7964"/>
+  <object id="5" x="32" y="1" width="733" height="29"/>
+  <object id="11" x="736" y="7200" width="31" height="32"/>
+  <object id="12" x="736" y="7391" width="32" height="32"/>
+  <object id="13" x="736" y="7585" width="32" height="31"/>
+  <object id="14" x="735" y="7776" width="30" height="33"/>
+  <object id="16" x="735" y="7008" width="32" height="33"/>
+  <object id="17" x="578" y="6817" width="28" height="32"/>
+  <object id="18" x="735" y="6623" width="33" height="33"/>
+  <object id="19" x="737" y="6433" width="31" height="30"/>
+  <object id="20" x="575" y="6239" width="32" height="35"/>
+  <object id="21" x="736" y="6049" width="32" height="31"/>
+  <object id="22" x="576" y="5856" width="31" height="31"/>
+  <object id="23" x="577" y="5665" width="30" height="31"/>
+  <object id="24" x="577" y="5471" width="30" height="31"/>
+  <object id="25" x="738" y="5280" width="29" height="30"/>
+  <object id="26" x="577" y="5086" width="30" height="33"/>
+  <object id="27" x="738" y="4895" width="28" height="31"/>
+  <object id="28" x="578" y="4703" width="29" height="33"/>
+  <object id="29" x="738" y="4512" width="30" height="29"/>
+  <object id="30" x="576" y="4320" width="30" height="32"/>
+  <object id="31" x="737" y="4128" width="29" height="33"/>
+  <object id="32" x="576" y="3935" width="30" height="33"/>
+  <object id="33" x="737" y="3743" width="31" height="31"/>
+  <object id="34" x="575" y="3551" width="31" height="31"/>
+  <object id="35" x="575" y="3359" width="31" height="32"/>
+  <object id="36" x="579" y="3167" width="29" height="31"/>
+  <object id="37" x="577" y="2975" width="30" height="32"/>
+  <object id="38" x="578" y="2784" width="29" height="32"/>
+  <object id="39" x="576" y="2591" width="31" height="31"/>
+  <object id="40" x="544" y="2591" width="29" height="5216"/>
+  <object id="41" x="320" y="2592" width="29" height="5215"/>
+ </objectgroup>
+ <objectgroup name="teleport">
+  <object id="43" x="558" y="2463" width="25" height="53">
+   <properties>
+    <property name="start" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="objects"/>
+ <objectgroup name="death">
+  <object id="44" x="417" y="7443" width="126" height="13"/>
+  <object id="45" x="351" y="4374" width="62" height="9"/>
+  <object id="47" x="482" y="4373" width="61" height="9"/>
+  <object id="48" x="418" y="2997" width="59" height="10"/>
+ </objectgroup>
+</map>

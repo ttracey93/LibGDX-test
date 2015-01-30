@@ -62,7 +62,7 @@
  </layer>
  <objectgroup name="solid">
   <object id="1" x="320" y="669" width="32" height="66"/>
-  <object id="3" x="609.25" y="607.25" width="95" height="33"/>
+  <object id="3" x="609.583" y="607.25" width="95" height="33"/>
   <object id="4" x="640" y="641" width="33" height="94"/>
   <object id="5" x="992" y="638" width="34" height="97"/>
   <object id="6" x="0" y="737" width="7997" height="62"/>

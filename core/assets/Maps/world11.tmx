@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="7">
+ <tileset firstgid="1" name="tiles32" tilewidth="32" tileheight="32">
+  <tile id="0">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/metalCenter.png"/>
+  </tile>
+ </tileset>
  <layer name="background" width="250" height="25">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
+   eJztwwENAAAMw6DOv+kLOSSsmqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq6oMH8BwYaw==
   </data>
  </layer>
  <layer name="middleground1" width="250" height="25">
@@ -25,8 +30,24 @@
    eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
   </data>
  </layer>
- <objectgroup name="solid"/>
- <objectgroup name="teleport"/>
+ <objectgroup name="solid">
+  <object id="1" x="1" y="2" width="29" height="798"/>
+  <object id="2" x="33" y="2" width="7963" height="31"/>
+  <object id="3" x="7969" y="6" width="26" height="792"/>
+  <object id="4" x="29" y="770" width="7943" height="27"/>
+ </objectgroup>
+ <objectgroup name="teleport">
+  <object id="5" x="81" y="655" width="84" height="54">
+   <properties>
+    <property name="start" value="true"/>
+   </properties>
+  </object>
+  <object id="6" x="7870" y="676" width="66" height="92">
+   <properties>
+    <property name="level" value="../Maps/world12.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="objects"/>
  <objectgroup name="death"/>
 </map>

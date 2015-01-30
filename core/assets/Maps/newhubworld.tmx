@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="80" tilewidth="32" tileheight="32" nextobjectid="156">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="80" tilewidth="32" tileheight="32" nextobjectid="159">
  <tileset firstgid="1" name="background" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/bg.png" width="256" height="256"/>
  </tileset>
@@ -85,23 +85,53 @@
   <tile id="26">
    <image width="70" height="70" source="../Platformer/Request/PNG/laserRight.png"/>
   </tile>
+  <tile id="27">
+   <image width="30" height="38" source="../Platformer/Base/HUD/hud_0.png"/>
+  </tile>
+  <tile id="28">
+   <image width="26" height="37" source="../Platformer/Base/HUD/hud_1.png"/>
+  </tile>
+  <tile id="29">
+   <image width="32" height="38" source="../Platformer/Base/HUD/hud_2.png"/>
+  </tile>
+  <tile id="30">
+   <image width="28" height="38" source="../Platformer/Base/HUD/hud_3.png"/>
+  </tile>
+  <tile id="31">
+   <image width="29" height="38" source="../Platformer/Base/HUD/hud_4.png"/>
+  </tile>
+  <tile id="32">
+   <image width="28" height="38" source="../Platformer/Base/HUD/hud_5.png"/>
+  </tile>
+  <tile id="33">
+   <image width="30" height="38" source="../Platformer/Base/HUD/hud_6.png"/>
+  </tile>
+  <tile id="34">
+   <image width="32" height="39" source="../Platformer/Base/HUD/hud_7.png"/>
+  </tile>
+  <tile id="35">
+   <image width="32" height="40" source="../Platformer/Base/HUD/hud_8.png"/>
+  </tile>
+  <tile id="36">
+   <image width="32" height="39" source="../Platformer/Base/HUD/hud_9.png"/>
+  </tile>
  </tileset>
- <tileset firstgid="92" name="door" tilewidth="32" tileheight="32">
+ <tileset firstgid="102" name="door" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/doorbottom.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="96" name="door1" tilewidth="32" tileheight="32">
+ <tileset firstgid="106" name="door1" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/doortop.png" width="64" height="32"/>
  </tileset>
- <tileset firstgid="98" name="castle1" tilewidth="32" tileheight="32">
+ <tileset firstgid="108" name="castle1" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/darkHouseBottomLeft.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="102" name="door2" tilewidth="32" tileheight="32">
+ <tileset firstgid="112" name="door2" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/darkHouseBottomRight.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="106" name="wall" tilewidth="32" tileheight="32">
+ <tileset firstgid="116" name="wall" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/darkHouseTopLeft.png" width="64" height="64"/>
  </tileset>
- <tileset firstgid="110" name="wall2" tilewidth="32" tileheight="32">
+ <tileset firstgid="120" name="wall2" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/Tiles32/darkHouseTopRight.png" width="64" height="64"/>
  </tileset>
  <layer name="background" width="80" height="80">
@@ -116,12 +146,12 @@
  </layer>
  <layer name="middleground" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="middleground2" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt2ltqwzAQhWGtrRDoS/pQcJ56UXfWpXRplWMCZpAdeXTN5P9AxG3iWD2ZkW1S5wAAAAAAAAAAAAAAQAs+jJ/ekwAAAAAa8Y7rXwBx3tlaH869JwAgS88efu14bCssZHivBs8JrznqtNq2nGGp3E7iZ5mZhQxrspaPrAccc68eauZr7bOLrXEyX+05JJaVpV6uff3XKqup0XGseRePLVlbh1o70ltknUezjuVmnrK/5XUv99yxtT+9kEfmarkGS6De8qSsA9RgunU9jprbyD0Tq0eZY6nrae37WLpHleQ9S897mN4m8bj1/ChG7GvvdN/LTzujlhH7+iOMT/G7aWO7hBFraKad11cY3wf3yen31jWUmktsXpeEsUdzbhjtfJLzeYV8/N46FZ7/1byvd7b+l2nLZflTr7T5xXoytmZuvfaRzfl5t9RKyfrTrJkaLw2OsWfO71YrJfOrqXdmayGfv1utzNux0XmKqGSkOnw0ZIeevFuuGZ6lDt96TwAABvUPGi49Xw==
+   eJzt3FtOwzAQheGsDakSL+UBKTxRKOUOm2IpLA1baqRg2anj27jT/5MsAjSpdTrjJGphGAAA+G9nxoP0JAAAAAAAAAAAQJfs+wj30pM4YXccPfoy41t6EgAAAIj2Kj2BM8f1LwCfl0Hf+rCVngCALJI9fC343FpoyPBUDW4jHrPWZratOcNSuW2c793MNGRYk7Z83HrAOqfqoWa+2l473xrn5pt6DvFlpamXa1//tcpqbPQ82tw6X1vStg61tqa3yDpPyjqWm3nM/prXvdxzR2h/eiGPm6vmGiyBessTsw5Qg/Hm9dhrbj33jK8e3RxLXU+nHkfTParLvWeRvIeRZuvuMIT7uLf+7rGvU9+XHxdGLT329ZsZ787PxsB2CT3WkJU6rw8zPlfuk9PvrWsoNhffvO4ixpLQueEpYR8pOa+XyWe/tE6Z3/+kHFfbZ5lCbH7Px+3U/Hw96VszQ489Zza/qVZK1l/KmpniqsFzLLH5TbVSMr+apDObM/n8TrVit31DeIqopKc6xGUp+Tfatf637WPh4+0LHmu6ZriUHr6RngAAdOoPQTJDuA==
   </data>
  </layer>
  <layer name="foreground" width="80" height="80">
@@ -176,7 +206,6 @@
   <object id="51" x="1410" y="1600" width="29" height="30"/>
   <object id="52" x="1376" y="1634" width="31" height="27"/>
   <object id="53" x="1348" y="1666" width="30" height="24"/>
-  <object id="54" x="1279" y="1792" width="69" height="32"/>
   <object id="55" x="1183" y="1889" width="32" height="29"/>
   <object id="56" x="1215" y="1855" width="33" height="36"/>
   <object id="57" x="1247" y="1825" width="32" height="29"/>
@@ -235,6 +264,7 @@
   <object id="151" x="2050.67" y="430.667" width="48" height="15.3333"/>
   <object id="152" x="2146.67" y="332" width="50.6667" height="18.6667"/>
   <object id="154" x="2210.67" y="260" width="178" height="24.6667"/>
+  <object id="158" x="1280.33" y="1792.33" width="62.3333" height="31"/>
  </objectgroup>
  <objectgroup name="wall"/>
  <objectgroup name="teleport">

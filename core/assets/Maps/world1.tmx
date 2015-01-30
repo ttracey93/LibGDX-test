@@ -52,7 +52,7 @@
  </layer>
  <layer name="middleground2" width="250" height="25">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3bTQ6CMBAG0F6u97+SC+KGYCzQv2nf22AkBjIz3xhDTAlYSb75PhDTv0xfnbcHIJZ8OgJ7kHlKmBPYl/xDPHK7Fv3cm/4DtdgntGK24JCTPNCW+YJ4Rud29PUhonNuZs/R7Pc3IzWjxNs5qblLzCxfZqEt/4fq5+1OjNCT/OP13c/yXO866tuhdh3UFdYm4wBzGbWXfR/0o9Zr098y6vTMzL/3PX8ZTx3jG93D0ddvbeYdClciPl+RC1qINlfR7hcAuPYBYPITH6hhAAA=
+   H4sIAAAAAAAAC+3bSQ6CMBQAUK4mSe9/JRfETVOZS/vLextBmfInYgjTBIwkHfweiGmrp0u/mwMQS8o+gXfQ8+yhTuC99D/Eo2/HIp/vJv/AXcwTalFbsEiTfqAu9QXxtO7b1ueHiPK+6b2Per++HokZe1ytkztniZrlRy3U5X2o51ydiRFykv4sH92X856Oo7wt7o6DuMLY9DhAX1rNZfeD54j12OR3H3E6p+f/+56/tCeO6z7Z+ryx7VzYJ7d2jDNa57D1+WvreYZCScTnK/qCGqLVVbTrBQDKvnoSIx+oYQAA
   </data>
  </layer>
  <layer name="foreground" width="250" height="25">

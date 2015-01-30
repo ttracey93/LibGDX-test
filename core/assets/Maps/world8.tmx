@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="7">
+ <tileset firstgid="1" name="background" tilewidth="32" tileheight="32">
+  <tile id="0">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCenter.png"/>
+  </tile>
+  <tile id="1">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassMid.png"/>
+  </tile>
+ </tileset>
+ <tileset firstgid="3" name="baCKGROUNDD" tilewidth="32" tileheight="32">
+  <image source="../Platformer/Base/bg.png" width="256" height="256"/>
+ </tileset>
  <layer name="background" width="250" height="25">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
+   eJzt1MlOwzAQANAithYKpP3/j2UO5RK5IaFeyzs8xbIm9ozjyeNut3sKz+ElvIZ9OIS3Rn723q8YHxLv5Rrn2Gd+lltq+2suqdjU3OjxI+TYS/x7OIaP8Bm+wnSZSzlXcLo8pxXjU+K9XOMc+0wL86nzXYpfm0sqNjU3evwIObaMP87G1zzMLMUCY5n3d6t+b71/7/mMVm+utWrdzd/6oPQdKLluy7puyadGTv+hz7ee+bVzuGWdHGrWnfvfV/Ju1aytxj2rmVvuOkvXkeNes/37lVp3lP6qedYl8yxRo/4mx51otX+PZ9Fjn/f4naF399ojo+YNpd1LjwPr6G8AAAAAAAAAAAAAAAAAgGXfB5tVUA==
   </data>
  </layer>
  <layer name="middleground1" width="250" height="25">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
+   eJztwzEJAAAMA7Ay/6JnoXdJIAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjVPnA/se1+UB9Q==
   </data>
  </layer>
  <layer name="middleground" width="250" height="25">
@@ -25,8 +36,23 @@
    eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
   </data>
  </layer>
- <objectgroup name="solid"/>
- <objectgroup name="teleport"/>
+ <objectgroup name="solid">
+  <object id="2" x="0" y="737.333" width="7998" height="30.6667"/>
+  <object id="3" x="1" y="1" width="5" height="741"/>
+  <object id="4" x="7989" y="2" width="10" height="739"/>
+ </objectgroup>
+ <objectgroup name="teleport">
+  <object id="5" x="41" y="637" width="44" height="29">
+   <properties>
+    <property name="start" value="true"/>
+   </properties>
+  </object>
+  <object id="6" x="7903" y="638" width="63" height="98">
+   <properties>
+    <property name="level" value="../Maps/world9.tmx"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="objects"/>
  <objectgroup name="death"/>
 </map>

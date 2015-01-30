@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="15">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="250" height="25" tilewidth="32" tileheight="32" nextobjectid="20">
  <tileset firstgid="1" name="tiles32" tilewidth="32" tileheight="32">
   <tile id="0">
    <image width="32" height="32" source="../Platformer/Base/Tiles32/water.png"/>
@@ -19,6 +19,9 @@
   <tile id="5">
    <image width="32" height="32" source="../Platformer/Base/Tiles32/flat spikes.png"/>
   </tile>
+  <tile id="6">
+   <image width="32" height="32" source="../Platformer/Base/Tiles32/grassCenter.png"/>
+  </tile>
  </tileset>
  <layer name="background" width="250" height="25">
   <data encoding="base64" compression="zlib">
@@ -32,12 +35,12 @@
  </layer>
  <layer name="middleground" width="250" height="25">
   <data encoding="base64" compression="zlib">
-   eJzt3KEKwDAMRdHCoP//yRVzoRUVY9vrORATFXNtWgNO198+AHicziGfziGfzuFfrjKzfaVzyKdzyKdzyKdzyKdzAAAAAADY18sAAAAAAAAAALfVHxoA4BsGQ3UAcA==
+   eJzt3LEKgDAQRMGAGP//j21SHSpYiGQzA9ukuua1aQ1YXf/7AOBzOod8Ood8Ooe5bGVX75XOIZ/OIZ/OIZ/OIZ/OAQAAAADgvV4GAAAAAAAAACvYx57c/UMDzOEYA3KdyBUAiA==
   </data>
  </layer>
  <layer name="middleground2" width="250" height="25">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwYYagAAQ==
+   eJzt0zkNAAAIADEm/EtmQQRPm5yEiwAAAAAAAAAAAAAAAAAAAAAAAABgguyA+7wOP3gd7vM5AOxUHj4AHw==
   </data>
  </layer>
  <layer name="foreground" width="250" height="25">
@@ -48,6 +51,7 @@
  <objectgroup name="solid">
   <object id="7" x="33" y="160" width="95" height="31"/>
   <object id="8" x="289" y="737" width="126" height="30"/>
+  <object id="15" x="10" y="737" width="53" height="43"/>
  </objectgroup>
  <objectgroup name="teleport">
   <object id="3" x="64" y="58" width="62" height="71">
@@ -70,5 +74,9 @@
   <object id="10" x="258" y="113" width="29" height="206"/>
   <object id="11" x="129" y="497" width="126" height="15"/>
   <object id="14" x="258" y="51" width="27" height="61"/>
+  <object id="16" x="11" y="659" width="50" height="11"/>
+  <object id="17" x="63" y="690" width="33" height="12"/>
+  <object id="18" x="97" y="724" width="29" height="10"/>
+  <object id="19" x="97" y="755" width="30" height="13"/>
  </objectgroup>
 </map>

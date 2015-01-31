@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="25" height="250" tilewidth="32" tileheight="32" nextobjectid="61">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="25" height="250" tilewidth="32" tileheight="32" nextobjectid="65">
  <tileset firstgid="1" name="background" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/bg_castle.png" width="256" height="256"/>
  </tileset>
@@ -32,7 +32,7 @@
  </layer>
  <layer name="middleground" width="25" height="250">
   <data encoding="base64" compression="zlib">
-   eJzt2EEKgzAQQFEv13Xvf5uuurFqMZMZk/A+uAr0ERim4rZJkiRJkiRJkiRJkqSRev85uzrvZfSIMZdhrhgZRu+52v9mxj0qjDtnjN8z+4qRYZgrRoZhrhhVxl171HswnjPsK0aVYV8xosZM++ro+0KvO1QaLWcrGPYVI2rMtK8Ycxv2FSNq2FeMKsO+YkQN+4qRYZgrRoZhrhhVhvcrRtSwrxhVhn3FyDDMFSNq+B9kVBn2FSPDMFeMDGPUudo/sxotZysYI85Vq//tdfL0NKL1Mq7uWXGPs560tX4f4JJ0iA==
+   eJzt2EsKwkAQQMFczrX3v41bjTGS9CeZoR5k44DFYNOKyyJJkiRJkiRJkiRJku7U88/Z3nmWkRFjLMNcMSqM7Llav2fFPTqMI2eM7zP7ilFhmCtGhWGuGF3GUfuu92BcZ9hXjC7DvmJEjZH21db/C1l36DTOnM1g2FeMqDHSvmKMbdhXjKhhXzG6DPuKETXsK0aFYa4YFYa5YnQZfl8xooZ9xegy7CtGhWGuGFHD9yCjy7CvGBWGuWJUGHedq/UzqnHmbAbj/fXHxpNhZMb4bO/z6rjHr660NX8vHoJz/g==
   </data>
  </layer>
  <layer name="middleground2" width="25" height="250">
@@ -78,16 +78,21 @@
   <object id="37" x="577" y="2975" width="30" height="32"/>
   <object id="38" x="578" y="2784" width="29" height="32"/>
   <object id="39" x="576" y="2591" width="31" height="31"/>
-  <object id="53" x="34" y="7681" width="189" height="30"/>
-  <object id="57" x="320" y="7745" width="158" height="30"/>
   <object id="58" x="320" y="2593" width="30" height="5053"/>
   <object id="59" x="544" y="2592" width="30" height="5182"/>
   <object id="60" x="351" y="7457" width="124" height="65"/>
+  <object id="61" x="33" y="7618" width="157" height="30"/>
+  <object id="62" x="319" y="7745" width="129" height="31"/>
  </objectgroup>
  <objectgroup name="teleport">
   <object id="54" x="564" y="2501" width="33" height="59">
    <properties>
     <property name="start" value=""/>
+   </properties>
+  </object>
+  <object id="63" x="353" y="7358" width="48" height="80">
+   <properties>
+    <property name="level" value="../Maps/newhubworld.tmx"/>
    </properties>
   </object>
  </objectgroup>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="80" tilewidth="32" tileheight="32" nextobjectid="159">
+<map version="1.0" orientation="orthogonal" renderorder="left-up" width="80" height="80" tilewidth="32" tileheight="32" nextobjectid="160">
  <tileset firstgid="1" name="background" tilewidth="32" tileheight="32">
   <image source="../Platformer/Base/bg.png" width="256" height="256"/>
  </tileset>
@@ -151,7 +151,7 @@
  </layer>
  <layer name="middleground2" width="80" height="80">
   <data encoding="base64" compression="zlib">
-   eJzt3FtOwzAQheGsDakSL+UBKTxRKOUOm2IpLA1baqRg2anj27jT/5MsAjSpdTrjJGphGAAA+G9nxoP0JAAAAAAAAAAAQJfs+wj30pM4YXccPfoy41t6EgAAAIj2Kj2BM8f1LwCfl0Hf+rCVngCALJI9fC343FpoyPBUDW4jHrPWZratOcNSuW2c793MNGRYk7Z83HrAOqfqoWa+2l473xrn5pt6DvFlpamXa1//tcpqbPQ82tw6X1vStg61tqa3yDpPyjqWm3nM/prXvdxzR2h/eiGPm6vmGiyBessTsw5Qg/Hm9dhrbj33jK8e3RxLXU+nHkfTParLvWeRvIeRZuvuMIT7uLf+7rGvU9+XHxdGLT329ZsZ787PxsB2CT3WkJU6rw8zPlfuk9PvrWsoNhffvO4ixpLQueEpYR8pOa+XyWe/tE6Z3/+kHFfbZ5lCbH7Px+3U/Hw96VszQ489Zza/qVZK1l/KmpniqsFzLLH5TbVSMr+apDObM/n8TrVit31DeIqopKc6xGUp+Tfatf637WPh4+0LHmu6ZriUHr6RngAAdOoPQTJDuA==
+   eJzt3FtOwzAQheGsDakSL+UBKTxRKOUOm2IpLA1baqRg2YnjS8aZ/p9kEaBJrdMZJ1ELXQcAwH8HMx6kJwEAAAAAAAAAAJpk30e4l57EjMN5tOjLjG/pSQAAACDaq/QENo7rXwA+L52+9WEvPQEAWSR7+FrwubXQkOFcDe4jHrPUbrStOcNSue2c793MNGRYk7Z83HrAMnP1UDNfba+db41z8009h/iy0tTLta//1sqqX+l5tLl1vq5J2zq0tiW9RdZ5Utax3Mxj9te87uWeO0L70wt53Fw112AJ1FuemHWAGow3rsdWc2u5Z3z16OZY6no69Tia7lFd7j2L5D2MNFt3py7cx631d4t9nfq+fD8xammxr9/MeHd+1ge2S2ixhqzUeX2Y8blwn5x+X7uGYnPxzesuYkwJnRueEvaRkvN6mXyOU+uU+f1PynG1fZYpxOb3fN5Ozc/Xk741M/TYLbP5DbVSsv5S1swUVys8xxSb31ArJfOrSTqzMZPP71Ardts3hKe4aS1ejw5aqkNclpJ/o13rf9s+Fj7eseCxhmuGS+nhG+kJAECj/gAun0QA
   </data>
  </layer>
  <layer name="foreground" width="80" height="80">
@@ -167,7 +167,6 @@
   <object id="5" x="2177" y="2211" width="62" height="26"/>
   <object id="9" x="1762" y="2080" width="63" height="33"/>
   <object id="11" x="1856" y="1954" width="29" height="29"/>
-  <object id="12" x="1473" y="2276" width="252" height="27"/>
   <object id="13" x="1376" y="2308" width="95" height="26"/>
   <object id="14" x="1310" y="2338" width="65" height="23"/>
   <object id="16" x="735" y="2113" width="66" height="30"/>
@@ -265,6 +264,7 @@
   <object id="152" x="2146.67" y="332" width="50.6667" height="18.6667"/>
   <object id="154" x="2210.67" y="260" width="178" height="24.6667"/>
   <object id="158" x="1280.33" y="1792.33" width="62.3333" height="31"/>
+  <object id="159" x="1472.5" y="2273.5" width="286.5" height="30"/>
  </objectgroup>
  <objectgroup name="wall"/>
  <objectgroup name="teleport">

@@ -4,6 +4,7 @@ import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -30,8 +31,8 @@ public class MainMenuScreen{
         this.shapeRenderer = new ShapeRenderer();
         font = new BitmapFont();
         escape = false;
-        selections.add(new MainMenuSelection(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()*5/8,Gdx.graphics.getWidth()*3/4,100,"New Game"));
-        //selections.add(new MainMenuSelection(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()*3/8,Gdx.graphics.getWidth()*3/4,100,"Options"));
+        selections.add(new MainMenuSelection(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()*3/8,Gdx.graphics.getWidth()*3/4,100,"New Game"));
+        //selections.add(new MainMenuSelection(Gdx.graphics.getWidth()/8,Gdx.graphics.getHeight()*3/8,Gdx.graphics.getWidth()*3/4,100,"About"));
         Random rand = new Random();
         rand.setSeed(System.nanoTime());
         for(int i = 0 ; i <30; i++)particles.add(new MenuParticle((int)rand.nextInt()%Gdx.graphics.getWidth(),(int)rand.nextInt()%Gdx.graphics.getHeight(),300));
@@ -49,6 +50,13 @@ public class MainMenuScreen{
         shapeRenderer.end();
         for(int i = 0 ;i< particles.size();i++)particles.get(i).render(shapeRenderer);
         for(int i = 0; i<selections.size();i++)selections.get(i).render(shapeRenderer,font,batch);
+
+        batch.begin();
+        font.setScale(5, 3);
+        font.setColor(Color.RED);
+        font.getRegion().getTexture().setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        font.draw(batch,"Salt Factory",Gdx.graphics.getWidth()*1/4,Gdx.graphics.getHeight()*6/8);
+        batch.end();
     }
     public void update(float delta){
         if(Gdx.input.isButtonPressed(Input.Keys.LEFT)){
